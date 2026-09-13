@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>DevKaz — Official Website</title>
+
+    <!-- Website Icon -->
+    <link rel="icon" type="image/png" href="profile.png">
 
     <meta
         name="description"
@@ -127,6 +129,16 @@
             box-shadow: 0 0 22px rgba(22,140,255,0.35);
             font-size: 20px;
             transition: 0.3s;
+            overflow: hidden;
+        }
+
+        /* Profile Picture */
+        .crown img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 11px;
+            display: block;
         }
 
         .logo:hover .crown {
@@ -569,7 +581,7 @@
         >
 
             <div class="crown">
-                👑
+                <img src="profile.png" alt="DevKaz">
             </div>
 
             DEV<span>KAZ</span>
@@ -931,4 +943,3 @@
 
 </body>
 </html>
-```
