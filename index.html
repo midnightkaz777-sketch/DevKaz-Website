@@ -1,0 +1,934 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DevKaz — Official Website</title>
+
+    <meta
+        name="description"
+        content="DevKaz — Roblox projects, scripts, Discord community, YouTube and more."
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #03070d;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 650px;
+            height: 650px;
+            top: -300px;
+            left: -200px;
+            background: #168cff;
+            opacity: 0.13;
+            filter: blur(180px);
+            pointer-events: none;
+            z-index: -2;
+            animation: glowMove 8s ease-in-out infinite alternate;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 650px;
+            height: 650px;
+            right: -300px;
+            bottom: -300px;
+            background: #006eff;
+            opacity: 0.12;
+            filter: blur(180px);
+            pointer-events: none;
+            z-index: -2;
+            animation: glowMove2 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowMove {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(100px, 80px);
+            }
+        }
+
+        @keyframes glowMove2 {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(-100px, -80px);
+            }
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            background: rgba(3, 7, 13, 0.75);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            z-index: 999;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .crown {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 11px;
+            background: linear-gradient(135deg, #168cff, #55baff);
+            box-shadow: 0 0 22px rgba(22,140,255,0.35);
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .logo:hover .crown {
+            transform: rotate(-7deg) scale(1.08);
+        }
+
+        .logo span {
+            color: #3ca8ff;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #8998ac;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-discord {
+            padding: 10px 16px;
+            background: #168cff;
+            color: white !important;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(22,140,255,0.18);
+        }
+
+        .nav-discord:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(22,140,255,0.35);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 950px;
+            animation: heroIn 1s ease forwards;
+        }
+
+        @keyframes heroIn {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 15px;
+            border-radius: 30px;
+            background: rgba(22,140,255,0.08);
+            border: 1px solid rgba(22,140,255,0.25);
+            color: #6abaff;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background: #3ca8ff;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #3ca8ff;
+            animation: pulse 1.7s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.45;
+                transform: scale(1.5);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(65px, 11vw, 130px);
+            line-height: 0.95;
+            font-weight: 900;
+            letter-spacing: -7px;
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #52b5ff,
+                #ffffff
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 25px;
+            animation: gradientMove 4s linear infinite;
+        }
+
+        @keyframes gradientMove {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .hero h2 {
+            font-size: clamp(22px, 3vw, 32px);
+            color: #d6dfeb;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #7f8da1;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .btn-primary {
+            background: #168cff;
+            color: white;
+            box-shadow: 0 0 30px rgba(22,140,255,0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 0 45px rgba(22,140,255,0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-4px);
+        }
+
+        /* =========================
+           SCROLL
+        ========================= */
+
+        .scroll {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #536276;
+            font-size: 12px;
+            letter-spacing: 2px;
+            animation: scrollFloat 2s infinite;
+        }
+
+        @keyframes scrollFloat {
+            0%, 100% {
+                transform: translate(-50%, 0);
+            }
+
+            50% {
+                transform: translate(-50%, 7px);
+            }
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 110px 7%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 55px;
+        }
+
+        .section-header span {
+            color: #3ca8ff;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            margin: 12px 0;
+        }
+
+        .section-header p {
+            color: #758399;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           PROJECT CARDS
+        ========================= */
+
+        .features {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(
+                3,
+                minmax(250px, 1fr)
+            );
+            gap: 22px;
+        }
+
+        .card {
+            padding: 32px;
+            min-height: 260px;
+            border-radius: 20px;
+            background: linear-gradient(
+                145deg,
+                rgba(255,255,255,0.055),
+                rgba(255,255,255,0.018)
+            );
+            border: 1px solid rgba(255,255,255,0.07);
+            transition: 0.35s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(60,168,255,0.35);
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.25),
+                0 0 30px rgba(22,140,255,0.08);
+        }
+
+        .card-icon {
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            background: rgba(22,140,255,0.1);
+            border: 1px solid rgba(22,140,255,0.15);
+            font-size: 25px;
+            margin-bottom: 24px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #7f8da1;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* =========================
+           ABOUT PREVIEW
+        ========================= */
+
+        .about-preview {
+            max-width: 950px;
+            margin: auto;
+            padding: 45px;
+            border-radius: 22px;
+            background: linear-gradient(
+                135deg,
+                rgba(22,140,255,0.1),
+                rgba(255,255,255,0.025)
+            );
+            border: 1px solid rgba(22,140,255,0.18);
+            text-align: center;
+        }
+
+        .about-preview h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .about-preview p {
+            max-width: 700px;
+            margin: auto;
+            color: #7f8da1;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 35px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            color: #536176;
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        .footer-links {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #536176;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #3ca8ff;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a:not(.nav-discord) {
+                display: none;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .crown {
+                width: 34px;
+                height: 34px;
+                font-size: 17px;
+            }
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+
+            section {
+                padding: 85px 5%;
+            }
+
+            .section-header h2 {
+                font-size: 34px;
+            }
+
+            .hero-buttons {
+                gap: 10px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <a
+            class="logo"
+            href="index.html"
+        >
+
+            <div class="crown">
+                👑
+            </div>
+
+            DEV<span>KAZ</span>
+
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="#projects">
+                    Projects
+                </a>
+            </li>
+
+            <li>
+                <a href="scripts.html">
+                    Scripts
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About Me
+                </a>
+            </li>
+
+            <li>
+                <a href="terms.html">
+                    Terms
+                </a>
+            </li>
+
+            <li>
+                <a
+                    class="nav-discord"
+                    href="https://discord.gg/N6dz2YdY3J"
+                    target="_blank"
+                >
+                    Discord
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- =========================
+         HOME
+    ========================= -->
+
+    <section
+        class="hero"
+        id="home"
+    >
+
+        <div class="hero-content">
+
+            <div class="status">
+                <div class="status-dot"></div>
+                DEVKAZ IS ONLINE
+            </div>
+
+            <h1>
+                DevKaz
+            </h1>
+
+            <h2>
+                Create. Develop. Build.
+            </h2>
+
+            <p>
+                Welcome to my official website.
+
+                Here you can find my Roblox projects,
+                scripts, YouTube channel, Discord community
+                and more.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    class="btn btn-primary"
+                    href="scripts.html"
+                >
+                    View Scripts
+                </a>
+
+                <a
+                    class="btn btn-secondary"
+                    href="about.html"
+                >
+                    About Me
+                </a>
+
+                <a
+                    class="btn btn-secondary"
+                    href="https://discord.gg/N6dz2YdY3J"
+                    target="_blank"
+                >
+                    Join Discord
+                </a>
+
+                <a
+                    class="btn btn-secondary"
+                    href="https://www.youtube.com/@KazWare777"
+                    target="_blank"
+                >
+                    YouTube
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="scroll">
+            SCROLL TO EXPLORE
+        </div>
+
+    </section>
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects">
+
+        <div class="section-header">
+
+            <span>
+                What I Create
+            </span>
+
+            <h2>
+                My Projects
+            </h2>
+
+            <p>
+                Explore my scripts, YouTube channel
+                and Discord community.
+            </p>
+
+        </div>
+
+        <div class="features">
+
+            <!-- SCRIPTS -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Scripts
+                </h3>
+
+                <p>
+                    Browse my collection of Roblox
+                    scripts and projects from the
+                    dedicated scripts page.
+                </p>
+
+                <div style="margin-top:22px;">
+
+                    <a
+                        class="btn btn-primary"
+                        href="scripts.html"
+                    >
+                        Scripts Page
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- YOUTUBE -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📺
+                </div>
+
+                <h3>
+                    YouTube
+                </h3>
+
+                <p>
+                    Watch my latest videos,
+                    projects, updates and other
+                    content on YouTube.
+                </p>
+
+                <div style="margin-top:22px;">
+
+                    <a
+                        class="btn btn-secondary"
+                        href="https://www.youtube.com/@KazWare777"
+                        target="_blank"
+                    >
+                        Visit YouTube
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- DISCORD -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    💬
+                </div>
+
+                <h3>
+                    Discord
+                </h3>
+
+                <p>
+                    Join my Discord server to hang out,
+                    get updates and stay connected
+                    with the community.
+                </p>
+
+                <div style="margin-top:22px;">
+
+                    <a
+                        class="btn btn-secondary"
+                        href="https://discord.gg/N6dz2YdY3J"
+                        target="_blank"
+                    >
+                        Join Server
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section>
+
+        <div class="about-preview">
+
+            <h2>
+                Want to Know More About Me?
+            </h2>
+
+            <p>
+                I'm Rylan Kazeck, also known online
+                as DevKaz. I'm a developer, coder and
+                gamer who enjoys creating projects,
+                coding and gaming.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    class="btn btn-primary"
+                    href="about.html"
+                >
+                    About Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         SOCIAL
+    ========================= -->
+
+    <section>
+
+        <div class="about-preview">
+
+            <h2>
+                Stay Connected
+            </h2>
+
+            <p>
+                Follow me on YouTube or join my Discord
+                server to stay up to date with everything
+                I'm working on.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    class="btn btn-primary"
+                    href="https://discord.gg/N6dz2YdY3J"
+                    target="_blank"
+                >
+                    Join Discord
+                </a>
+
+                <a
+                    class="btn btn-secondary"
+                    href="https://www.youtube.com/@KazWare777"
+                    target="_blank"
+                >
+                    YouTube
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="scripts.html">
+                Scripts
+            </a>
+
+            <a href="about.html">
+                About Me
+            </a>
+
+            <a href="terms.html">
+                Terms of Service
+            </a>
+
+        </div>
+
+        © 2026
+        <strong>DevKaz</strong>.
+
+        Built by DevKaz.
+
+    </footer>
+
+</body>
+</html>
+```

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Terms of Service | DevKaz</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        background: #03070d;
+        color: white;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        width: 500px;
+        height: 500px;
+        background: #147cff;
+        filter: blur(180px);
+        opacity: 0.12;
+        top: -150px;
+        left: -150px;
+        z-index: -1;
+    }
+
+    body::after {
+        content: "";
+        position: fixed;
+        width: 500px;
+        height: 500px;
+        background: #0066ff;
+        filter: blur(200px);
+        opacity: 0.10;
+        bottom: -200px;
+        right: -150px;
+        z-index: -1;
+    }
+
+    /* NAVBAR */
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 7%;
+        background: rgba(3, 7, 13, 0.75);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        z-index: 1000;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 22px;
+        font-weight: 900;
+        letter-spacing: 1px;
+    }
+
+    .crown {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #1684ff, #005bea);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 21px;
+        box-shadow: 0 0 25px rgba(0,120,255,0.35);
+    }
+
+    .logo span {
+        color: #1684ff;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .nav-links a {
+        color: #b7c1d1;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        transition: 0.25s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: white;
+    }
+
+    .discord-btn {
+        background: #1684ff;
+        color: white !important;
+        padding: 11px 18px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(22,132,255,0.25);
+    }
+
+    /* HERO */
+
+    .hero {
+        padding: 155px 7% 70px;
+        text-align: center;
+    }
+
+    .tag {
+        display: inline-block;
+        color: #55a8ff;
+        background: rgba(22,132,255,0.08);
+        border: 1px solid rgba(22,132,255,0.2);
+        padding: 8px 15px;
+        border-radius: 100px;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        margin-bottom: 20px;
+    }
+
+    .hero h1 {
+        font-size: clamp(45px, 7vw, 78px);
+        line-height: 1;
+        margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+        color: #1684ff;
+    }
+
+    .hero p {
+        max-width: 650px;
+        margin: auto;
+        color: #98a4b7;
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    /* CONTENT */
+
+    .container {
+        width: 86%;
+        max-width: 950px;
+        margin: auto;
+    }
+
+    .terms-card {
+        background: rgba(12,19,30,0.72);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .terms-section {
+        margin-bottom: 35px;
+    }
+
+    .terms-section:last-child {
+        margin-bottom: 0;
+    }
+
+    .terms-section h2 {
+        font-size: 22px;
+        margin-bottom: 12px;
+        color: white;
+    }
+
+    .terms-section h2 span {
+        color: #1684ff;
+        margin-right: 8px;
+    }
+
+    .terms-section p {
+        color: #98a4b7;
+        line-height: 1.8;
+        font-size: 15px;
+    }
+
+    .terms-section ul {
+        margin-top: 12px;
+        padding-left: 25px;
+        color: #98a4b7;
+        line-height: 1.9;
+    }
+
+    .terms-section li {
+        margin-bottom: 5px;
+    }
+
+    .notice {
+        margin-top: 30px;
+        padding: 18px 20px;
+        border-radius: 14px;
+        background: rgba(22,132,255,0.06);
+        border: 1px solid rgba(22,132,255,0.15);
+        color: #a9bdd5;
+        line-height: 1.7;
+        font-size: 14px;
+    }
+
+    .email {
+        color: #55a8ff;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    /* FOOTER */
+
+    footer {
+        margin-top: 80px;
+        padding: 35px 7%;
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.07);
+        color: #647086;
+        font-size: 13px;
+    }
+
+    footer strong {
+        color: #1684ff;
+    }
+
+    .footer-links {
+        margin-bottom: 15px;
+    }
+
+    .footer-links a {
+        color: #77849a;
+        text-decoration: none;
+        margin: 0 10px;
+        transition: 0.2s;
+    }
+
+    .footer-links a:hover {
+        color: #1684ff;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+        nav {
+            height: auto;
+            min-height: 75px;
+            padding: 10px 3%;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 17px;
+        }
+
+        .crown {
+            width: 34px;
+            height: 34px;
+            font-size: 17px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            display: block !important;
+            font-size: 10px;
+            padding: 4px 2px;
+        }
+
+        .discord-btn {
+            display: block !important;
+            padding: 7px 9px !important;
+            border-radius: 7px;
+        }
+
+        .terms-card {
+            padding: 25px;
+        }
+
+        .hero {
+            padding-top: 130px;
+        }
+    }
+
+    @media (max-width: 500px) {
+
+        nav {
+            align-items: flex-start;
+        }
+
+        .logo {
+            font-size: 15px;
+        }
+
+        .crown {
+            width: 30px;
+            height: 30px;
+            font-size: 14px;
+        }
+
+        .nav-links {
+            max-width: 70%;
+            gap: 6px;
+        }
+
+        .nav-links a {
+            font-size: 9px;
+        }
+
+        .discord-btn {
+            font-size: 9px !important;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        <div class="crown">👑</div>
+        DEV<span>KAZ</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="index.html#projects">
+            Projects
+        </a>
+
+        <a href="scripts.html">
+            Scripts
+        </a>
+
+        <a href="about.html">
+            About Me
+        </a>
+
+        <a href="terms.html" class="active">
+            Terms
+        </a>
+
+        <a
+            href="https://discord.gg/N6dz2YdY3J"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="discord-btn"
+        >
+            Discord
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="tag">
+        DEVKAZ WEBSITE
+    </div>
+
+    <h1>
+        Terms of <span>Service</span>
+    </h1>
+
+    <p>
+        Please read these terms before using the DevKaz website,
+        projects, scripts, and other services.
+    </p>
+
+</section>
+
+
+<!-- TERMS -->
+
+<main class="container">
+
+    <div class="terms-card">
+
+        <div class="terms-section">
+
+            <h2>
+                <span>01</span>
+                Introduction
+            </h2>
+
+            <p>
+                Welcome to DevKaz. This website is operated by Rylan
+                Kazeck, also known online as DevKaz. By accessing or
+                using this website, you agree to follow these Terms
+                of Service.
+            </p>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>
+                <span>02</span>
+                Use of the Website
+            </h2>
+
+            <p>
+                You may use the DevKaz website for personal,
+                informational, and project-related purposes.
+                You agree not to misuse the website or intentionally
+                interfere with its operation.
+            </p>
+
+            <ul>
+                <li>Do not attempt to damage or disrupt the website.</li>
+                <li>Do not attempt to gain unauthorized access.</li>
+                <li>Do not abuse or overload website services.</li>
+                <li>Do not falsely claim ownership of DevKaz projects.</li>
+            </ul>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>
+                <span>03</span>
+                Roblox Projects & Scripts
+            </h2>
+
+            <p>
+                DevKaz may provide Roblox-related projects, scripts,
+                or development resources. These resources are provided
+                for their intended purposes. You are responsible for
+                how you choose to use any provided code.
+            </p>
+
+            <p style="margin-top:12px;">
+                Roblox is a separate platform and is not owned,
+                operated, or controlled by DevKaz.
+            </p>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>
+                <span>04</span>
+                Content
+            </h2>
+
+            <p>
+                Website designs, branding, graphics, code, and other
+                original content created for DevKaz may not be copied,
+                redistributed, or presented as your own without
+                permission.
+            </p>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>
+                <span>05</span>
+                Third-Party Services
+            </h2>
+
+            <p>
+                The DevKaz website may contain links to third-party
+                websites and services such as YouTube, Discord,
+                GitHub, Roblox, or other platforms. DevKaz does not
+                control these services and is not responsible for
+                their content, availability, or policies.
+            </p>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>
+                <span>06</span>
+                Privacy
+            </h2>
+
+            <p>
+                DevKaz does not intentionally request unnecessary
+                personal information through this website. If you
+                choose to contact DevKaz through email, Discord, or
+                another third-party service, that service's own
+                privacy policy may also apply.
+            </p>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>
+                <span>07</span>
+                Changes to These Terms
+            </h2>
+
+            <p>
+                These Terms of Service may be updated from time to
+                time. When changes are made, the updated version will
+                be posted on this page.
+            </p>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>
+                <span>08</span>
+                Contact
+            </h2>
+
+            <p>
+                If you have questions about these Terms of Service,
+                you can contact DevKaz by email.
+            </p>
+
+            <div class="notice">
+                📧 Email:
+                <a
+                    class="email"
+                    href="mailto:midnightkaz777@gmail.com"
+                >
+                    midnightkaz777@gmail.com
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="notice">
+
+            <strong>Important:</strong>
+            These Terms of Service are general website terms and are
+            not legal advice. If DevKaz grows into a larger service,
+            consider having a qualified legal professional review and
+            customize these terms.
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="index.html#projects">Projects</a>
+
+        <a href="scripts.html">Scripts</a>
+
+        <a href="about.html">About Me</a>
+
+        <a href="terms.html">Terms</a>
+
+    </div>
+
+    © 2026 <strong>DevKaz</strong> • Rylan Kazeck
+
+</footer>
+```
+
+</body>
+</html>

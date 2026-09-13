@@ -1,0 +1,1185 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Scripts | DevKaz</title>
+
+    <meta
+        name="description"
+        content="DevKaz Roblox scripts and projects."
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #03070d;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+
+            width: 650px;
+            height: 650px;
+
+            top: -300px;
+            left: -200px;
+
+            background: #168cff;
+            opacity: 0.13;
+
+            filter: blur(180px);
+
+            pointer-events: none;
+            z-index: -2;
+
+            animation: glowMove 8s ease-in-out infinite alternate;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+
+            width: 650px;
+            height: 650px;
+
+            right: -300px;
+            bottom: -300px;
+
+            background: #006eff;
+            opacity: 0.12;
+
+            filter: blur(180px);
+
+            pointer-events: none;
+            z-index: -2;
+
+            animation: glowMove2 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowMove {
+
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(100px, 80px);
+            }
+
+        }
+
+        @keyframes glowMove2 {
+
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(-100px, -80px);
+            }
+
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 72px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: rgba(3, 7, 13, 0.78);
+
+            backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.06);
+
+            z-index: 999;
+        }
+
+        .logo {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 24px;
+
+            font-weight: 900;
+
+            letter-spacing: 1px;
+
+            flex-shrink: 0;
+        }
+
+        .crown {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #168cff,
+                    #55baff
+                );
+
+            box-shadow:
+                0 0 22px rgba(22,140,255,0.35);
+
+            font-size: 20px;
+
+            transition: 0.3s;
+        }
+
+        .logo:hover .crown {
+            transform:
+                rotate(-7deg)
+                scale(1.08);
+        }
+
+        .logo span {
+            color: #3ca8ff;
+        }
+
+        .nav-links {
+            display: flex;
+
+            align-items: center;
+
+            gap: 24px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #8998ac;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: 0.25s;
+
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
+        }
+
+        .nav-discord {
+            padding: 10px 16px;
+
+            background: #168cff;
+
+            color: white !important;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 0 20px rgba(22,140,255,0.18);
+        }
+
+        .nav-discord:hover {
+            background: #329aff;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            padding:
+                150px 20px 70px;
+
+            text-align: center;
+        }
+
+        .status {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 8px 15px;
+
+            border-radius: 30px;
+
+            background:
+                rgba(22,140,255,0.08);
+
+            border:
+                1px solid rgba(22,140,255,0.25);
+
+            color: #6abaff;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            margin-bottom: 22px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+
+            background: #3ca8ff;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 12px #3ca8ff;
+
+            animation: pulse 1.7s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.45;
+                transform: scale(1.5);
+            }
+
+        }
+
+        .hero h1 {
+            font-size:
+                clamp(55px, 9vw, 100px);
+
+            font-weight: 900;
+
+            letter-spacing: -5px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #52b5ff,
+                    #ffffff
+                );
+
+            background-size: 200% auto;
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+            animation:
+                gradientMove 4s linear infinite;
+
+            margin-bottom: 20px;
+        }
+
+        @keyframes gradientMove {
+
+            to {
+                background-position: 200% center;
+            }
+
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #7f8da1;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .container {
+            width: 86%;
+
+            max-width: 1050px;
+
+            margin: auto;
+        }
+
+        /* =========================
+           SCRIPT CARD
+        ========================= */
+
+        .script-card {
+            padding: 35px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.055),
+                    rgba(255,255,255,0.018)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.25);
+
+            transition: 0.3s;
+        }
+
+        .script-card:hover {
+            border-color:
+                rgba(60,168,255,0.3);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.3),
+                0 0 35px rgba(22,140,255,0.08);
+        }
+
+        .script-top {
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+            margin-bottom: 25px;
+        }
+
+        .script-icon {
+            width: 62px;
+            height: 62px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background:
+                rgba(22,140,255,0.1);
+
+            border:
+                1px solid rgba(22,140,255,0.2);
+
+            font-size: 27px;
+        }
+
+        .script-top h2 {
+            font-size: 26px;
+
+            margin-bottom: 5px;
+        }
+
+        .script-top p {
+            color: #728097;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           CODE BOX
+        ========================= */
+
+        .code-container {
+            position: relative;
+
+            background: #02050a;
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            border-radius: 14px;
+
+            overflow: hidden;
+        }
+
+        .code-header {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 12px 15px;
+
+            background:
+                rgba(255,255,255,0.025);
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.06);
+        }
+
+        .code-header span {
+            color: #64748b;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+        .copy-button {
+            border: none;
+
+            background: #168cff;
+
+            color: white;
+
+            padding: 8px 13px;
+
+            border-radius: 7px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .copy-button:hover {
+            background: #329aff;
+
+            transform: translateY(-1px);
+        }
+
+        .copy-button.copied {
+            background: #1fba72;
+        }
+
+        pre {
+            margin: 0;
+
+            padding: 20px;
+
+            overflow-x: auto;
+
+            color: #b9dfff;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            white-space: pre-wrap;
+
+            word-break: break-word;
+        }
+
+        code {
+            font-family:
+                Consolas,
+                "Courier New",
+                monospace;
+        }
+
+        /* =========================
+           INFO
+        ========================= */
+
+        .info {
+            margin-top: 22px;
+
+            padding: 17px 20px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(22,140,255,0.055);
+
+            border:
+                1px solid rgba(22,140,255,0.12);
+
+            color: #8494a9;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        .info strong {
+            color: #b9dfff;
+        }
+
+        /* =========================
+           OTHER PROJECTS
+        ========================= */
+
+        .other-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(220px, 1fr)
+                );
+
+            gap: 20px;
+
+            margin-top: 22px;
+        }
+
+        .other-card {
+            padding: 28px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(255,255,255,0.025);
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+        }
+
+        .other-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .other-card p {
+            color: #7f8da1;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            margin-bottom: 20px;
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 12px 19px;
+
+            border-radius: 9px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: 0.25s;
+        }
+
+        .btn-primary {
+            background: #168cff;
+
+            color: white;
+
+            box-shadow:
+                0 0 25px rgba(22,140,255,0.2);
+        }
+
+        .btn-primary:hover {
+            transform:
+                translateY(-3px);
+        }
+
+        .btn-secondary {
+            background:
+                rgba(255,255,255,0.045);
+
+            border:
+                1px solid rgba(255,255,255,0.09);
+
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background:
+                rgba(255,255,255,0.08);
+
+            transform:
+                translateY(-3px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            margin-top: 100px;
+
+            padding: 35px 20px;
+
+            text-align: center;
+
+            border-top:
+                1px solid rgba(255,255,255,0.06);
+
+            color: #536176;
+
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        .footer-links {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #536176;
+
+            text-decoration: none;
+
+            margin: 0 10px;
+
+            transition: 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #3ca8ff;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                padding: 0 3%;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .nav-discord {
+                padding: 8px 11px;
+            }
+
+        }
+
+        @media (max-width: 750px) {
+
+            nav {
+                height: auto;
+                min-height: 72px;
+
+                padding: 10px 3%;
+
+                gap: 10px;
+            }
+
+            .logo {
+                font-size: 17px;
+            }
+
+            .crown {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+
+            .nav-links {
+                display: flex;
+
+                flex-wrap: wrap;
+
+                justify-content: flex-end;
+
+                gap: 6px;
+            }
+
+            /* KEEP ALL NAVIGATION LINKS VISIBLE */
+
+            .nav-links a {
+                display: block !important;
+
+                font-size: 10px;
+
+                padding: 4px 2px;
+            }
+
+            .nav-discord {
+                display: block !important;
+
+                padding: 7px 9px !important;
+
+                border-radius: 7px;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .script-card {
+                padding: 22px;
+            }
+
+            .script-top {
+                align-items: flex-start;
+            }
+
+            pre {
+                font-size: 12px;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            nav {
+                align-items: flex-start;
+            }
+
+            .logo {
+                font-size: 15px;
+            }
+
+            .crown {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+
+            .nav-links {
+                max-width: 70%;
+            }
+
+            .nav-links a {
+                font-size: 9px;
+            }
+
+            .nav-discord {
+                font-size: 9px !important;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <a
+            class="logo"
+            href="index.html"
+        >
+
+            <div class="crown">
+                👑
+            </div>
+
+            DEV<span>KAZ</span>
+
+        </a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="index.html#projects"
+                    class="active"
+                >
+                    Projects
+                </a>
+            </li>
+
+            <li>
+                <a href="scripts.html">
+                    Scripts
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About Me
+                </a>
+            </li>
+
+            <li>
+                <a href="terms.html">
+                    Terms
+                </a>
+            </li>
+
+            <li>
+                <a
+                    class="nav-discord"
+                    href="https://discord.gg/N6dz2YdY3J"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Discord
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div>
+
+            <div class="status">
+
+                <div class="status-dot"></div>
+
+                DEVKAZ SCRIPTS
+
+            </div>
+
+            <h1>
+                Scripts
+            </h1>
+
+            <p>
+                Browse my Roblox projects and copy
+                the scripts you want to use.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SCRIPTS
+    ========================= -->
+
+    <main class="container">
+
+        <div class="script-card">
+
+            <div class="script-top">
+
+                <div class="script-icon">
+                    ⚡
+                </div>
+
+                <div>
+
+                    <h2>
+                        KazWare
+                    </h2>
+
+                    <p>
+                        DevKaz Roblox Project
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CODE -->
+
+            <div class="code-container">
+
+                <div class="code-header">
+
+                    <span>
+                        Loadstring
+                    </span>
+
+                    <button
+                        class="copy-button"
+                        id="copyButton"
+                        type="button"
+                        onclick="copyScript()"
+                    >
+                        Copy
+                    </button>
+
+                </div>
+
+                <pre><code id="scriptCode">loadstring(game:HttpGet("https://raw.githubusercontent.com/midnightkaz777-sketch/Kazwarezxhcjehsd/refs/heads/main/full%20script"))()</code></pre>
+
+            </div>
+
+
+            <div class="info">
+
+                <strong>How to use:</strong>
+                Click <strong>Copy</strong> to copy the loadstring
+                to your clipboard.
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             OTHER PROJECTS
+        ========================= -->
+
+        <div class="other-grid">
+
+            <div class="other-card">
+
+                <h3>
+                    🎮 Roblox Projects
+                </h3>
+
+                <p>
+                    Check out the Roblox projects
+                    I'm currently working on.
+                </p>
+
+                <a
+                    class="btn btn-secondary"
+                    href="index.html#projects"
+                >
+                    View Projects
+                </a>
+
+            </div>
+
+
+            <div class="other-card">
+
+                <h3>
+                    📺 YouTube
+                </h3>
+
+                <p>
+                    See my videos, updates and
+                    development content.
+                </p>
+
+                <a
+                    class="btn btn-secondary"
+                    href="https://www.youtube.com/@KazWare777"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    YouTube
+                </a>
+
+            </div>
+
+
+            <div class="other-card">
+
+                <h3>
+                    💬 Discord
+                </h3>
+
+                <p>
+                    Join the DevKaz community
+                    and stay updated.
+                </p>
+
+                <a
+                    class="btn btn-secondary"
+                    href="https://discord.gg/N6dz2YdY3J"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Join Discord
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#projects">
+                Projects
+            </a>
+
+            <a href="scripts.html">
+                Scripts
+            </a>
+
+            <a href="about.html">
+                About Me
+            </a>
+
+            <a href="terms.html">
+                Terms of Service
+            </a>
+
+        </div>
+
+        © 2026
+        <strong>DevKaz</strong>.
+        Built by DevKaz.
+
+    </footer>
+
+
+    <!-- =========================
+         COPY SCRIPT
+    ========================= -->
+
+    <script>
+
+        function copyScript() {
+
+            const script =
+                document.getElementById("scriptCode").innerText;
+
+            const button =
+                document.getElementById("copyButton");
+
+            navigator.clipboard.writeText(script)
+                .then(function() {
+
+                    button.innerText = "Copied!";
+
+                    button.classList.add("copied");
+
+                    setTimeout(function() {
+
+                        button.innerText = "Copy";
+
+                        button.classList.remove("copied");
+
+                    }, 2000);
+
+                })
+                .catch(function() {
+
+                    const textarea =
+                        document.createElement("textarea");
+
+                    textarea.value = script;
+
+                    document.body.appendChild(textarea);
+
+                    textarea.select();
+
+                    document.execCommand("copy");
+
+                    textarea.remove();
+
+                    button.innerText = "Copied!";
+
+                    button.classList.add("copied");
+
+                    setTimeout(function() {
+
+                        button.innerText = "Copy";
+
+                        button.classList.remove("copied");
+
+                    }, 2000);
+
+                });
+
+        }
+
+    </script>
+
+</body>
+</html>
+```
