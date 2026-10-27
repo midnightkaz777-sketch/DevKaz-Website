@@ -2,932 +2,1005 @@
 
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#070b14">
 
-  <title>Pricing — DevKaz</title>
-  <meta name="description" content="Explore DevKaz development packages for Discord bots, Python tools, automation, and custom software.">
-  <meta name="theme-color" content="#060a12">
+```
+<title>Pricing | DevKaz</title>
+<meta name="description" content="Explore DevKaz pricing for custom Discord bots, Python tools, automation, and scripting projects.">
 
-  <style>
+<style>
     :root {
-      --bg: #060a12;
-      --card: #0c1524;
-      --blue: #168cff;
-      --light-blue: #78ccff;
-      --text: #f4f8ff;
-      --muted: #9aaac0;
-      --border: rgba(120, 170, 230, 0.16);
+        --background: #070b14;
+        --surface: #0d1424;
+        --surface-light: #111c30;
+        --blue: #168cff;
+        --blue-light: #65b5ff;
+        --text: #f3f7ff;
+        --muted: #9aaac1;
+        --border: rgba(120, 170, 255, 0.16);
+        --green: #67e8b5;
     }
 
     * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
     html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
+        scroll-behavior: smooth;
     }
 
     body {
-      min-height: 100vh;
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(ellipse at 50% 0%, rgba(22, 140, 255, 0.16), transparent 50%),
-        var(--bg);
-      line-height: 1.7;
-      overflow-x: hidden;
+        background:
+            radial-gradient(ellipse at 50% -15%, rgba(22, 140, 255, 0.19), transparent 50%),
+            var(--background);
+        color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+        min-height: 100vh;
     }
 
     a {
-      color: inherit;
-      text-decoration: none;
-      -webkit-tap-highlight-color: transparent;
+        color: inherit;
+        text-decoration: none;
     }
 
-    a:focus-visible {
-      outline: 2px solid var(--light-blue);
-      outline-offset: 4px;
+    button,
+    a {
+        -webkit-tap-highlight-color: transparent;
     }
 
-    .wrap {
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .blue {
-      color: var(--light-blue);
-    }
-
-    .gradient {
-      background: linear-gradient(100deg, #168cff, #78ccff, #c1e8ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .container {
+        width: min(1120px, 92%);
+        margin: 0 auto;
     }
 
     /* Navigation */
 
     header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--border);
-      background: rgba(6, 10, 18, 0.9);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(7, 11, 20, 0.88);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
     }
 
-    .navbar {
-      min-height: 76px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
+    nav {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
     }
 
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 23px;
-      font-weight: 850;
-      letter-spacing: -1px;
-      white-space: nowrap;
+    .logo {
+        font-size: 1.55rem;
+        font-weight: 900;
+        letter-spacing: -1px;
     }
 
-    .brand-icon {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #168cff, #0753a7);
-      box-shadow: 0 0 25px rgba(22, 140, 255, 0.25);
-      color: white;
-      font-size: 17px;
+    .logo span {
+        color: var(--blue);
     }
 
     .nav-links {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 22px;
-      color: var(--muted);
-      font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 28px;
     }
 
     .nav-links a {
-      transition: color 0.2s ease, background 0.2s ease;
+        color: var(--muted);
+        font-size: 0.94rem;
+        transition: color 0.2s ease;
     }
 
     .nav-links a:hover,
     .nav-links a.active {
-      color: white;
+        color: var(--blue-light);
     }
 
-    .nav-links a.active {
-      color: var(--light-blue);
-      font-weight: 750;
-    }
-
-    .nav-links .nav-button {
-      padding: 9px 14px;
-      border: 1px solid rgba(22, 140, 255, 0.4);
-      border-radius: 10px;
-      background: rgba(22, 140, 255, 0.1);
-      color: white;
-      white-space: nowrap;
-    }
-
-    .nav-links .nav-button:hover {
-      background: rgba(22, 140, 255, 0.2);
+    .nav-cta {
+        padding: 10px 17px;
+        border: 1px solid rgba(22, 140, 255, 0.5);
+        border-radius: 9px;
+        color: var(--text) !important;
+        background: rgba(22, 140, 255, 0.1);
     }
 
     /* Buttons */
 
     .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 46px;
-      padding: 12px 18px;
-      border: 1px solid transparent;
-      border-radius: 11px;
-      background: linear-gradient(135deg, #168cff, #0871d9);
-      color: white;
-      font-size: 13px;
-      font-weight: 750;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 20px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease;
     }
 
     .button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(22, 140, 255, 0.25);
+        transform: translateY(-3px);
     }
 
-    .button.secondary {
-      border-color: var(--border);
-      background: rgba(255, 255, 255, 0.025);
+    .button-primary {
+        color: white;
+        background: linear-gradient(135deg, #168cff, #0865d9);
+        box-shadow: 0 8px 26px rgba(22, 140, 255, 0.2);
     }
 
-    .button.secondary:hover {
-      background: rgba(255, 255, 255, 0.07);
+    .button-primary:hover {
+        box-shadow: 0 12px 32px rgba(22, 140, 255, 0.35);
+    }
+
+    .button-secondary {
+        color: var(--text);
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.025);
+    }
+
+    .button-secondary:hover {
+        background: rgba(22, 140, 255, 0.09);
     }
 
     /* Hero */
 
     .hero {
-      padding: 90px 0 50px;
-      text-align: center;
+        text-align: center;
+        padding: 95px 0 55px;
     }
 
     .eyebrow {
-      display: inline-block;
-      margin-bottom: 17px;
-      color: var(--light-blue);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 2px;
+        display: inline-block;
+        padding: 7px 13px;
+        margin-bottom: 20px;
+        border: 1px solid rgba(22, 140, 255, 0.3);
+        border-radius: 100px;
+        background: rgba(22, 140, 255, 0.09);
+        color: var(--blue-light);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
     }
 
-    h1 {
-      margin-bottom: 20px;
-      font-size: clamp(42px, 7vw, 67px);
-      line-height: 1.1;
-      letter-spacing: -2.5px;
+    .hero h1 {
+        max-width: 850px;
+        margin: 0 auto 20px;
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        line-height: 1.08;
+        letter-spacing: -2.5px;
+    }
+
+    .gradient-text {
+        color: var(--blue-light);
+        background: linear-gradient(90deg, #168cff, #8acaff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .hero p {
-      max-width: 650px;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.9;
+        max-width: 650px;
+        margin: 0 auto;
+        color: var(--muted);
+        font-size: 1.08rem;
     }
 
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
+    .hero-buttons {
+        margin-top: 28px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .trust-note {
+        margin-top: 25px;
+        color: #8294ad;
+        font-size: 0.86rem;
     }
 
     /* Pricing */
 
-    .pricing {
-      padding: 40px 0 90px;
+    .pricing-section {
+        padding: 35px 0 85px;
+    }
+
+    .section-heading {
+        text-align: center;
+        margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        letter-spacing: -1px;
+        margin-bottom: 10px;
+    }
+
+    .section-heading p {
+        max-width: 600px;
+        margin: 0 auto;
+        color: var(--muted);
     }
 
     .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-      align-items: stretch;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+        align-items: stretch;
     }
 
     .price-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      padding: 30px 25px;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: linear-gradient(
-        145deg,
-        rgba(17, 29, 49, 0.85),
-        rgba(8, 14, 24, 0.94)
-      );
-      transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 30px 25px;
+        background: linear-gradient(
+            160deg,
+            rgba(17, 28, 48, 0.96),
+            rgba(10, 16, 29, 0.96)
+        );
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        transition:
+            transform 0.25s ease,
+            border-color 0.25s ease,
+            box-shadow 0.25s ease;
     }
 
     .price-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(22, 140, 255, 0.45);
-      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.2);
+        transform: translateY(-7px);
+        border-color: rgba(22, 140, 255, 0.6);
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
     }
 
     .price-card.featured {
-      border-color: rgba(22, 140, 255, 0.7);
-      background: linear-gradient(
-        145deg,
-        rgba(17, 43, 73, 0.95),
-        rgba(8, 14, 24, 0.98)
-      );
-      box-shadow: 0 0 40px rgba(22, 140, 255, 0.09);
+        border-color: rgba(22, 140, 255, 0.7);
+        box-shadow: 0 0 35px rgba(22, 140, 255, 0.1);
     }
 
-    .badge {
-      position: absolute;
-      top: -13px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 5px 13px;
-      border-radius: 30px;
-      background: linear-gradient(135deg, #168cff, #0867c7);
-      color: white;
-      font-size: 10px;
-      font-weight: 850;
-      letter-spacing: 1px;
-      white-space: nowrap;
+    .popular-badge {
+        position: absolute;
+        top: -13px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px 14px;
+        border-radius: 100px;
+        background: var(--blue);
+        color: white;
+        white-space: nowrap;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.4px;
     }
 
-    .plan-label {
-      margin-bottom: 8px;
-      color: var(--light-blue);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
+    .plan-type {
+        color: var(--blue-light);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
     }
 
-    .price-card h2 {
-      margin-bottom: 10px;
-      font-size: 25px;
-      letter-spacing: -0.5px;
+    .price-card h3 {
+        margin-top: 8px;
+        font-size: 1.55rem;
     }
 
-    .description {
-      min-height: 65px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
+    .plan-description {
+        min-height: 52px;
+        margin-top: 9px;
+        color: var(--muted);
+        font-size: 0.92rem;
     }
 
     .price {
-      margin: 23px 0;
-      font-size: 25px;
-      font-weight: 850;
-      letter-spacing: -0.8px;
+        margin: 22px 0 6px;
+        font-size: 2.25rem;
+        line-height: 1.2;
+        font-weight: 900;
+        letter-spacing: -1px;
     }
 
     .price small {
-      display: block;
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0;
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-weight: 400;
+        letter-spacing: 0;
     }
 
-    .divider {
-      height: 1px;
-      margin-bottom: 22px;
-      background: var(--border);
+    .price-divider {
+        height: 1px;
+        margin: 22px 0;
+        background: var(--border);
     }
 
-    .features-title {
-      margin-bottom: 14px;
-      font-size: 12px;
-      font-weight: 800;
+    .feature-title {
+        margin-bottom: 13px;
+        font-size: 0.9rem;
+        font-weight: 800;
     }
 
     .features {
-      display: grid;
-      gap: 13px;
-      margin-bottom: 28px;
-      list-style: none;
-      color: #c0ccdc;
-      font-size: 12px;
+        display: grid;
+        gap: 12px;
+        margin-bottom: 28px;
+        list-style: none;
     }
 
     .features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 9px;
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        color: #c2cee0;
+        font-size: 0.9rem;
     }
 
     .check {
-      color: #70c5ff;
-      font-weight: 900;
+        color: var(--green);
+        font-weight: 900;
     }
 
     .price-card .button {
-      width: 100%;
-      margin-top: auto;
+        width: 100%;
+        margin-top: auto;
     }
 
-    /* Custom Pricing Note */
-
-    .custom-note {
-      margin-top: 30px;
-      padding: 25px;
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      background: rgba(12, 21, 36, 0.7);
-      text-align: center;
+    .pricing-note {
+        max-width: 780px;
+        margin: 28px auto 0;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.86rem;
     }
 
-    .custom-note h3 {
-      margin-bottom: 7px;
-      font-size: 18px;
+    /* Custom work */
+
+    .custom-section {
+        padding: 0 0 85px;
     }
 
-    .custom-note p {
-      max-width: 700px;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 13px;
+    .custom-box {
+        position: relative;
+        overflow: hidden;
+        padding: 42px;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        background:
+            radial-gradient(circle at 100% 0%, rgba(22, 140, 255, 0.16), transparent 40%),
+            var(--surface);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
     }
 
-    .custom-note .button {
-      margin-top: 18px;
+    .custom-content {
+        max-width: 650px;
+    }
+
+    .custom-content h2 {
+        margin-bottom: 12px;
+        font-size: clamp(1.6rem, 4vw, 2.3rem);
+        letter-spacing: -1px;
+    }
+
+    .custom-content p {
+        color: var(--muted);
+    }
+
+    .custom-price {
+        flex-shrink: 0;
+        color: var(--blue-light);
+        font-size: 1.2rem;
+        font-weight: 800;
+        text-align: right;
+    }
+
+    .custom-price small {
+        display: block;
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-weight: 400;
+    }
+
+    /* Process */
+
+    .process-section {
+        padding: 0 0 90px;
+    }
+
+    .process-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .process-card {
+        padding: 25px;
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        background: rgba(13, 20, 36, 0.75);
+    }
+
+    .step-number {
+        display: inline-flex;
+        width: 38px;
+        height: 38px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 17px;
+        border: 1px solid rgba(22, 140, 255, 0.4);
+        border-radius: 10px;
+        background: rgba(22, 140, 255, 0.12);
+        color: var(--blue-light);
+        font-weight: 900;
+    }
+
+    .process-card h3 {
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+    }
+
+    .process-card p {
+        color: var(--muted);
+        font-size: 0.92rem;
     }
 
     /* FAQ */
 
-    .faq {
-      padding: 75px 0;
-      border-top: 1px solid var(--border);
-      background: rgba(9, 17, 30, 0.45);
+    .faq-section {
+        padding: 0 0 90px;
     }
 
-    .section-heading {
-      margin-bottom: 35px;
-      text-align: center;
+    .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+        display: grid;
+        gap: 12px;
     }
 
-    .section-heading h2 {
-      margin-bottom: 10px;
-      font-size: clamp(28px, 4vw, 40px);
-      letter-spacing: -1px;
+    details {
+        padding: 19px 21px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: rgba(13, 20, 36, 0.75);
     }
 
-    .section-heading p {
-      color: var(--muted);
-      font-size: 13px;
+    summary {
+        cursor: pointer;
+        font-weight: 700;
     }
 
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+    details p {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 0.93rem;
     }
 
-    .faq-item {
-      padding: 23px;
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      background: rgba(12, 21, 36, 0.65);
-      transition: border-color 0.2s ease;
+    /* Final CTA */
+
+    .final-cta {
+        padding: 0 0 90px;
+        text-align: center;
     }
 
-    .faq-item:hover {
-      border-color: rgba(22, 140, 255, 0.4);
+    .final-cta h2 {
+        margin-bottom: 12px;
+        font-size: clamp(1.9rem, 4vw, 2.7rem);
+        letter-spacing: -1px;
     }
 
-    .faq-item h3 {
-      margin-bottom: 9px;
-      font-size: 15px;
-    }
-
-    .faq-item p {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.9;
-    }
-
-    /* Contact */
-
-    .contact {
-      padding: 75px 0;
-    }
-
-    .contact-box {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-      padding: 35px;
-      border: 1px solid rgba(22, 140, 255, 0.28);
-      border-radius: 21px;
-      background: linear-gradient(
-        120deg,
-        rgba(18, 39, 67, 0.8),
-        rgba(10, 17, 30, 0.9)
-      );
-    }
-
-    .contact-copy {
-      max-width: 650px;
-    }
-
-    .contact-box h2 {
-      margin-bottom: 10px;
-      font-size: clamp(25px, 4vw, 35px);
-      line-height: 1.25;
-    }
-
-    .contact-box p {
-      max-width: 600px;
-      color: var(--muted);
-      font-size: 13px;
+    .final-cta p {
+        max-width: 590px;
+        margin: 0 auto 25px;
+        color: var(--muted);
     }
 
     /* Footer */
 
     footer {
-      padding: 25px 0;
-      border-top: 1px solid var(--border);
-      background: rgba(4, 7, 13, 0.6);
+        border-top: 1px solid var(--border);
+        background: rgba(5, 8, 15, 0.7);
     }
 
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 18px;
+    .footer-content {
+        min-height: 95px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
     }
 
-    .footer-brand {
-      font-size: 14px;
-      font-weight: 850;
-      white-space: nowrap;
+    .footer-copy {
+        color: var(--muted);
+        font-size: 0.85rem;
     }
 
     .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 17px;
-      color: var(--muted);
-      font-size: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .footer-links a {
+        color: var(--muted);
+        font-size: 0.87rem;
     }
 
     .footer-links a:hover {
-      color: white;
-    }
-
-    .copyright {
-      color: #71839c;
-      font-size: 11px;
+        color: var(--blue-light);
     }
 
     /* Responsive */
 
-    @media (max-width: 1000px) {
-      .nav-links {
-        gap: 14px;
-      }
+    @media (max-width: 900px) {
+        .pricing-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
 
-      .pricing-grid {
-        gap: 14px;
-      }
+        .price-card:last-child {
+            grid-column: 1 / -1;
+        }
 
-      .price-card {
-        padding: 27px 20px;
-      }
+        .process-grid {
+            grid-template-columns: 1fr;
+        }
     }
 
-    @media (max-width: 850px) {
-      .pricing-grid {
-        grid-template-columns: 1fr;
-        max-width: 520px;
-        margin: 0 auto;
-        gap: 25px;
-      }
+    @media (max-width: 650px) {
+        nav {
+            padding: 17px 0;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 14px;
+        }
 
-      .price-card.featured {
-        order: -1;
-      }
+        .nav-links {
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 12px 18px;
+        }
 
-      .description {
-        min-height: auto;
-      }
+        .nav-links a {
+            font-size: 0.87rem;
+        }
 
-      .contact-box {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
+        .hero {
+            padding-top: 65px;
+        }
 
-    @media (max-width: 600px) {
-      .wrap {
-        width: calc(100% - 28px);
-      }
+        .hero h1 {
+            letter-spacing: -1.5px;
+        }
 
-      .navbar {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 14px 0;
-      }
+        .pricing-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
 
-      .nav-links {
-        gap: 12px 17px;
-        font-size: 12px;
-      }
+        .price-card:last-child {
+            grid-column: auto;
+        }
 
-      .hero {
-        padding: 65px 0 35px;
-      }
+        .custom-box {
+            padding: 28px 23px;
+            align-items: flex-start;
+            flex-direction: column;
+        }
 
-      .pricing {
-        padding: 30px 0 65px;
-      }
+        .custom-price {
+            text-align: left;
+        }
 
-      .price-card {
-        padding: 27px 22px;
-      }
-
-      .faq-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-box {
-        padding: 25px;
-      }
-
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
+        .footer-content {
+            padding: 25px 0;
+            align-items: flex-start;
+            flex-direction: column;
+        }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-      }
+        *,
+        *::before,
+        *::after {
+            scroll-behavior: auto !important;
+            transition-duration: 0.01ms !important;
+        }
     }
-  </style>
+</style>
+```
 
 </head>
 
 <body>
 
-  <!-- Navigation -->
-
-  <header>
-    <div class="wrap navbar">
-
 ```
-  <a class="brand" href="index.html" aria-label="DevKaz home">
-    <span class="brand-icon" aria-hidden="true">&lt;/&gt;</span>
-    <span>Dev<span class="blue">Kaz</span></span>
-  </a>
+<header>
+    <div class="container">
+        <nav aria-label="Main navigation">
+            <a href="index.html" class="logo">Dev<span>Kaz</span></a>
 
-  <nav class="nav-links" aria-label="Main navigation">
-    <a href="index.html">Home</a>
-    <a href="index.html#services">Services</a>
-    <a class="active" href="pricing.html" aria-current="page">Pricing</a>
-    <a href="index.html#process">Process</a>
-    <a href="index.html#community">Discord</a>
-    <a class="nav-button" href="#contact">Get a Quote ↗</a>
-  </nav>
-
-</div>
-```
-
-  </header>
-
-  <main>
-
-```
-<!-- Page Heading -->
-
-<section class="hero">
-  <div class="wrap">
-
-    <span class="eyebrow">SIMPLE. TRANSPARENT. FLEXIBLE.</span>
-
-    <h1>
-      Pricing that fits<br>
-      <span class="gradient">your project.</span>
-    </h1>
-
-    <p>
-      Every project is different. Explore the development packages
-      below, then contact DevKaz to discuss your idea and get a
-      quote based on the features you actually need.
-    </p>
-
-    <div class="hero-actions">
-      <a class="button" href="#packages">Explore Packages ↓</a>
-      <a class="button secondary" href="#contact">Request a Quote ↗</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="pricing.html" class="active">Pricing</a>
+                <a href="index.html#about">About</a>
+                <a href="https://discord.gg/N6dz2YdY3J"
+                   class="nav-cta"
+                   target="_blank"
+                   rel="noopener noreferrer">Discord ↗</a>
+            </div>
+        </nav>
     </div>
+</header>
 
-  </div>
-</section>
+<main>
 
-<!-- Pricing Packages -->
+    <!-- HERO -->
 
-<section class="pricing" id="packages">
-  <div class="wrap">
+    <section class="hero">
+        <div class="container">
+            <span class="eyebrow">SIMPLE • FLEXIBLE • TRANSPARENT</span>
 
-    <div class="pricing-grid">
+            <h1>
+                Quality development.<br>
+                <span class="gradient-text">Pricing that makes sense.</span>
+            </h1>
 
-      <!-- Starter -->
+            <p>
+                From small Python tools to custom Discord bots and complete
+                scripting projects, find a starting price that fits your idea.
+                Every project is different, so final pricing depends on what you need.
+            </p>
 
-      <article class="price-card">
+            <div class="hero-buttons">
+                <a href="#packages" class="button button-primary">
+                    Explore Pricing →
+                </a>
 
-        <span class="plan-label">PACKAGE 01</span>
+                <a href="https://discord.gg/N6dz2YdY3J"
+                   class="button button-secondary"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Discuss a Project
+                </a>
+            </div>
 
-        <h2>Starter</h2>
-
-        <p class="description">
-          Perfect for small projects and simple tools that solve
-          a specific problem.
-        </p>
-
-        <div class="price">
-          Custom Quote
-          <small>Price depends on your requirements</small>
+            <div class="trust-note">
+                No hidden package fees · Custom quotes available · Scope agreed upon first
+            </div>
         </div>
+    </section>
 
-        <div class="divider"></div>
+    <!-- PRICING PACKAGES -->
 
-        <p class="features-title">What's included</p>
+    <section class="pricing-section" id="packages">
+        <div class="container">
 
-        <ul class="features">
-          <li><span class="check">✓</span><span>Simple scripts and utilities</span></li>
-          <li><span class="check">✓</span><span>Basic Discord bot commands</span></li>
-          <li><span class="check">✓</span><span>Essential functionality</span></li>
-          <li><span class="check">✓</span><span>Basic setup instructions</span></li>
-          <li><span class="check">✓</span><span>Project-specific discussion</span></li>
-        </ul>
+            <div class="section-heading">
+                <h2>Choose Your <span class="gradient-text">Package</span></h2>
+                <p>
+                    These are estimated starting ranges, not fixed quotes.
+                    Tell me what you're building to get a price for your project.
+                </p>
+            </div>
 
-        <a
-          class="button secondary"
-          href="mailto:midnightkaz777@gmail.com?subject=DevKaz%20Starter%20Package"
-        >
-          Discuss Starter ↗
-        </a>
+            <div class="pricing-grid">
 
-      </article>
+                <!-- STARTER -->
 
-      <!-- Professional -->
+                <article class="price-card">
+                    <div class="plan-type">01 / Starter</div>
+                    <h3>Small Projects</h3>
 
-      <article class="price-card featured">
+                    <p class="plan-description">
+                        Perfect for simple scripts, small tools, and straightforward fixes.
+                    </p>
 
-        <span class="badge">POPULAR CHOICE</span>
+                    <div class="price">
+                        $10–$30
+                        <small>Estimated project range</small>
+                    </div>
 
-        <span class="plan-label">PACKAGE 02</span>
+                    <div class="price-divider"></div>
 
-        <h2>Professional</h2>
+                    <div class="feature-title">What's included</div>
 
-        <p class="description">
-          For more advanced bots and tools with multiple features
-          working together.
-        </p>
+                    <ul class="features">
+                        <li><span class="check">✓</span><span>Small Python scripts</span></li>
+                        <li><span class="check">✓</span><span>Basic automation tasks</span></li>
+                        <li><span class="check">✓</span><span>Simple command-based features</span></li>
+                        <li><span class="check">✓</span><span>Basic bug fixes</span></li>
+                        <li><span class="check">✓</span><span>Setup instructions</span></li>
+                    </ul>
 
-        <div class="price">
-          Custom Quote
-          <small>Price depends on your requirements</small>
+                    <a href="https://discord.gg/N6dz2YdY3J"
+                       class="button button-secondary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Discuss Starter
+                    </a>
+                </article>
+
+                <!-- STANDARD -->
+
+                <article class="price-card featured">
+                    <span class="popular-badge">POPULAR CHOICE</span>
+
+                    <div class="plan-type">02 / Standard</div>
+                    <h3>Custom Projects</h3>
+
+                    <p class="plan-description">
+                        For more involved Discord bots, useful tools, and multi-feature scripts.
+                    </p>
+
+                    <div class="price">
+                        $30–$100
+                        <small>Estimated project range</small>
+                    </div>
+
+                    <div class="price-divider"></div>
+
+                    <div class="feature-title">What's included</div>
+
+                    <ul class="features">
+                        <li><span class="check">✓</span><span>Custom Discord bot features</span></li>
+                        <li><span class="check">✓</span><span>Python tools with multiple functions</span></li>
+                        <li><span class="check">✓</span><span>Commands and event handling</span></li>
+                        <li><span class="check">✓</span><span>Configuration and error handling</span></li>
+                        <li><span class="check">✓</span><span>Help with initial setup</span></li>
+                    </ul>
+
+                    <a href="https://discord.gg/N6dz2YdY3J"
+                       class="button button-primary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Discuss Standard
+                    </a>
+                </article>
+
+                <!-- ADVANCED -->
+
+                <article class="price-card">
+                    <div class="plan-type">03 / Advanced</div>
+                    <h3>Large Projects</h3>
+
+                    <p class="plan-description">
+                        For complex bots, connected systems, and projects with several components.
+                    </p>
+
+                    <div class="price">
+                        $100–$300+
+                        <small>Estimated project range</small>
+                    </div>
+
+                    <div class="price-divider"></div>
+
+                    <div class="feature-title">What's included</div>
+
+                    <ul class="features">
+                        <li><span class="check">✓</span><span>Multi-feature Discord bots</span></li>
+                        <li><span class="check">✓</span><span>Advanced automation workflows</span></li>
+                        <li><span class="check">✓</span><span>Integrations with supported APIs</span></li>
+                        <li><span class="check">✓</span><span>Organized, maintainable code</span></li>
+                        <li><span class="check">✓</span><span>Project-specific setup guidance</span></li>
+                    </ul>
+
+                    <a href="https://discord.gg/N6dz2YdY3J"
+                       class="button button-secondary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Discuss Advanced
+                    </a>
+                </article>
+
+            </div>
+
+            <p class="pricing-note">
+                All prices are illustrative estimates in USD. The final price depends on
+                complexity, features, integrations, deadlines, and ongoing support.
+                Hosting, third-party services, and paid APIs may cost extra.
+            </p>
+
         </div>
+    </section>
 
-        <div class="divider"></div>
+    <!-- CUSTOM PROJECTS -->
 
-        <p class="features-title">What's included</p>
+    <section class="custom-section">
+        <div class="container">
+            <div class="custom-box">
+                <div class="custom-content">
+                    <h2>Have a different idea?</h2>
+                    <p>
+                        Need something that doesn't fit a package? Whether it's a custom
+                        Python application, a Discord bot, automation, or scripting in
+                        another language, we can discuss the requirements and work out
+                        a suitable quote before starting.
+                    </p>
+                </div>
 
-        <ul class="features">
-          <li><span class="check">✓</span><span>Custom Discord bot systems</span></li>
-          <li><span class="check">✓</span><span>Ticket and application systems</span></li>
-          <li><span class="check">✓</span><span>Moderation and verification features</span></li>
-          <li><span class="check">✓</span><span>Automation and integrations</span></li>
-          <li><span class="check">✓</span><span>Setup and configuration guidance</span></li>
-          <li><span class="check">✓</span><span>Testing of agreed features</span></li>
-        </ul>
+                <div class="custom-price">
+                    Custom Quote
+                    <small>Based on your requirements</small>
 
-        <a
-          class="button"
-          href="mailto:midnightkaz777@gmail.com?subject=DevKaz%20Professional%20Package"
-        >
-          Discuss Professional ↗
-        </a>
-
-      </article>
-
-      <!-- Advanced -->
-
-      <article class="price-card">
-
-        <span class="plan-label">PACKAGE 03</span>
-
-        <h2>Advanced</h2>
-
-        <p class="description">
-          For larger, more complex projects that need custom
-          functionality and multiple connected systems.
-        </p>
-
-        <div class="price">
-          Custom Quote
-          <small>Scoped individually for each project</small>
+                    <a href="https://discord.gg/N6dz2YdY3J"
+                       class="button button-primary"
+                       style="margin-top: 16px;"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Get a Quote →
+                    </a>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="divider"></div>
+    <!-- PROCESS -->
 
-        <p class="features-title">What's included</p>
+    <section class="process-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>How It <span class="gradient-text">Works</span></h2>
+                <p>A clear process from your first message to the finished project.</p>
+            </div>
 
-        <ul class="features">
-          <li><span class="check">✓</span><span>Custom software and scripts</span></li>
-          <li><span class="check">✓</span><span>Multiple connected features</span></li>
-          <li><span class="check">✓</span><span>Advanced automation workflows</span></li>
-          <li><span class="check">✓</span><span>Custom integrations where supported</span></li>
-          <li><span class="check">✓</span><span>Project-specific testing</span></li>
-          <li><span class="check">✓</span><span>Delivery and setup guidance</span></li>
-        </ul>
+            <div class="process-grid">
 
-        <a
-          class="button secondary"
-          href="mailto:midnightkaz777@gmail.com?subject=DevKaz%20Advanced%20Package"
-        >
-          Discuss Advanced ↗
-        </a>
+                <article class="process-card">
+                    <div class="step-number">01</div>
+                    <h3>Tell Me Your Idea</h3>
+                    <p>
+                        Explain what you want built, what it should do, and any
+                        features or requirements you already have in mind.
+                    </p>
+                </article>
 
-      </article>
+                <article class="process-card">
+                    <div class="step-number">02</div>
+                    <h3>Agree on the Scope</h3>
+                    <p>
+                        Discuss the features, estimated price, timeline, and what
+                        will be delivered before any work begins.
+                    </p>
+                </article>
 
+                <article class="process-card">
+                    <div class="step-number">03</div>
+                    <h3>Build and Deliver</h3>
+                    <p>
+                        Once the details are agreed upon, the project can be
+                        developed, tested, and delivered according to the plan.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Pricing <span class="gradient-text">FAQ</span></h2>
+                <p>Important details before starting a project.</p>
+            </div>
+
+            <div class="faq-list">
+
+                <details>
+                    <summary>Are these fixed prices?</summary>
+                    <p>
+                        No. These are estimated ranges to help you understand
+                        potential costs. Your final quote will depend on the
+                        features, complexity, and requirements of your project.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>Can I request a completely custom project?</summary>
+                    <p>
+                        Yes. You can ask about Python applications, Discord bots,
+                        automation, or scripting in other programming languages.
+                        Custom projects are quoted individually.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>Does the price include hosting?</summary>
+                    <p>
+                        Not automatically. Hosting, domains, paid APIs, databases,
+                        and other third-party services may have separate costs.
+                        These details should be agreed upon before the project starts.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>What if I need changes after delivery?</summary>
+                    <p>
+                        Small corrections to the agreed requirements can be discussed
+                        as part of the project. New features or changes beyond the
+                        original scope may require an additional quote.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>How do I get a quote?</summary>
+                    <p>
+                        Join the DevKaz Discord server and describe your idea.
+                        Include the features you need and any important requirements
+                        so the project can be estimated more accurately.
+                    </p>
+                </details>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to build something?</h2>
+
+            <p>
+                Bring your idea to DevKaz. Let's discuss the features, find a
+                suitable price range, and work out the next steps.
+            </p>
+
+            <a href="https://discord.gg/N6dz2YdY3J"
+               class="button button-primary"
+               target="_blank"
+               rel="noopener noreferrer">
+                Join DevKaz Discord →
+            </a>
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div>
+                <a href="index.html" class="logo">Dev<span>Kaz</span></a>
+                <p class="footer-copy">
+                    © <span id="year"></span> DevKaz. All rights reserved.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="https://discord.gg/N6dz2YdY3J"
+                   target="_blank"
+                   rel="noopener noreferrer">Discord</a>
+                <a href="mailto:midnightkaz777@gmail.com">Email</a>
+            </div>
+        </div>
     </div>
+</footer>
 
-    <div class="custom-note">
-      <h3>Have a different idea?</h3>
-
-      <p>
-        You don't have to fit into a package. Tell us what you want
-        to build, and we'll discuss the features and an appropriate quote.
-      </p>
-
-      <a
-        class="button secondary"
-        href="mailto:midnightkaz777@gmail.com?subject=Custom%20DevKaz%20Project"
-      >
-        Discuss a Custom Project ↗
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<!-- Frequently Asked Questions -->
-
-<section class="faq" id="faq">
-  <div class="wrap">
-
-    <div class="section-heading">
-      <span class="eyebrow">GOOD TO KNOW</span>
-      <h2>Frequently asked questions.</h2>
-      <p>Important details before starting a project.</p>
-    </div>
-
-    <div class="faq-grid">
-
-      <article class="faq-item">
-        <h3>How much does a project cost?</h3>
-        <p>
-          Pricing depends on the size, features, and complexity of
-          your project. Contact DevKaz with your idea to discuss a quote
-          before committing to anything.
-        </p>
-      </article>
-
-      <article class="faq-item">
-        <h3>How long will my project take?</h3>
-        <p>
-          Timelines depend on the work involved. The expected timeline
-          can be discussed after the requirements and features are clear.
-        </p>
-      </article>
-
-      <article class="faq-item">
-        <h3>Can I request custom features?</h3>
-        <p>
-          Yes. Share the features you need, and we'll discuss whether
-          they fit your project and what additional work they require.
-        </p>
-      </article>
-
-      <article class="faq-item">
-        <h3>What happens before work begins?</h3>
-        <p>
-          The project scope, expected features, quote, timeline, and
-          delivery arrangements should be agreed upon before development
-          begins.
-        </p>
-      </article>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- Contact -->
-
-<section class="contact" id="contact">
-  <div class="wrap">
-
-    <div class="contact-box">
-
-      <div class="contact-copy">
-        <span class="eyebrow">LET'S BUILD SOMETHING</span>
-
-        <h2>Ready to start your project?</h2>
-
-        <p>
-          Explain your idea, what you need it to do, and which features
-          matter most. Let's work out the next steps together.
-        </p>
-      </div>
-
-      <a
-        class="button"
-        href="mailto:midnightkaz777@gmail.com?subject=DevKaz%20Project%20Quote"
-      >
-        Request a Quote ↗
-      </a>
-
-    </div>
-
-  </div>
-</section>
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 ```
-
-  </main>
-
-  <!-- Footer -->
-
-  <footer>
-    <div class="wrap footer-inner">
-
-```
-  <a class="footer-brand" href="index.html">
-    Dev<span class="blue">Kaz</span>
-  </a>
-
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="index.html#services">Services</a>
-    <a href="index.html#process">Process</a>
-    <a href="pricing.html" aria-current="page">Pricing</a>
-
-    <a
-      href="https://discord.gg/N6dz2YdY3J"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Discord ↗
-    </a>
-
-    <a href="mailto:midnightkaz777@gmail.com">Email ↗</a>
-  </div>
-
-  <span class="copyright">
-    &copy; 2026 DevKaz. All rights reserved.
-  </span>
-
-</div>
-```
-
-  </footer>
 
 </body>
 </html>
