@@ -28,21 +28,29 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
     body {
       min-height: 100vh;
-      font-family: "Segoe UI", Arial, sans-serif;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
       color: var(--text);
       background:
         radial-gradient(ellipse at 50% 0%, rgba(22, 140, 255, 0.16), transparent 50%),
         var(--bg);
       line-height: 1.7;
+      overflow-x: hidden;
     }
 
     a {
       color: inherit;
       text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--light-blue);
+      outline-offset: 4px;
     }
 
     .wrap {
@@ -55,7 +63,6 @@
     }
 
     .gradient {
-      color: #78ccff;
       background: linear-gradient(100deg, #168cff, #78ccff, #c1e8ff);
       -webkit-background-clip: text;
       background-clip: text;
@@ -67,10 +74,11 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
       border-bottom: 1px solid var(--border);
-      background: rgba(6, 10, 18, 0.88);
+      background: rgba(6, 10, 18, 0.9);
       backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
 
     .navbar {
@@ -82,12 +90,13 @@
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 10px;
       font-size: 23px;
       font-weight: 850;
       letter-spacing: -1px;
+      white-space: nowrap;
     }
 
     .brand-icon {
@@ -106,14 +115,23 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 24px;
+      gap: 22px;
       color: var(--muted);
       font-size: 13px;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease, background 0.2s ease;
     }
 
     .nav-links a:hover,
     .nav-links a.active {
       color: white;
+    }
+
+    .nav-links a.active {
+      color: var(--light-blue);
+      font-weight: 750;
     }
 
     .nav-links .nav-button {
@@ -122,6 +140,11 @@
       border-radius: 10px;
       background: rgba(22, 140, 255, 0.1);
       color: white;
+      white-space: nowrap;
+    }
+
+    .nav-links .nav-button:hover {
+      background: rgba(22, 140, 255, 0.2);
     }
 
     /* Buttons */
@@ -139,7 +162,8 @@
       color: white;
       font-size: 13px;
       font-weight: 750;
-      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .button:hover {
@@ -150,6 +174,10 @@
     .button.secondary {
       border-color: var(--border);
       background: rgba(255, 255, 255, 0.025);
+    }
+
+    .button.secondary:hover {
+      background: rgba(255, 255, 255, 0.07);
     }
 
     /* Hero */
@@ -183,6 +211,14 @@
       line-height: 1.9;
     }
 
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
     /* Pricing */
 
     .pricing {
@@ -203,8 +239,15 @@
       padding: 30px 25px;
       border: 1px solid var(--border);
       border-radius: 20px;
-      background: linear-gradient(145deg, rgba(17, 29, 49, 0.85), rgba(8, 14, 24, 0.94));
-      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      background: linear-gradient(
+        145deg,
+        rgba(17, 29, 49, 0.85),
+        rgba(8, 14, 24, 0.94)
+      );
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     .price-card:hover {
@@ -215,7 +258,11 @@
 
     .price-card.featured {
       border-color: rgba(22, 140, 255, 0.7);
-      background: linear-gradient(145deg, rgba(17, 43, 73, 0.95), rgba(8, 14, 24, 0.98));
+      background: linear-gradient(
+        145deg,
+        rgba(17, 43, 73, 0.95),
+        rgba(8, 14, 24, 0.98)
+      );
       box-shadow: 0 0 40px rgba(22, 140, 255, 0.09);
     }
 
@@ -257,7 +304,7 @@
 
     .price {
       margin: 23px 0;
-      font-size: 27px;
+      font-size: 25px;
       font-weight: 850;
       letter-spacing: -0.8px;
     }
@@ -308,11 +355,11 @@
       margin-top: auto;
     }
 
-    /* Custom pricing note */
+    /* Custom Pricing Note */
 
     .custom-note {
       margin-top: 30px;
-      padding: 22px 25px;
+      padding: 25px;
       border: 1px solid var(--border);
       border-radius: 15px;
       background: rgba(12, 21, 36, 0.7);
@@ -321,12 +368,18 @@
 
     .custom-note h3 {
       margin-bottom: 7px;
-      font-size: 17px;
+      font-size: 18px;
     }
 
     .custom-note p {
+      max-width: 700px;
+      margin: 0 auto;
       color: var(--muted);
       font-size: 13px;
+    }
+
+    .custom-note .button {
+      margin-top: 18px;
     }
 
     /* FAQ */
@@ -364,6 +417,11 @@
       border: 1px solid var(--border);
       border-radius: 15px;
       background: rgba(12, 21, 36, 0.65);
+      transition: border-color 0.2s ease;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(22, 140, 255, 0.4);
     }
 
     .faq-item h3 {
@@ -391,7 +449,15 @@
       padding: 35px;
       border: 1px solid rgba(22, 140, 255, 0.28);
       border-radius: 21px;
-      background: linear-gradient(120deg, rgba(18, 39, 67, 0.8), rgba(10, 17, 30, 0.9));
+      background: linear-gradient(
+        120deg,
+        rgba(18, 39, 67, 0.8),
+        rgba(10, 17, 30, 0.9)
+      );
+    }
+
+    .contact-copy {
+      max-width: 650px;
     }
 
     .contact-box h2 {
@@ -411,6 +477,7 @@
     footer {
       padding: 25px 0;
       border-top: 1px solid var(--border);
+      background: rgba(4, 7, 13, 0.6);
     }
 
     .footer-inner {
@@ -424,6 +491,7 @@
     .footer-brand {
       font-size: 14px;
       font-weight: 850;
+      white-space: nowrap;
     }
 
     .footer-links {
@@ -445,6 +513,20 @@
 
     /* Responsive */
 
+    @media (max-width: 1000px) {
+      .nav-links {
+        gap: 14px;
+      }
+
+      .pricing-grid {
+        gap: 14px;
+      }
+
+      .price-card {
+        padding: 27px 20px;
+      }
+    }
+
     @media (max-width: 850px) {
       .pricing-grid {
         grid-template-columns: 1fr;
@@ -455,6 +537,10 @@
 
       .price-card.featured {
         order: -1;
+      }
+
+      .description {
+        min-height: auto;
       }
 
       .contact-box {
@@ -525,15 +611,15 @@
     <div class="wrap navbar">
 
 ```
-  <a class="brand" href="index.html">
-    <span class="brand-icon">&lt;/&gt;</span>
+  <a class="brand" href="index.html" aria-label="DevKaz home">
+    <span class="brand-icon" aria-hidden="true">&lt;/&gt;</span>
     <span>Dev<span class="blue">Kaz</span></span>
   </a>
 
   <nav class="nav-links" aria-label="Main navigation">
     <a href="index.html">Home</a>
     <a href="index.html#services">Services</a>
-    <a class="active" href="pricing.html">Pricing</a>
+    <a class="active" href="pricing.html" aria-current="page">Pricing</a>
     <a href="index.html#process">Process</a>
     <a href="index.html#community">Discord</a>
     <a class="nav-button" href="#contact">Get a Quote ↗</a>
@@ -548,6 +634,7 @@
 
 ```
 <!-- Page Heading -->
+
 <section class="hero">
   <div class="wrap">
 
@@ -564,16 +651,23 @@
       quote based on the features you actually need.
     </p>
 
+    <div class="hero-actions">
+      <a class="button" href="#packages">Explore Packages ↓</a>
+      <a class="button secondary" href="#contact">Request a Quote ↗</a>
+    </div>
+
   </div>
 </section>
 
 <!-- Pricing Packages -->
-<section class="pricing">
+
+<section class="pricing" id="packages">
   <div class="wrap">
 
     <div class="pricing-grid">
 
       <!-- Starter -->
+
       <article class="price-card">
 
         <span class="plan-label">PACKAGE 01</span>
@@ -595,11 +689,11 @@
         <p class="features-title">What's included</p>
 
         <ul class="features">
-          <li><span class="check">✓</span> Simple scripts and utilities</li>
-          <li><span class="check">✓</span> Basic Discord bot commands</li>
-          <li><span class="check">✓</span> Essential functionality</li>
-          <li><span class="check">✓</span> Basic setup instructions</li>
-          <li><span class="check">✓</span> Project-specific discussion</li>
+          <li><span class="check">✓</span><span>Simple scripts and utilities</span></li>
+          <li><span class="check">✓</span><span>Basic Discord bot commands</span></li>
+          <li><span class="check">✓</span><span>Essential functionality</span></li>
+          <li><span class="check">✓</span><span>Basic setup instructions</span></li>
+          <li><span class="check">✓</span><span>Project-specific discussion</span></li>
         </ul>
 
         <a
@@ -612,6 +706,7 @@
       </article>
 
       <!-- Professional -->
+
       <article class="price-card featured">
 
         <span class="badge">POPULAR CHOICE</span>
@@ -635,12 +730,12 @@
         <p class="features-title">What's included</p>
 
         <ul class="features">
-          <li><span class="check">✓</span> Custom Discord bot systems</li>
-          <li><span class="check">✓</span> Ticket and application systems</li>
-          <li><span class="check">✓</span> Moderation and verification features</li>
-          <li><span class="check">✓</span> Automation and integrations</li>
-          <li><span class="check">✓</span> Setup and configuration guidance</li>
-          <li><span class="check">✓</span> Testing of agreed features</li>
+          <li><span class="check">✓</span><span>Custom Discord bot systems</span></li>
+          <li><span class="check">✓</span><span>Ticket and application systems</span></li>
+          <li><span class="check">✓</span><span>Moderation and verification features</span></li>
+          <li><span class="check">✓</span><span>Automation and integrations</span></li>
+          <li><span class="check">✓</span><span>Setup and configuration guidance</span></li>
+          <li><span class="check">✓</span><span>Testing of agreed features</span></li>
         </ul>
 
         <a
@@ -653,6 +748,7 @@
       </article>
 
       <!-- Advanced -->
+
       <article class="price-card">
 
         <span class="plan-label">PACKAGE 03</span>
@@ -674,12 +770,12 @@
         <p class="features-title">What's included</p>
 
         <ul class="features">
-          <li><span class="check">✓</span> Custom software and scripts</li>
-          <li><span class="check">✓</span> Multiple connected features</li>
-          <li><span class="check">✓</span> Advanced automation workflows</li>
-          <li><span class="check">✓</span> Custom integrations where supported</li>
-          <li><span class="check">✓</span> Project-specific testing</li>
-          <li><span class="check">✓</span> Delivery and setup guidance</li>
+          <li><span class="check">✓</span><span>Custom software and scripts</span></li>
+          <li><span class="check">✓</span><span>Multiple connected features</span></li>
+          <li><span class="check">✓</span><span>Advanced automation workflows</span></li>
+          <li><span class="check">✓</span><span>Custom integrations where supported</span></li>
+          <li><span class="check">✓</span><span>Project-specific testing</span></li>
+          <li><span class="check">✓</span><span>Delivery and setup guidance</span></li>
         </ul>
 
         <a
@@ -695,17 +791,26 @@
 
     <div class="custom-note">
       <h3>Have a different idea?</h3>
+
       <p>
         You don't have to fit into a package. Tell us what you want
         to build, and we'll discuss the features and an appropriate quote.
       </p>
+
+      <a
+        class="button secondary"
+        href="mailto:midnightkaz777@gmail.com?subject=Custom%20DevKaz%20Project"
+      >
+        Discuss a Custom Project ↗
+      </a>
     </div>
 
   </div>
 </section>
 
 <!-- Frequently Asked Questions -->
-<section class="faq">
+
+<section class="faq" id="faq">
   <div class="wrap">
 
     <div class="section-heading">
@@ -756,14 +861,17 @@
 </section>
 
 <!-- Contact -->
+
 <section class="contact" id="contact">
   <div class="wrap">
 
     <div class="contact-box">
 
-      <div>
+      <div class="contact-copy">
         <span class="eyebrow">LET'S BUILD SOMETHING</span>
+
         <h2>Ready to start your project?</h2>
+
         <p>
           Explain your idea, what you need it to do, and which features
           matter most. Let's work out the next steps together.
@@ -798,7 +906,9 @@
   <div class="footer-links">
     <a href="index.html">Home</a>
     <a href="index.html#services">Services</a>
-    <a href="pricing.html">Pricing</a>
+    <a href="index.html#process">Process</a>
+    <a href="pricing.html" aria-current="page">Pricing</a>
+
     <a
       href="https://discord.gg/N6dz2YdY3J"
       target="_blank"
@@ -806,11 +916,12 @@
     >
       Discord ↗
     </a>
+
     <a href="mailto:midnightkaz777@gmail.com">Email ↗</a>
   </div>
 
   <span class="copyright">
-    © 2026 DevKaz. All rights reserved.
+    &copy; 2026 DevKaz. All rights reserved.
   </span>
 
 </div>
