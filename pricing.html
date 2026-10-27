@@ -15,7 +15,7 @@
         --background: #070b14;
         --surface: #0d1424;
         --blue: #168cff;
-        --blue-light: #65b5ff;
+        --blue-light: #80c8ff;
         --text: #f3f7ff;
         --muted: #9aaac1;
         --border: rgba(120, 170, 255, 0.16);
@@ -30,6 +30,7 @@
 
     html {
         scroll-behavior: smooth;
+        scroll-padding-top: 100px;
     }
 
     body {
@@ -52,27 +53,30 @@
         margin: 0 auto;
     }
 
+    /* Navigation */
+
     header {
         position: sticky;
         top: 0;
         z-index: 100;
-        background: rgba(7, 11, 20, 0.9);
+        background: rgba(7, 11, 20, 0.92);
         backdrop-filter: blur(16px);
         border-bottom: 1px solid var(--border);
     }
 
     nav {
-        min-height: 76px;
+        min-height: 78px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 24px;
+        gap: 20px;
     }
 
     .logo {
-        font-size: 1.55rem;
+        font-size: 1.65rem;
         font-weight: 900;
         letter-spacing: -1px;
+        white-space: nowrap;
     }
 
     .logo span {
@@ -82,27 +86,49 @@
     .nav-links {
         display: flex;
         align-items: center;
-        gap: 28px;
+        flex-wrap: wrap;
+        gap: 8px;
+        list-style: none;
     }
 
     .nav-links a {
-        color: var(--muted);
-        font-size: 0.94rem;
-        transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-        color: var(--blue-light);
-    }
-
-    .nav-cta {
-        padding: 10px 17px;
-        border: 1px solid rgba(22, 140, 255, 0.5);
+        display: inline-block;
+        padding: 9px 13px;
+        border: 1px solid transparent;
         border-radius: 9px;
-        color: var(--text) !important;
-        background: rgba(22, 140, 255, 0.1);
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: color 0.2s ease, background 0.2s ease,
+                    border-color 0.2s ease, transform 0.2s ease;
     }
+
+    .nav-links a:hover {
+        color: var(--blue-light);
+        background: rgba(22, 140, 255, 0.09);
+        border-color: var(--border);
+        transform: translateY(-2px);
+    }
+
+    .nav-links a.active {
+        color: white;
+        background: linear-gradient(135deg, #168cff, #0867ce);
+        border-color: rgba(117, 195, 255, 0.25);
+        box-shadow: 0 4px 18px rgba(22, 140, 255, 0.2);
+    }
+
+    .nav-links a.nav-cta {
+        color: white;
+        background: rgba(22, 140, 255, 0.1);
+        border-color: rgba(22, 140, 255, 0.35);
+    }
+
+    .nav-links a.nav-cta:hover {
+        background: var(--blue);
+        border-color: var(--blue);
+    }
+
+    /* Buttons */
 
     .button {
         display: inline-flex;
@@ -110,10 +136,12 @@
         align-items: center;
         gap: 8px;
         padding: 13px 20px;
+        border: 1px solid transparent;
         border-radius: 10px;
         font-weight: 700;
         font-size: 0.95rem;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease,
+                    background 0.2s ease;
     }
 
     .button:hover {
@@ -132,13 +160,16 @@
 
     .button-secondary {
         color: var(--text);
-        border: 1px solid var(--border);
+        border-color: var(--border);
         background: rgba(255, 255, 255, 0.025);
     }
 
     .button-secondary:hover {
         background: rgba(22, 140, 255, 0.09);
+        border-color: rgba(22, 140, 255, 0.4);
     }
+
+    /* Hero */
 
     .hero {
         text-align: center;
@@ -195,6 +226,8 @@
         font-size: 0.86rem;
     }
 
+    /* Pricing cards */
+
     .pricing-section {
         padding: 35px 0 85px;
     }
@@ -231,7 +264,8 @@
         background: linear-gradient(160deg, #111c30, #0a101d);
         border: 1px solid var(--border);
         border-radius: 18px;
-        transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        transition: transform 0.25s ease, border-color 0.25s ease,
+                    box-shadow 0.25s ease;
     }
 
     .price-card:hover {
@@ -341,6 +375,8 @@
         font-size: 0.86rem;
     }
 
+    /* Custom projects */
+
     .custom-section {
         padding: 0 0 85px;
     }
@@ -391,6 +427,8 @@
         margin-top: 16px;
     }
 
+    /* Process */
+
     .process-section {
         padding: 0 0 90px;
     }
@@ -406,6 +444,12 @@
         border: 1px solid var(--border);
         border-radius: 15px;
         background: rgba(13, 20, 36, 0.75);
+        transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .process-card:hover {
+        border-color: rgba(22, 140, 255, 0.45);
+        transform: translateY(-4px);
     }
 
     .step-number {
@@ -432,6 +476,8 @@
         font-size: 0.92rem;
     }
 
+    /* FAQ */
+
     .faq-section {
         padding: 0 0 90px;
     }
@@ -448,6 +494,11 @@
         border: 1px solid var(--border);
         border-radius: 12px;
         background: rgba(13, 20, 36, 0.75);
+        transition: border-color 0.2s ease;
+    }
+
+    details[open] {
+        border-color: rgba(22, 140, 255, 0.45);
     }
 
     summary {
@@ -455,11 +506,17 @@
         font-weight: 700;
     }
 
+    summary::marker {
+        color: var(--blue-light);
+    }
+
     details p {
         margin-top: 12px;
         color: var(--muted);
         font-size: 0.93rem;
     }
+
+    /* Final call to action */
 
     .final-cta {
         padding: 0 0 90px;
@@ -478,17 +535,21 @@
         color: var(--muted);
     }
 
+    /* Footer */
+
     footer {
         border-top: 1px solid var(--border);
         background: rgba(5, 8, 15, 0.7);
     }
 
     .footer-content {
-        min-height: 95px;
+        min-height: 100px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 20px;
+        gap: 25px;
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
 
     .footer-copy {
@@ -499,16 +560,23 @@
     .footer-links {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
+        gap: 8px;
     }
 
     .footer-links a {
+        padding: 7px 10px;
+        border: 1px solid transparent;
+        border-radius: 8px;
         color: var(--muted);
         font-size: 0.87rem;
+        transition: color 0.2s ease, background 0.2s ease,
+                    border-color 0.2s ease;
     }
 
     .footer-links a:hover {
         color: var(--blue-light);
+        background: rgba(22, 140, 255, 0.08);
+        border-color: var(--border);
     }
 
     @media (max-width: 900px) {
@@ -527,20 +595,20 @@
 
     @media (max-width: 650px) {
         nav {
-            padding: 17px 0;
+            padding: 16px 0;
             align-items: flex-start;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
         }
 
         .nav-links {
             width: 100%;
-            flex-wrap: wrap;
-            gap: 12px 18px;
+            gap: 7px;
         }
 
         .nav-links a {
-            font-size: 0.87rem;
+            padding: 8px 10px;
+            font-size: 0.84rem;
         }
 
         .hero {
@@ -592,327 +660,340 @@
 
 <body>
 
-```
 <header>
     <div class="container">
         <nav aria-label="Main navigation">
             <a href="index.html" class="logo">Dev<span>Kaz</span></a>
 
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="index.html#services">Services</a>
-                <a href="pricing.html" class="active">Pricing</a>
-                <a href="index.html#about">About</a>
+```
+        <ul class="nav-links">
+            <li><a href="index.html">⌂ Home</a></li>
+            <li><a href="about.html">♙ About Me</a></li>
+            <li><a href="pricing.html" class="active" aria-current="page">◆ Pricing</a></li>
+            <li><a href="terms.html">▤ Terms</a></li>
+            <li>
                 <a href="https://discord.gg/N6dz2YdY3J"
                    class="nav-cta"
                    target="_blank"
                    rel="noopener noreferrer">Discord ↗</a>
-            </div>
-        </nav>
-    </div>
+            </li>
+        </ul>
+    </nav>
+</div>
+```
+
 </header>
 
 <main>
 
-    <section class="hero">
-        <div class="container">
-            <span class="eyebrow">AFFORDABLE DEVELOPMENT</span>
+```
+<section class="hero">
+    <div class="container">
+        <span class="eyebrow">AFFORDABLE DEVELOPMENT</span>
 
-            <h1>
-                Your ideas.<br>
-                <span class="gradient-text">Built for less.</span>
-            </h1>
+        <h1>
+            Your ideas.<br>
+            <span class="gradient-text">Built for less.</span>
+        </h1>
 
+        <p>
+            Need a Discord bot, a Python tool, an automation script,
+            or something custom? Find an affordable starting range
+            and let's turn your idea into a working project.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#packages" class="button button-primary">
+                Explore Packages →
+            </a>
+
+            <a href="https://discord.gg/N6dz2YdY3J"
+               class="button button-secondary"
+               target="_blank"
+               rel="noopener noreferrer">
+                Ask on Discord
+            </a>
+        </div>
+
+        <div class="trust-note">
+            Affordable starting prices · Custom quotes · Clear project scope
+        </div>
+    </div>
+</section>
+
+<section class="pricing-section" id="packages">
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>Simple <span class="gradient-text">Pricing</span></h2>
             <p>
-                Need a Discord bot, a Python tool, an automation script,
-                or something custom? Find an affordable starting range
-                and let's turn your idea into a working project.
+                Start small, add features when you need them, and choose
+                the package that fits your project.
             </p>
+        </div>
 
-            <div class="hero-buttons">
-                <a href="#packages" class="button button-primary">
-                    Explore Packages →
-                </a>
+        <div class="pricing-grid">
+
+            <article class="price-card">
+                <div class="plan-type">01 / Starter</div>
+                <h3>Mini Projects</h3>
+
+                <p class="plan-description">
+                    Great for small scripts, simple tools, and basic fixes.
+                </p>
+
+                <div class="price">
+                    $5–$15
+                    <small>Per project · Estimated range</small>
+                </div>
+
+                <div class="price-divider"></div>
+
+                <div class="feature-title">Package features</div>
+
+                <ul class="features">
+                    <li><span class="check">✓</span><span>Small Python scripts</span></li>
+                    <li><span class="check">✓</span><span>Simple automation</span></li>
+                    <li><span class="check">✓</span><span>Basic Discord bot commands</span></li>
+                    <li><span class="check">✓</span><span>Small bug fixes</span></li>
+                    <li><span class="check">✓</span><span>Basic setup guidance</span></li>
+                </ul>
 
                 <a href="https://discord.gg/N6dz2YdY3J"
                    class="button button-secondary"
                    target="_blank"
                    rel="noopener noreferrer">
-                    Ask on Discord
+                    Choose Starter
                 </a>
-            </div>
+            </article>
 
-            <div class="trust-note">
-                Affordable starting prices · Custom quotes · Clear project scope
-            </div>
+            <article class="price-card featured">
+                <span class="popular-badge">BEST VALUE</span>
+
+                <div class="plan-type">02 / Standard</div>
+                <h3>Custom Projects</h3>
+
+                <p class="plan-description">
+                    For custom bots, useful tools, and projects with multiple features.
+                </p>
+
+                <div class="price">
+                    $15–$40
+                    <small>Per project · Estimated range</small>
+                </div>
+
+                <div class="price-divider"></div>
+
+                <div class="feature-title">Package features</div>
+
+                <ul class="features">
+                    <li><span class="check">✓</span><span>Custom Discord bot commands</span></li>
+                    <li><span class="check">✓</span><span>Python tools with multiple features</span></li>
+                    <li><span class="check">✓</span><span>Moderation or utility features</span></li>
+                    <li><span class="check">✓</span><span>Basic error handling</span></li>
+                    <li><span class="check">✓</span><span>Setup and configuration help</span></li>
+                </ul>
+
+                <a href="https://discord.gg/N6dz2YdY3J"
+                   class="button button-primary"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Choose Standard
+                </a>
+            </article>
+
+            <article class="price-card">
+                <div class="plan-type">03 / Advanced</div>
+                <h3>Big Projects</h3>
+
+                <p class="plan-description">
+                    For larger bots, more complicated tools, and connected systems.
+                </p>
+
+                <div class="price">
+                    $40–$100+
+                    <small>Per project · Estimated range</small>
+                </div>
+
+                <div class="price-divider"></div>
+
+                <div class="feature-title">Package features</div>
+
+                <ul class="features">
+                    <li><span class="check">✓</span><span>Multi-feature Discord bots</span></li>
+                    <li><span class="check">✓</span><span>Advanced automation workflows</span></li>
+                    <li><span class="check">✓</span><span>Supported API integrations</span></li>
+                    <li><span class="check">✓</span><span>Organized project code</span></li>
+                    <li><span class="check">✓</span><span>Project-specific setup guidance</span></li>
+                </ul>
+
+                <a href="https://discord.gg/N6dz2YdY3J"
+                   class="button button-secondary"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Choose Advanced
+                </a>
+            </article>
+
         </div>
-    </section>
 
-    <section class="pricing-section" id="packages">
-        <div class="container">
+        <p class="pricing-note">
+            Prices are estimates in USD, not guaranteed quotes. Final pricing
+            depends on complexity and agreed features. Hosting, paid APIs,
+            and third-party services may cost extra.
+        </p>
 
-            <div class="section-heading">
-                <h2>Simple <span class="gradient-text">Pricing</span></h2>
+    </div>
+</section>
+
+<section class="custom-section">
+    <div class="container">
+        <div class="custom-box">
+            <div class="custom-content">
+                <h2>Need something custom?</h2>
+
                 <p>
-                    Start small, add features when you need them, and choose
-                    the package that fits your project.
+                    Not every idea fits into a package. Tell me what you want
+                    to build, what it needs to do, and which features matter
+                    most. I'll help work out a suitable price before the
+                    project begins.
                 </p>
             </div>
 
-            <div class="pricing-grid">
+            <div class="custom-price">
+                Flexible Pricing
+                <small>Based on your idea and requirements</small>
 
-                <article class="price-card">
-                    <div class="plan-type">01 / Starter</div>
-                    <h3>Mini Projects</h3>
-
-                    <p class="plan-description">
-                        Great for small scripts, simple tools, and basic fixes.
-                    </p>
-
-                    <div class="price">
-                        $5–$15
-                        <small>Per project · Estimated range</small>
-                    </div>
-
-                    <div class="price-divider"></div>
-
-                    <div class="feature-title">Package features</div>
-
-                    <ul class="features">
-                        <li><span class="check">✓</span><span>Small Python scripts</span></li>
-                        <li><span class="check">✓</span><span>Simple automation</span></li>
-                        <li><span class="check">✓</span><span>Basic Discord bot commands</span></li>
-                        <li><span class="check">✓</span><span>Small bug fixes</span></li>
-                        <li><span class="check">✓</span><span>Basic setup guidance</span></li>
-                    </ul>
-
-                    <a href="https://discord.gg/N6dz2YdY3J"
-                       class="button button-secondary"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        Choose Starter
-                    </a>
-                </article>
-
-                <article class="price-card featured">
-                    <span class="popular-badge">BEST VALUE</span>
-
-                    <div class="plan-type">02 / Standard</div>
-                    <h3>Custom Projects</h3>
-
-                    <p class="plan-description">
-                        For custom bots, useful tools, and projects with multiple features.
-                    </p>
-
-                    <div class="price">
-                        $15–$40
-                        <small>Per project · Estimated range</small>
-                    </div>
-
-                    <div class="price-divider"></div>
-
-                    <div class="feature-title">Package features</div>
-
-                    <ul class="features">
-                        <li><span class="check">✓</span><span>Custom Discord bot commands</span></li>
-                        <li><span class="check">✓</span><span>Python tools with multiple features</span></li>
-                        <li><span class="check">✓</span><span>Moderation or utility features</span></li>
-                        <li><span class="check">✓</span><span>Basic error handling</span></li>
-                        <li><span class="check">✓</span><span>Setup and configuration help</span></li>
-                    </ul>
-
-                    <a href="https://discord.gg/N6dz2YdY3J"
-                       class="button button-primary"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        Choose Standard
-                    </a>
-                </article>
-
-                <article class="price-card">
-                    <div class="plan-type">03 / Advanced</div>
-                    <h3>Big Projects</h3>
-
-                    <p class="plan-description">
-                        For larger bots, more complicated tools, and connected systems.
-                    </p>
-
-                    <div class="price">
-                        $40–$100+
-                        <small>Per project · Estimated range</small>
-                    </div>
-
-                    <div class="price-divider"></div>
-
-                    <div class="feature-title">Package features</div>
-
-                    <ul class="features">
-                        <li><span class="check">✓</span><span>Multi-feature Discord bots</span></li>
-                        <li><span class="check">✓</span><span>Advanced automation workflows</span></li>
-                        <li><span class="check">✓</span><span>Supported API integrations</span></li>
-                        <li><span class="check">✓</span><span>Organized project code</span></li>
-                        <li><span class="check">✓</span><span>Project-specific setup guidance</span></li>
-                    </ul>
-
-                    <a href="https://discord.gg/N6dz2YdY3J"
-                       class="button button-secondary"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        Choose Advanced
-                    </a>
-                </article>
-
-            </div>
-
-            <p class="pricing-note">
-                Prices are estimates in USD, not guaranteed quotes. Final pricing
-                depends on complexity and agreed features. Hosting, paid APIs,
-                and third-party services may cost extra.
-            </p>
-
-        </div>
-    </section>
-
-    <section class="custom-section">
-        <div class="container">
-            <div class="custom-box">
-                <div class="custom-content">
-                    <h2>Need something custom?</h2>
-
-                    <p>
-                        Not every idea fits into a package. Tell me what you want
-                        to build, what it needs to do, and which features matter
-                        most. I'll help work out a suitable price before the
-                        project begins.
-                    </p>
-                </div>
-
-                <div class="custom-price">
-                    Flexible Pricing
-                    <small>Based on your idea and requirements</small>
-
-                    <a href="https://discord.gg/N6dz2YdY3J"
-                       class="button button-primary"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        Get a Quote →
-                    </a>
-                </div>
+                <a href="https://discord.gg/N6dz2YdY3J"
+                   class="button button-primary"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Get a Quote →
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="process-section">
-        <div class="container">
-            <div class="section-heading">
-                <h2>How It <span class="gradient-text">Works</span></h2>
-                <p>A straightforward process from your idea to delivery.</p>
-            </div>
-
-            <div class="process-grid">
-
-                <article class="process-card">
-                    <div class="step-number">01</div>
-                    <h3>Share Your Idea</h3>
-                    <p>
-                        Explain what you want built and list the features
-                        you would like included.
-                    </p>
-                </article>
-
-                <article class="process-card">
-                    <div class="step-number">02</div>
-                    <h3>Agree on the Price</h3>
-                    <p>
-                        Work out the project scope, estimated cost, and
-                        expectations before development starts.
-                    </p>
-                </article>
-
-                <article class="process-card">
-                    <div class="step-number">03</div>
-                    <h3>Build and Deliver</h3>
-                    <p>
-                        Develop the agreed features, test the project,
-                        and provide the finished work.
-                    </p>
-                </article>
-
-            </div>
+<section class="process-section">
+    <div class="container">
+        <div class="section-heading">
+            <h2>How It <span class="gradient-text">Works</span></h2>
+            <p>A straightforward process from your idea to delivery.</p>
         </div>
-    </section>
 
-    <section class="faq-section">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
-                <p>Some useful details before starting a project.</p>
-            </div>
+        <div class="process-grid">
 
-            <div class="faq-list">
+            <article class="process-card">
+                <div class="step-number">01</div>
+                <h3>Share Your Idea</h3>
+                <p>
+                    Explain what you want built and list the features
+                    you would like included.
+                </p>
+            </article>
 
-                <details>
-                    <summary>Are these fixed prices?</summary>
-                    <p>
-                        No. These are estimated ranges. The final price depends
-                        on the size of your project and the features you request.
-                    </p>
-                </details>
+            <article class="process-card">
+                <div class="step-number">02</div>
+                <h3>Agree on the Price</h3>
+                <p>
+                    Work out the project scope, estimated cost, and
+                    expectations before development starts.
+                </p>
+            </article>
 
-                <details>
-                    <summary>Can I request something outside these packages?</summary>
-                    <p>
-                        Yes. You can ask about Python applications, Discord bots,
-                        automation, and scripts written in other programming languages.
-                        Custom work can receive its own quote.
-                    </p>
-                </details>
+            <article class="process-card">
+                <div class="step-number">03</div>
+                <h3>Build and Deliver</h3>
+                <p>
+                    Develop the agreed features, test the project,
+                    and provide the finished work.
+                </p>
+            </article>
 
-                <details>
-                    <summary>Is hosting included?</summary>
-                    <p>
-                        Hosting is not automatically included. Hosting providers,
-                        domains, databases, and paid APIs may have separate costs.
-                    </p>
-                </details>
-
-                <details>
-                    <summary>What if I want extra features later?</summary>
-                    <p>
-                        Additional features can be discussed separately. Depending
-                        on the amount of work involved, they may require an additional fee.
-                    </p>
-                </details>
-
-                <details>
-                    <summary>How do I request a project?</summary>
-                    <p>
-                        Join the DevKaz Discord server and describe your idea.
-                        Include the features you need so a suitable price can be discussed.
-                    </p>
-                </details>
-
-            </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="final-cta">
-        <div class="container">
-            <h2>Let's build your next idea.</h2>
+<section class="faq-section">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+            <p>Some useful details before starting a project.</p>
+        </div>
 
-            <p>
-                Have an idea for a bot, a tool, or an automation project?
-                Start a conversation and let's figure out what works for you.
-            </p>
+        <div class="faq-list">
 
+            <details>
+                <summary>Are these fixed prices?</summary>
+                <p>
+                    No. These are estimated ranges. The final price depends
+                    on the size of your project and the features you request.
+                </p>
+            </details>
+
+            <details>
+                <summary>Can I request something outside these packages?</summary>
+                <p>
+                    Yes. You can ask about Python applications, Discord bots,
+                    automation, and scripts written in other programming languages.
+                    Custom work can receive its own quote.
+                </p>
+            </details>
+
+            <details>
+                <summary>Is hosting included?</summary>
+                <p>
+                    Hosting is not automatically included. Hosting providers,
+                    domains, databases, and paid APIs may have separate costs.
+                </p>
+            </details>
+
+            <details>
+                <summary>What if I want extra features later?</summary>
+                <p>
+                    Additional features can be discussed separately. Depending
+                    on the amount of work involved, they may require an additional fee.
+                </p>
+            </details>
+
+            <details>
+                <summary>How do I request a project?</summary>
+                <p>
+                    Join the DevKaz Discord server or email me with your idea.
+                    Include the features you need so a suitable price can be discussed.
+                </p>
+            </details>
+
+        </div>
+    </div>
+</section>
+
+<section class="final-cta">
+    <div class="container">
+        <h2>Let's build your next idea.</h2>
+
+        <p>
+            Have an idea for a bot, a tool, or an automation project?
+            Start a conversation and let's figure out what works for you.
+        </p>
+
+        <div class="hero-buttons">
             <a href="https://discord.gg/N6dz2YdY3J"
                class="button button-primary"
                target="_blank"
                rel="noopener noreferrer">
                 Join DevKaz Discord →
             </a>
+
+            <a href="mailto:midnightkaz777@gmail.com"
+               class="button button-secondary">
+                📧 Email Me
+            </a>
         </div>
-    </section>
+    </div>
+</section>
+```
 
 </main>
 
@@ -926,21 +1007,23 @@
                 </p>
             </div>
 
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="pricing.html">Pricing</a>
-                <a href="https://discord.gg/N6dz2YdY3J"
-                   target="_blank"
-                   rel="noopener noreferrer">Discord</a>
-            </div>
+```
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="pricing.html" aria-current="page">Pricing</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="mailto:midnightkaz777@gmail.com">Email</a>
         </div>
     </div>
+</div>
+```
+
 </footer>
 
 <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 </script>
-```
 
 </body>
 </html>
