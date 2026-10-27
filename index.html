@@ -4,50 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#060a12">
+    <meta name="theme-color" content="#050914">
+    <meta name="description" content="DevKaz creates custom Discord bots, Python tools, automation, and scripts in multiple programming languages.">
+    <title>DevKaz — Custom Bots, Tools & Development</title>
 
 ```
-<title>DevKaz — Official Website</title>
-<meta name="description" content="Discover DevKaz, offering custom Discord bots, Python tools, automation, and software development projects.">
-
 <style>
     :root {
-        --background: #060a12;
-        --background-light: #0b1220;
-        --card: rgba(15, 24, 41, 0.78);
+        --bg: #050914;
+        --bg-light: #0a1222;
+        --card: #0d1729;
         --blue: #168cff;
-        --blue-light: #64bdff;
+        --blue-light: #75c3ff;
         --text: #f4f8ff;
-        --muted: #9aaac0;
-        --border: rgba(120, 170, 230, 0.16);
-        --radius: 20px;
-        --max-width: 1120px;
+        --muted: #a4b1c5;
+        --border: rgba(117, 195, 255, 0.16);
     }
 
     * {
-        box-sizing: border-box;
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
     }
 
     html {
         scroll-behavior: smooth;
-        scroll-padding-top: 100px;
+        scroll-padding-top: 90px;
     }
 
     body {
-        font-family: Inter, "Segoe UI", Arial, sans-serif;
-        background:
-            radial-gradient(ellipse at 50% -15%, rgba(22, 140, 255, 0.17), transparent 55%),
-            var(--background);
+        background: var(--bg);
         color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
         line-height: 1.7;
         overflow-x: hidden;
-    }
-
-    body::selection {
-        background: rgba(22, 140, 255, 0.4);
-        color: white;
     }
 
     a {
@@ -55,25 +45,9 @@
         text-decoration: none;
     }
 
-    a:focus-visible {
-        outline: 2px solid var(--blue-light);
-        outline-offset: 4px;
-    }
-
-    .wrap {
-        width: min(var(--max-width), calc(100% - 40px));
-        margin: 0 auto;
-    }
-
-    .blue-text {
-        color: var(--blue-light);
-    }
-
-    .gradient-text {
-        background: linear-gradient(100deg, #168cff, #78ccff, #c1e8ff);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+    .container {
+        width: min(1120px, 90%);
+        margin: auto;
     }
 
     /* Navigation */
@@ -81,619 +55,449 @@
     header {
         position: sticky;
         top: 0;
-        z-index: 100;
-        background: rgba(6, 10, 18, 0.88);
+        z-index: 1000;
+        background: rgba(5, 9, 20, 0.88);
+        backdrop-filter: blur(16px);
         border-bottom: 1px solid var(--border);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
     }
 
-    .navbar {
+    nav {
         min-height: 76px;
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
         gap: 25px;
     }
 
-    .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 11px;
-        font-size: 23px;
-        font-weight: 850;
+    .logo {
+        font-size: 1.65rem;
+        font-weight: 900;
         letter-spacing: -1px;
-        white-space: nowrap;
     }
 
-    .brand-icon {
-        width: 40px;
-        height: 40px;
-        display: grid;
-        place-items: center;
-        border-radius: 12px;
-        color: white;
-        background: linear-gradient(135deg, #168cff, #0753a7);
-        box-shadow: 0 0 25px rgba(22, 140, 255, 0.3);
-        font-family: Consolas, monospace;
-        font-size: 17px;
-        font-weight: 900;
+    .logo span {
+        color: var(--blue);
     }
 
     .nav-links {
         display: flex;
         align-items: center;
-        justify-content: flex-end;
-        gap: 23px;
-        font-size: 13px;
-        color: var(--muted);
+        gap: 26px;
+        list-style: none;
     }
 
     .nav-links a {
-        transition: color 0.2s ease, background 0.2s ease;
+        color: var(--muted);
+        font-size: 0.95rem;
+        transition: color 0.2s ease;
     }
 
     .nav-links a:hover,
     .nav-links a.active {
-        color: white;
+        color: var(--blue-light);
     }
 
-    .nav-links .nav-cta {
-        padding: 10px 15px;
-        border: 1px solid rgba(22, 140, 255, 0.45);
-        border-radius: 10px;
-        color: white;
-        background: rgba(22, 140, 255, 0.1);
-        white-space: nowrap;
-    }
-
-    .nav-links .nav-cta:hover {
-        background: rgba(22, 140, 255, 0.2);
-    }
-
-    /* Buttons */
-
-    .btn {
-        min-height: 46px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 9px;
-        padding: 12px 20px;
-        border: 1px solid transparent;
-        border-radius: 11px;
-        background: linear-gradient(135deg, #168cff, #0871d9);
-        color: white;
-        font-size: 14px;
-        font-weight: 750;
-        cursor: pointer;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 30px rgba(22, 140, 255, 0.24);
-    }
-
-    .btn-secondary {
-        border-color: var(--border);
-        background: rgba(255, 255, 255, 0.025);
-        color: var(--text);
-    }
-
-    .btn-secondary:hover {
-        background: rgba(255, 255, 255, 0.07);
+    .nav-cta {
+        background: var(--blue);
+        color: white !important;
+        padding: 10px 17px;
+        border-radius: 9px;
+        font-weight: 700;
     }
 
     /* Hero */
 
     .hero {
-        position: relative;
-        padding: 110px 0 100px;
-        overflow: hidden;
-    }
-
-    .hero::before {
-        content: "";
-        position: absolute;
-        width: 420px;
-        height: 420px;
-        top: 10%;
-        right: -220px;
-        border-radius: 50%;
-        background: rgba(22, 140, 255, 0.09);
-        filter: blur(90px);
-        pointer-events: none;
-    }
-
-    .hero-grid {
-        display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
+        min-height: 670px;
+        display: flex;
         align-items: center;
-        gap: 65px;
+        position: relative;
+        overflow: hidden;
+        background:
+            radial-gradient(ellipse at 75% 35%, rgba(22, 140, 255, 0.14), transparent 38%),
+            radial-gradient(ellipse at 15% 80%, rgba(22, 140, 255, 0.08), transparent 35%);
     }
 
-    .eyebrow {
+    .hero-content {
+        max-width: 800px;
+        padding: 100px 0;
+        position: relative;
+        z-index: 1;
+        animation: fadeUp 0.8s ease both;
+    }
+
+    .badge {
         display: inline-flex;
         align-items: center;
         gap: 9px;
-        margin-bottom: 23px;
-        padding: 8px 12px;
-        border: 1px solid rgba(22, 140, 255, 0.22);
-        border-radius: 100px;
-        background: rgba(22, 140, 255, 0.06);
-        color: #a9d8ff;
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 1.5px;
+        padding: 8px 13px;
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        color: var(--blue-light);
+        background: rgba(22, 140, 255, 0.07);
+        font-size: 0.85rem;
+        margin-bottom: 25px;
     }
 
-    .status-dot {
-        width: 8px;
-        height: 8px;
+    .badge-dot {
+        width: 7px;
+        height: 7px;
         border-radius: 50%;
-        background: #43e6a2;
-        box-shadow: 0 0 12px rgba(67, 230, 162, 0.7);
+        background: var(--blue);
+        box-shadow: 0 0 12px var(--blue);
     }
 
     h1 {
-        font-size: clamp(43px, 6vw, 70px);
-        line-height: 1.09;
+        font-size: clamp(2.7rem, 6vw, 5.1rem);
+        line-height: 1.08;
         letter-spacing: -3px;
         margin-bottom: 25px;
     }
 
-    .hero-description {
-        max-width: 570px;
-        color: var(--muted);
-        font-size: 16px;
-        line-height: 1.9;
+    .gradient-text {
+        background: linear-gradient(90deg, #168cff, #8bd0ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
     }
 
-    .actions {
+    .hero p {
+        max-width: 650px;
+        color: var(--muted);
+        font-size: 1.12rem;
+        margin-bottom: 32px;
+    }
+
+    .buttons {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 32px;
+        gap: 14px;
     }
 
-    .hero-note {
-        margin-top: 23px;
-        color: #7588a2;
-        font-size: 12px;
-    }
-
-    /* Code Window */
-
-    .code-window {
-        position: relative;
-        overflow: hidden;
-        border: 1px solid rgba(91, 161, 235, 0.25);
-        border-radius: 17px;
-        background: linear-gradient(145deg, #0d1727, #080d17);
-        box-shadow:
-            0 25px 90px rgba(0, 0, 0, 0.35),
-            0 0 50px rgba(22, 140, 255, 0.08);
-        animation: float 6s ease-in-out infinite;
-    }
-
-    .window-top {
-        display: flex;
+    .btn {
+        display: inline-flex;
+        justify-content: center;
         align-items: center;
-        gap: 15px;
-        padding: 16px 19px;
-        border-bottom: 1px solid var(--border);
-        color: #8ba0bb;
-        font-size: 11px;
+        gap: 9px;
+        padding: 13px 21px;
+        border-radius: 10px;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        border: 1px solid transparent;
     }
 
-    .window-top > span:nth-child(2) {
-        margin-left: auto;
-        color: #67baff;
-        letter-spacing: 1px;
+    .btn:hover {
+        transform: translateY(-3px);
     }
 
-    .window-dots {
-        display: flex;
-        gap: 6px;
+    .btn-primary {
+        background: var(--blue);
+        color: white;
+        box-shadow: 0 5px 24px rgba(22, 140, 255, 0.18);
     }
 
-    .window-dots span {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: #46627f;
+    .btn-primary:hover {
+        background: #0879e8;
+        box-shadow: 0 8px 30px rgba(22, 140, 255, 0.3);
     }
 
-    .window-dots span:first-child {
-        background: #ff6d7d;
+    .btn-secondary {
+        background: rgba(255, 255, 255, 0.035);
+        border-color: var(--border);
+        color: var(--text);
     }
 
-    .window-dots span:nth-child(2) {
-        background: #ffc35a;
+    .btn-secondary:hover {
+        background: rgba(22, 140, 255, 0.1);
     }
 
-    .window-dots span:nth-child(3) {
-        background: #48dda0;
-    }
+    /* General sections */
 
-    .code-content {
-        padding: 28px 23px 30px;
-        overflow-x: auto;
-        font-family: Consolas, "Courier New", monospace;
-        font-size: 13px;
-        line-height: 2.15;
-    }
-
-    .code-line {
-        display: block;
-        white-space: nowrap;
-    }
-
-    .code-indent {
-        padding-left: 19px;
-    }
-
-    .code-purple {
-        color: #c792ea;
-    }
-
-    .code-blue {
-        color: #82baff;
-    }
-
-    .code-green {
-        color: #8ee6bd;
-    }
-
-    .code-muted {
-        color: #70849f;
-    }
-
-    .code-spacer {
-        height: 17px;
-    }
-
-    /* General Sections */
-
-    section:not(.hero) {
-        padding: 85px 0;
-        border-top: 1px solid rgba(120, 170, 230, 0.08);
+    section {
+        padding: 90px 0;
     }
 
     .section-heading {
         max-width: 700px;
-        margin: 0 auto 43px;
-        text-align: center;
+        margin-bottom: 42px;
     }
 
-    .section-label {
-        display: inline-block;
-        margin-bottom: 12px;
+    .eyebrow {
         color: var(--blue-light);
-        font-size: 11px;
-        font-weight: 800;
+        text-transform: uppercase;
         letter-spacing: 2px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        margin-bottom: 10px;
     }
 
-    .section-heading h2 {
-        margin-bottom: 15px;
-        font-size: clamp(29px, 4vw, 43px);
+    h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
         line-height: 1.2;
-        letter-spacing: -1.4px;
+        letter-spacing: -1px;
+        margin-bottom: 15px;
     }
 
-    .section-description {
+    .section-heading p {
         color: var(--muted);
-        font-size: 14px;
-        line-height: 1.9;
     }
 
     /* Services */
 
     .services-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
     }
 
-    .service-card {
-        padding: 28px;
+    .card {
+        background: linear-gradient(145deg, rgba(13, 23, 41, 0.96), rgba(8, 15, 28, 0.96));
         border: 1px solid var(--border);
-        border-radius: var(--radius);
-        background: linear-gradient(145deg, rgba(17, 29, 49, 0.78), rgba(9, 15, 26, 0.8));
+        border-radius: 17px;
+        padding: 27px;
         transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .service-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(22, 140, 255, 0.45);
-        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.16);
+    .card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(22, 140, 255, 0.55);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
     }
 
-    .service-icon {
-        width: 46px;
-        height: 46px;
+    .card-icon {
+        width: 49px;
+        height: 49px;
         display: grid;
         place-items: center;
-        margin-bottom: 21px;
-        border: 1px solid rgba(22, 140, 255, 0.25);
-        border-radius: 13px;
-        background: rgba(22, 140, 255, 0.1);
-        color: #8bcaff;
-        font-size: 15px;
-        font-weight: 800;
+        background: rgba(22, 140, 255, 0.12);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        font-size: 1.4rem;
+        margin-bottom: 20px;
     }
 
-    .service-card h3 {
-        margin-bottom: 11px;
-        font-size: 18px;
+    .card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
     }
 
-    .service-card p {
+    .card p {
         color: var(--muted);
-        font-size: 13px;
-        line-height: 1.9;
+        font-size: 0.95rem;
     }
 
     /* Languages */
 
-    .languages-section {
-        background: rgba(9, 17, 30, 0.48);
-    }
-
-    .languages-panel {
-        padding: 30px;
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        background: rgba(12, 21, 36, 0.7);
-        text-align: center;
-    }
-
-    .languages-panel > p {
-        margin-bottom: 22px;
-        color: var(--muted);
-        font-size: 13px;
+    .languages {
+        background: var(--bg-light);
+        border-top: 1px solid rgba(255, 255, 255, 0.035);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.035);
     }
 
     .language-list {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
         gap: 12px;
     }
 
-    .language-tag {
-        padding: 10px 16px;
-        border: 1px solid rgba(100, 189, 255, 0.17);
-        border-radius: 10px;
-        background: rgba(22, 140, 255, 0.07);
-        color: #c9e6ff;
-        font-size: 13px;
-        transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .language-tag:hover {
-        transform: translateY(-2px);
-        background: rgba(22, 140, 255, 0.15);
+    .language {
+        padding: 11px 17px;
+        border-radius: 9px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.025);
+        color: #d9eaff;
+        font-weight: 600;
+        font-size: 0.92rem;
     }
 
     /* Process */
 
     .process-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
     }
 
-    .process-card {
-        padding: 25px;
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        background: rgba(12, 21, 36, 0.65);
-        transition: border-color 0.25s ease, transform 0.25s ease;
-    }
-
-    .process-card:hover {
-        transform: translateY(-4px);
-        border-color: rgba(22, 140, 255, 0.4);
-    }
-
-    .step-number {
-        display: inline-block;
-        margin-bottom: 22px;
-        color: #69baff;
-        font-family: Consolas, monospace;
-        font-size: 12px;
+    .process-number {
+        color: var(--blue-light);
+        font-size: 0.85rem;
         font-weight: 800;
         letter-spacing: 1px;
+        margin-bottom: 12px;
     }
 
-    .process-card h3 {
-        margin-bottom: 11px;
-        font-size: 17px;
-    }
+    /* Pricing preview */
 
-    .process-card p {
-        color: var(--muted);
-        font-size: 13px;
-        line-height: 1.9;
-    }
-
-    /* Pricing Preview */
-
-    .pricing-preview {
-        background: rgba(9, 17, 30, 0.42);
-    }
-
-    .pricing-preview-card {
+    .pricing-box {
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        gap: 30px;
-        padding: 38px;
-        border: 1px solid rgba(22, 140, 255, 0.27);
-        border-radius: 22px;
-        background:
-            radial-gradient(ellipse at 90% 0%, rgba(22, 140, 255, 0.14), transparent 50%),
-            linear-gradient(125deg, rgba(14, 30, 51, 0.95), rgba(8, 14, 24, 0.95));
-    }
-
-    .pricing-preview-copy {
-        max-width: 650px;
-    }
-
-    .pricing-preview-copy h2 {
-        margin-bottom: 13px;
-        font-size: clamp(27px, 4vw, 38px);
-        line-height: 1.2;
-        letter-spacing: -1px;
-    }
-
-    .pricing-preview-copy p {
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.9;
-    }
-
-    .pricing-preview-actions {
-        flex-shrink: 0;
-    }
-
-    /* Discord */
-
-    .discord-section {
-        background: radial-gradient(ellipse at 50% 50%, rgba(22, 140, 255, 0.1), transparent 65%);
-    }
-
-    .discord-card {
-        position: relative;
-        display: flex;
         align-items: center;
-        justify-content: space-between;
         gap: 30px;
         padding: 40px;
         border: 1px solid rgba(22, 140, 255, 0.28);
-        border-radius: 24px;
-        background: linear-gradient(120deg, rgba(18, 39, 67, 0.8), rgba(10, 17, 30, 0.9));
-        overflow: hidden;
+        border-radius: 20px;
+        background:
+            radial-gradient(ellipse at 90% 10%, rgba(22, 140, 255, 0.12), transparent 45%),
+            var(--card);
     }
 
-    .discord-copy {
-        position: relative;
-        z-index: 1;
-        max-width: 620px;
-    }
-
-    .discord-copy h2 {
-        margin-bottom: 13px;
-        font-size: clamp(26px, 4vw, 38px);
-        line-height: 1.2;
-        letter-spacing: -1px;
-    }
-
-    .discord-copy p {
+    .pricing-box p {
         color: var(--muted);
-        font-size: 14px;
-        line-height: 1.9;
-    }
-
-    .discord-actions {
-        position: relative;
-        z-index: 1;
-        flex-shrink: 0;
+        max-width: 620px;
     }
 
     /* Contact */
 
-    .contact-section {
-        padding-bottom: 100px !important;
+    .contact {
+        background:
+            radial-gradient(ellipse at 50% 100%, rgba(22, 140, 255, 0.12), transparent 55%);
     }
 
     .contact-box {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 30px;
-        padding: 40px;
-        border: 1px solid rgba(22, 140, 255, 0.24);
-        border-radius: 24px;
-        background: linear-gradient(125deg, rgba(14, 30, 51, 0.95), rgba(8, 14, 24, 0.95));
+        text-align: center;
+        max-width: 760px;
+        margin: auto;
     }
 
-    .contact-copy {
-        max-width: 670px;
-    }
-
-    .contact-copy h2 {
-        margin-bottom: 12px;
-        font-size: clamp(27px, 4vw, 39px);
-        line-height: 1.2;
-        letter-spacing: -1px;
-    }
-
-    .contact-copy p {
+    .contact-box p {
         color: var(--muted);
-        font-size: 14px;
-        line-height: 1.9;
+        margin: 0 auto 25px;
+        max-width: 620px;
     }
 
-    .contact-actions {
-        flex-shrink: 0;
+    .contact-buttons {
+        justify-content: center;
+    }
+
+    .email-display {
+        display: inline-block;
+        margin-top: 25px;
+        color: var(--blue-light);
+        overflow-wrap: anywhere;
+    }
+
+    .email-display a {
+        border-bottom: 1px solid rgba(117, 195, 255, 0.35);
+        transition: color 0.2s ease;
+    }
+
+    .email-display a:hover {
+        color: white;
     }
 
     /* Footer */
 
     footer {
-        padding: 26px 0;
         border-top: 1px solid var(--border);
-        background: rgba(4, 7, 13, 0.6);
+        padding: 28px 0;
+        color: var(--muted);
+        font-size: 0.9rem;
     }
 
-    .footer-inner {
+    .footer-content {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
         gap: 20px;
-    }
-
-    .footer-brand {
-        color: #dcecff;
-        font-size: 14px;
-        font-weight: 800;
-        white-space: nowrap;
-    }
-
-    .footer-note {
-        color: #71839c;
-        font-size: 12px;
+        flex-wrap: wrap;
     }
 
     .footer-links {
         display: flex;
         flex-wrap: wrap;
-        gap: 18px;
-        color: var(--muted);
-        font-size: 12px;
-    }
-
-    .footer-links a {
-        transition: color 0.2s ease;
+        gap: 20px;
     }
 
     .footer-links a:hover {
-        color: white;
+        color: var(--blue-light);
     }
 
-    /* Animations */
+    /* Animation */
 
-    @keyframes float {
-        0%, 100% {
-            transform: translateY(0);
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
         }
 
-        50% {
-            transform: translateY(-8px);
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Mobile layout */
+
+    @media (max-width: 800px) {
+        .nav-links {
+            gap: 14px;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+        }
+
+        .services-grid,
+        .process-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .pricing-box {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 560px) {
+        nav {
+            padding: 15px 0;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .nav-links {
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 12px 18px;
+        }
+
+        .nav-cta {
+            padding: 7px 11px;
+        }
+
+        .hero {
+            min-height: auto;
+        }
+
+        .hero-content {
+            padding: 75px 0;
+        }
+
+        h1 {
+            letter-spacing: -1.5px;
+        }
+
+        section {
+            padding: 65px 0;
+        }
+
+        .services-grid,
+        .process-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .pricing-box {
+            padding: 25px;
+        }
+
+        .btn {
+            width: 100%;
+        }
+
+        .footer-content {
+            flex-direction: column;
+            align-items: flex-start;
         }
     }
 
@@ -702,135 +506,8 @@
         *::before,
         *::after {
             scroll-behavior: auto !important;
-            animation: none !important;
-            transition: none !important;
-        }
-    }
-
-    /* Responsive Layout */
-
-    @media (max-width: 1000px) {
-        .navbar {
-            gap: 15px;
-        }
-
-        .nav-links {
-            gap: 14px;
-        }
-
-        .hero-grid {
-            gap: 35px;
-        }
-
-        .footer-inner {
-            flex-wrap: wrap;
-        }
-    }
-
-    @media (max-width: 850px) {
-        .hero-grid {
-            grid-template-columns: 1fr;
-            gap: 45px;
-        }
-
-        .hero {
-            padding: 80px 0;
-        }
-
-        .hero-copy {
-            text-align: center;
-        }
-
-        .hero-description {
-            margin: 0 auto;
-        }
-
-        .actions {
-            justify-content: center;
-        }
-
-        .code-window {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .process-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .discord-card,
-        .contact-box,
-        .pricing-preview-card {
-            align-items: flex-start;
-            flex-direction: column;
-        }
-    }
-
-    @media (max-width: 620px) {
-        .wrap {
-            width: min(100% - 28px, var(--max-width));
-        }
-
-        .navbar {
-            min-height: auto;
-            padding: 15px 0;
-            align-items: flex-start;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .nav-links {
-            width: 100%;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            gap: 12px 16px;
-            font-size: 12px;
-        }
-
-        .nav-links .nav-cta {
-            padding: 7px 10px;
-        }
-
-        h1 {
-            letter-spacing: -2px;
-        }
-
-        .hero {
-            padding: 65px 0;
-        }
-
-        section:not(.hero) {
-            padding: 65px 0;
-        }
-
-        .services-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .section-heading {
-            margin-bottom: 30px;
-        }
-
-        .service-card,
-        .process-card {
-            padding: 23px;
-        }
-
-        .languages-panel,
-        .discord-card,
-        .contact-box,
-        .pricing-preview-card {
-            padding: 25px;
-        }
-
-        .footer-inner {
-            align-items: flex-start;
-            flex-direction: column;
-        }
-
-        .footer-links {
-            gap: 14px;
+            animation-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
         }
     }
 </style>
@@ -841,342 +518,265 @@
 <body>
 
 ```
+<!-- Navigation -->
 <header>
-    <div class="wrap navbar">
+    <nav class="container">
+        <a href="index.html" class="logo">Dev<span>Kaz</span></a>
 
-        <a class="brand" href="index.html" aria-label="DevKaz home">
-            <span class="brand-icon" aria-hidden="true">&lt;/&gt;</span>
-            <span>Dev<span class="blue-text">Kaz</span></span>
-        </a>
-
-        <nav class="nav-links" aria-label="Main navigation">
-            <a href="#services">Services</a>
-            <a href="#languages">Languages</a>
-            <a href="#process">Process</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="#community">Discord</a>
-            <a class="nav-cta" href="#contact">Get in Touch ↗</a>
-        </nav>
-
-    </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#languages">Languages</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="#contact" class="nav-cta">Contact</a></li>
+        </ul>
+    </nav>
 </header>
 
 <main>
-
+    <!-- Hero -->
     <section class="hero" id="home">
-        <div class="wrap hero-grid">
-
-            <div class="hero-copy">
-
-                <div class="eyebrow">
-                    <span class="status-dot"></span>
-                    CODE. CREATE. AUTOMATE.
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    Custom Development & Digital Tools
                 </div>
 
                 <h1>
-                    Smart code.<br>
-                    <span class="gradient-text">Real solutions.</span>
+                    Building useful tools.<br>
+                    Creating <span class="gradient-text">better solutions.</span>
                 </h1>
 
-                <p class="hero-description">
-                    DevKaz builds custom Discord bots, Python tools,
-                    automation systems, and software designed around
-                    your ideas. From simplifying everyday tasks to
-                    creating something new, let's turn your vision
-                    into working code.
+                <p>
+                    Welcome to DevKaz. I build custom Discord bots, Python tools,
+                    automation, and scripts designed to make projects easier,
+                    smarter, and more efficient.
                 </p>
 
-                <div class="actions">
-                    <a class="btn" href="#contact">
-                        Start a Project ↗
+                <div class="buttons">
+                    <a href="#services" class="btn btn-primary">
+                        Explore Services →
                     </a>
 
-                    <a class="btn btn-secondary" href="#services">
-                        Explore Services
+                    <a href="https://discord.gg/N6dz2YdY3J"
+                       class="btn btn-secondary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        💬 Join My Discord
                     </a>
                 </div>
-
-                <p class="hero-note">
-                    Independent development · Creative solutions · Built around your ideas
-                </p>
-
             </div>
-
-            <div class="code-window" aria-label="Example development code">
-
-                <div class="window-top">
-                    <div class="window-dots" aria-hidden="true">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-
-                    <span>devkaz.py</span>
-                    <span>PYTHON</span>
-                </div>
-
-                <div class="code-content">
-                    <span class="code-line"><span class="code-purple">class</span> <span class="code-blue">DevKaz</span>:</span>
-                    <span class="code-line code-indent"><span class="code-purple">def</span> <span class="code-blue">build_solution</span>(self):</span>
-                    <span class="code-line" style="padding-left: 38px;">idea = <span class="code-green">"Your vision"</span></span>
-                    <span class="code-line" style="padding-left: 38px;">code = <span class="code-green">"Custom-built"</span></span>
-                    <span class="code-line" style="padding-left: 38px;">quality = <span class="code-green">"Tested"</span></span>
-
-                    <div class="code-spacer"></div>
-
-                    <span class="code-line code-muted"># Turning ideas into reality...</span>
-                    <span class="code-line"><span class="code-purple">return</span> <span class="code-green">"Solution ready."</span></span>
-
-                    <div class="code-spacer"></div>
-
-                    <span class="code-line code-green">✓ Ready to build something great_</span>
-                </div>
-
-            </div>
-
         </div>
     </section>
 
+    <!-- Services -->
     <section id="services">
-        <div class="wrap">
-
+        <div class="container">
             <div class="section-heading">
-                <span class="section-label">WHAT I DO</span>
-                <h2>Software made to do more.</h2>
-                <p class="section-description">
-                    Practical solutions for Discord communities,
-                    repetitive tasks, and custom software projects.
+                <div class="eyebrow">What I Do</div>
+                <h2>Tools built around your ideas.</h2>
+                <p>
+                    From Discord community management to custom scripts,
+                    DevKaz focuses on practical digital solutions.
                 </p>
             </div>
 
             <div class="services-grid">
-
-                <article class="service-card">
-                    <div class="service-icon" aria-hidden="true">DC</div>
-                    <h3>Discord Bot Development</h3>
+                <article class="card">
+                    <div class="card-icon">🤖</div>
+                    <h3>Discord Bots</h3>
                     <p>
-                        Custom Discord bots with moderation, ticket
-                        systems, verification, applications, commands,
-                        notifications, and other useful features.
+                        Custom bots with moderation, tickets, applications,
+                        verification, automated messages, and other useful features.
                     </p>
                 </article>
 
-                <article class="service-card">
-                    <div class="service-icon" aria-hidden="true">PY</div>
-                    <h3>Python Tools &amp; Scripts</h3>
+                <article class="card">
+                    <div class="card-icon">🐍</div>
+                    <h3>Python Tools</h3>
                     <p>
-                        Useful programs that automate repetitive tasks,
-                        organize information, process data, and help
-                        you get more done.
+                        Python scripts and utilities that help automate tasks,
+                        organize workflows, and solve everyday problems.
                     </p>
                 </article>
 
-                <article class="service-card">
-                    <div class="service-icon" aria-hidden="true">⚙</div>
-                    <h3>Automation &amp; Utilities</h3>
+                <article class="card">
+                    <div class="card-icon">⚙️</div>
+                    <h3>Automation</h3>
                     <p>
-                        Custom utilities, scheduled tasks, and
-                        automation workflows designed around
-                        your requirements.
+                        Reduce repetitive work with custom workflows,
+                        integrations, and automated processes.
                     </p>
                 </article>
 
-                <article class="service-card">
-                    <div class="service-icon" aria-hidden="true">&lt;/&gt;</div>
-                    <h3>Custom Software &amp; Scripting</h3>
+                <article class="card">
+                    <div class="card-icon">💻</div>
+                    <h3>Custom Scripts</h3>
                     <p>
-                        Custom scripts, applications, integrations,
-                        and software ideas using suitable programming
-                        languages and technologies.
+                        Scripts developed for specific needs using suitable
+                        programming languages and technologies.
                     </p>
                 </article>
 
+                <article class="card">
+                    <div class="card-icon">🌐</div>
+                    <h3>Web Development</h3>
+                    <p>
+                        Clean, responsive websites and web interfaces
+                        with modern layouts and a polished look.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">🛠️</div>
+                    <h3>Custom Projects</h3>
+                    <p>
+                        Have a project idea? Get in touch to discuss the
+                        features, requirements, and possible approach.
+                    </p>
+                </article>
             </div>
         </div>
     </section>
 
-    <section class="languages-section" id="languages">
-        <div class="wrap">
-
+    <!-- Languages -->
+    <section class="languages" id="languages">
+        <div class="container">
             <div class="section-heading">
-                <span class="section-label">THE TECHNOLOGY</span>
-                <h2>Different languages. New possibilities.</h2>
-                <p class="section-description">
-                    The right technology depends on what you're
-                    trying to build.
+                <div class="eyebrow">Technologies</div>
+                <h2>Different tools for different jobs.</h2>
+                <p>
+                    Programming languages and technologies can be used
+                    together to build projects that fit their purpose.
                 </p>
             </div>
 
-            <div class="languages-panel">
-                <p>Programming languages and technologies:</p>
-
-                <div class="language-list">
-                    <span class="language-tag">Python</span>
-                    <span class="language-tag">JavaScript</span>
-                    <span class="language-tag">HTML &amp; CSS</span>
-                    <span class="language-tag">Lua</span>
-                    <span class="language-tag">SQL</span>
-                    <span class="language-tag">APIs &amp; Integrations</span>
-                </div>
+            <div class="language-list">
+                <span class="language">Python</span>
+                <span class="language">JavaScript</span>
+                <span class="language">HTML & CSS</span>
+                <span class="language">SQL</span>
+                <span class="language">APIs</span>
+                <span class="language">Automation</span>
             </div>
-
         </div>
     </section>
 
-    <section class="process-section" id="process">
-        <div class="wrap">
-
+    <!-- Process -->
+    <section id="process">
+        <div class="container">
             <div class="section-heading">
-                <span class="section-label">THE PROCESS</span>
-                <h2>From your idea to working code.</h2>
-                <p class="section-description">
-                    A simple process that keeps your project
-                    organized from start to finish.
+                <div class="eyebrow">How It Works</div>
+                <h2>From idea to project.</h2>
+                <p>
+                    A straightforward process to help keep your project organized.
                 </p>
             </div>
 
             <div class="process-grid">
-
-                <article class="process-card">
-                    <span class="step-number">STEP_01</span>
+                <article class="card">
+                    <div class="process-number">STEP 01</div>
                     <h3>Share Your Idea</h3>
                     <p>
-                        Explain what you want to build and which
-                        features you need. You don't need technical
-                        knowledge to get started.
+                        Explain what you want to build, the features you need,
+                        and what the project should accomplish.
                     </p>
                 </article>
 
-                <article class="process-card">
-                    <span class="step-number">STEP_02</span>
-                    <h3>Plan the Details</h3>
+                <article class="card">
+                    <div class="process-number">STEP 02</div>
+                    <h3>Plan the Solution</h3>
                     <p>
-                        Discuss features, estimated pricing,
-                        and expectations before work begins.
+                        Discuss the requirements, possible approach,
+                        estimated cost, and project scope.
                     </p>
                 </article>
 
-                <article class="process-card">
-                    <span class="step-number">STEP_03</span>
-                    <h3>Build &amp; Deliver</h3>
+                <article class="card">
+                    <div class="process-number">STEP 03</div>
+                    <h3>Build & Review</h3>
                     <p>
-                        Develop the agreed solution, test its
-                        functionality, and provide the finished work.
+                        Develop the agreed project, review its features,
+                        and work through any necessary adjustments.
                     </p>
                 </article>
-
             </div>
         </div>
     </section>
 
-    <section class="pricing-preview" id="pricing">
-        <div class="wrap">
-
-            <div class="pricing-preview-card">
-
-                <div class="pricing-preview-copy">
-                    <span class="section-label">AFFORDABLE PROJECTS</span>
-                    <h2>Good ideas don't need <span class="gradient-text">big budgets.</span></h2>
+    <!-- Pricing preview -->
+    <section id="pricing">
+        <div class="container">
+            <div class="pricing-box">
+                <div>
+                    <div class="eyebrow">Simple Pricing</div>
+                    <h2>Find the right option for your project.</h2>
                     <p>
-                        Explore affordable starting prices for Python
-                        tools, custom Discord bots, automation, and
-                        larger software projects. Every project gets
-                        a quote based on its requirements.
+                        Pricing depends on the project's features, complexity,
+                        and requirements. Check the pricing page for more details.
                     </p>
                 </div>
 
-                <div class="pricing-preview-actions">
-                    <a class="btn" href="pricing.html">
-                        View Pricing ↗
-                    </a>
-                </div>
-
+                <a href="pricing.html" class="btn btn-primary">
+                    View Pricing →
+                </a>
             </div>
-
         </div>
     </section>
 
-    <section class="discord-section" id="community">
-        <div class="wrap">
-
-            <div class="discord-card">
-
-                <div class="discord-copy">
-                    <span class="section-label">JOIN THE COMMUNITY</span>
-                    <h2>Connect with <span class="gradient-text">DevKaz.</span></h2>
-                    <p>
-                        Join the DevKaz Discord community to connect
-                        with others, follow project updates, and
-                        discuss your next development idea.
-                    </p>
-                </div>
-
-                <div class="discord-actions">
-                    <a class="btn"
-                       href="https://discord.gg/N6dz2YdY3J"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        Join Discord ↗
-                    </a>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-        <div class="wrap">
-
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
             <div class="contact-box">
+                <div class="eyebrow">Get In Touch</div>
+                <h2>Let's build something useful.</h2>
 
-                <div class="contact-copy">
-                    <span class="section-label">YOUR NEXT PROJECT STARTS HERE</span>
-                    <h2>Have an idea? Let's build it.</h2>
-                    <p>
-                        Need a custom Discord bot, a Python tool,
-                        an automation script, or something completely
-                        different? Share your idea and discuss what
-                        can be built within your budget.
-                    </p>
-                </div>
+                <p>
+                    Have a question, need a custom bot, or want to discuss
+                    a project? Contact me through Discord or email.
+                </p>
 
-                <div class="contact-actions">
-                    <a class="btn"
-                       href="https://discord.gg/N6dz2YdY3J"
+                <div class="buttons contact-buttons">
+                    <a href="mailto:midnightkaz777@gmail.com"
+                       class="btn btn-primary">
+                        📧 Email Me
+                    </a>
+
+                    <a href="https://discord.gg/N6dz2YdY3J"
+                       class="btn btn-secondary"
                        target="_blank"
                        rel="noopener noreferrer">
-                        Contact DevKaz ↗
+                        💬 Join My Discord
                     </a>
                 </div>
 
+                <div class="email-display">
+                    Email:
+                    <a href="mailto:midnightkaz777@gmail.com">
+                        midnightkaz777@gmail.com
+                    </a>
+                </div>
             </div>
-
         </div>
     </section>
-
 </main>
 
+<!-- Footer -->
 <footer>
-    <div class="wrap footer-inner">
-
-        <a class="footer-brand" href="index.html">
-            Dev<span class="blue-text">Kaz</span>
-        </a>
+    <div class="container footer-content">
+        <div>
+            © <span id="year"></span> DevKaz. All rights reserved.
+        </div>
 
         <div class="footer-links">
-            <a href="#services">Services</a>
-            <a href="#process">Process</a>
-            <a href="pricing.html">Pricing ↗</a>
+            <a href="index.html">Home</a>
+            <a href="pricing.html">Pricing</a>
             <a href="https://discord.gg/N6dz2YdY3J"
                target="_blank"
-               rel="noopener noreferrer">Discord ↗</a>
+               rel="noopener noreferrer">Discord</a>
+            <a href="mailto:midnightkaz777@gmail.com">Email</a>
         </div>
-
-        <div class="footer-note">
-            &copy; <span id="year"></span> DevKaz. All rights reserved.
-        </div>
-
     </div>
 </footer>
 
