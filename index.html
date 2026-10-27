@@ -3,33 +3,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>DevKaz — Bots, Tools & Software Development</title>
-  <meta name="description" content="DevKaz builds custom Discord bots, Python tools, automation systems, and software in multiple programming languages. Turn your ideas into reality.">
-  <meta name="theme-color" content="#07111f">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>DevKaz — Official Website</title>
+  <meta name="description" content="Welcome to DevKaz. Explore custom Discord bots, Python tools, automation, software, and development projects.">
+  <meta name="theme-color" content="#060a12">
 
   <style>
     :root {
-      --bg: #07111f;
-      --bg-light: #0b192b;
-      --card: #0d1d32;
-      --blue: #2585ff;
-      --blue-light: #64b5ff;
-      --blue-glow: rgba(37, 133, 255, 0.18);
-      --white: #f3f7ff;
-      --muted: #9bacc5;
-      --line: rgba(148, 177, 216, 0.15);
-      --font: "Bricolage Grotesque", system-ui, sans-serif;
-      --mono: "JetBrains Mono", monospace;
+      --background: #060a12;
+      --background-light: #0b1220;
+      --card: rgba(15, 24, 41, 0.78);
+      --blue: #168cff;
+      --blue-light: #64bdff;
+      --text: #f4f8ff;
+      --muted: #9aaac0;
+      --border: rgba(120, 170, 230, 0.16);
+      --radius: 20px;
+      --max-width: 1120px;
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -38,235 +35,250 @@
     }
 
     body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--white);
-      font: 400 16px/1.7 var(--font);
-      -webkit-font-smoothing: antialiased;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(ellipse at 50% -15%, rgba(22, 140, 255, 0.17), transparent 55%),
+        var(--background);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
-    a:focus-visible {
-      outline: 3px solid var(--blue-light);
-      outline-offset: 5px;
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
     }
 
     .wrap {
-      width: min(1120px, calc(100% - 48px));
-      margin-inline: auto;
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .blue-text {
+      color: var(--blue-light);
+    }
+
+    .gradient-text {
+      background: linear-gradient(100deg, #168cff, #78ccff, #c1e8ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     /* Navigation */
 
-    .site-header {
+    header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(7, 17, 31, 0.88);
+      z-index: 100;
+      background: rgba(6, 10, 18, 0.84);
+      border-bottom: 1px solid var(--border);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--line);
     }
 
-    .nav {
+    .navbar {
       min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 25px;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      font-size: 1.3rem;
-      font-weight: 800;
-      letter-spacing: -0.8px;
+      gap: 11px;
+      font-size: 23px;
+      font-weight: 850;
+      letter-spacing: -1px;
+      white-space: nowrap;
     }
 
     .brand-icon {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       display: grid;
       place-items: center;
-      border: 1px solid rgba(100, 181, 255, 0.4);
-      border-radius: 11px;
-      background: var(--blue-glow);
-      color: var(--blue-light);
-      font-family: var(--mono);
-      font-size: 16px;
-    }
-
-    .brand-highlight {
-      color: var(--blue-light);
+      border-radius: 12px;
+      color: white;
+      background: linear-gradient(135deg, #168cff, #0753a7);
+      box-shadow: 0 0 25px rgba(22, 140, 255, 0.3);
+      font-size: 17px;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 30px;
+      justify-content: flex-end;
+      gap: 25px;
+      font-size: 13px;
+      color: var(--muted);
     }
 
     .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: color 0.2s;
+      transition: color 0.2s ease;
     }
 
     .nav-links a:hover {
-      color: var(--white);
+      color: white;
     }
 
     .nav-links .nav-cta {
-      padding: 10px 17px;
+      padding: 10px 15px;
+      border: 1px solid rgba(22, 140, 255, 0.45);
+      border-radius: 10px;
       color: white;
-      border: 1px solid rgba(100, 181, 255, 0.35);
-      border-radius: 9px;
-      background: var(--blue-glow);
+      background: rgba(22, 140, 255, 0.1);
+    }
+
+    .nav-links .nav-cta:hover {
+      background: rgba(22, 140, 255, 0.2);
+    }
+
+    /* Buttons */
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #168cff, #0871d9);
+      color: white;
+      font-size: 14px;
+      font-weight: 750;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(22, 140, 255, 0.24);
+    }
+
+    .btn-secondary {
+      border-color: var(--border);
+      background: rgba(255, 255, 255, 0.025);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.07);
     }
 
     /* Hero */
 
     .hero {
       position: relative;
+      padding: 110px 0 100px;
       overflow: hidden;
-      padding: 112px 0 100px;
-      background:
-        radial-gradient(ellipse at 78% 25%, rgba(37, 133, 255, 0.17), transparent 36%),
-        radial-gradient(ellipse at 12% 80%, rgba(37, 133, 255, 0.08), transparent 35%),
-        var(--bg);
     }
 
     .hero::before {
-      position: absolute;
-      inset: 0;
       content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      top: 10%;
+      right: -220px;
+      border-radius: 50%;
+      background: rgba(22, 140, 255, 0.09);
+      filter: blur(90px);
       pointer-events: none;
-      opacity: 0.15;
-      background-image: radial-gradient(rgba(137, 180, 238, 0.65) 0.7px, transparent 0.7px);
-      background-size: 27px 27px;
-      mask-image: linear-gradient(to bottom, black, transparent 90%);
     }
 
     .hero-grid {
-      position: relative;
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       align-items: center;
-      gap: 70px;
+      gap: 65px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      margin-bottom: 25px;
-      color: var(--blue-light);
-      font: 500 0.78rem/1.5 var(--mono);
-      letter-spacing: 1.1px;
-      text-transform: uppercase;
+      margin-bottom: 23px;
+      color: #a9d8ff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
     }
 
     .status-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #52dfaa;
-      box-shadow: 0 0 12px rgba(82, 223, 170, 0.5);
+      background: #43e6a2;
+      box-shadow: 0 0 12px rgba(67, 230, 162, 0.7);
     }
 
     h1 {
-      max-width: 700px;
-      margin: 0 0 25px;
-      font-size: clamp(3rem, 6vw, 5.1rem);
-      line-height: 1.02;
-      font-weight: 800;
-      letter-spacing: -3.8px;
-    }
-
-    .gradient-text {
-      color: var(--blue-light);
-      background: linear-gradient(100deg, #7cc5ff, #2585ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: clamp(43px, 6vw, 70px);
+      line-height: 1.09;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
     }
 
     .hero-description {
-      max-width: 540px;
-      margin: 0 0 32px;
+      max-width: 570px;
       color: var(--muted);
-      font-size: 1.12rem;
-      line-height: 1.85;
+      font-size: 16px;
+      line-height: 1.9;
     }
 
     .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 13px;
+      gap: 12px;
+      margin-top: 32px;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      min-height: 49px;
-      padding: 12px 20px;
-      border: 1px solid transparent;
-      border-radius: 10px;
-      background: var(--blue);
-      color: white;
-      font-size: 0.96rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform 0.2s, background 0.2s, border-color 0.2s;
+    .hero-note {
+      margin-top: 23px;
+      color: #7588a2;
+      font-size: 12px;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-      background: #4397ff;
-    }
-
-    .btn-secondary {
-      border-color: var(--line);
-      background: rgba(255, 255, 255, 0.025);
-      color: var(--white);
-    }
-
-    .btn-secondary:hover {
-      border-color: rgba(100, 181, 255, 0.5);
-      background: var(--blue-glow);
-    }
-
-    /* Code preview */
+    /* Code window */
 
     .code-window {
+      position: relative;
       overflow: hidden;
-      border: 1px solid rgba(100, 181, 255, 0.22);
-      border-radius: 16px;
-      background: rgba(11, 25, 43, 0.94);
+      border: 1px solid rgba(91, 161, 235, 0.25);
+      border-radius: 17px;
+      background: linear-gradient(145deg, #0d1727, #080d17);
       box-shadow:
-        0 25px 90px rgba(0, 0, 0, 0.28),
-        0 0 65px rgba(37, 133, 255, 0.09);
-      transform: rotate(1deg);
+        0 25px 90px rgba(0, 0, 0, 0.35),
+        0 0 50px rgba(22, 140, 255, 0.08);
+      animation: float 6s ease-in-out infinite;
     }
 
     .window-top {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 15px 19px;
-      border-bottom: 1px solid var(--line);
-      color: var(--muted);
-      font: 400 0.75rem var(--mono);
+      gap: 15px;
+      padding: 16px 19px;
+      border-bottom: 1px solid var(--border);
+      color: #8ba0bb;
+      font-size: 11px;
+    }
+
+    .window-top > span:nth-child(2) {
+      margin-left: auto;
+      color: #67baff;
+      letter-spacing: 1px;
     }
 
     .window-dots {
@@ -275,92 +287,94 @@
     }
 
     .window-dots span {
-      width: 9px;
-      height: 9px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      background: #38506e;
+      background: #46627f;
     }
 
     .window-dots span:first-child {
-      background: #ff6b78;
+      background: #ff6d7d;
     }
 
     .window-dots span:nth-child(2) {
-      background: #ffca65;
+      background: #ffc35a;
     }
 
     .window-dots span:nth-child(3) {
-      background: #54dba2;
+      background: #48dda0;
     }
 
     .code-content {
-      padding: 27px 23px 30px;
-      font: 400 0.82rem/2.1 var(--mono);
+      padding: 28px 23px 30px;
+      overflow-x: auto;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 13px;
+      line-height: 2.15;
     }
 
     .code-line {
       display: block;
-      overflow-wrap: anywhere;
-    }
-
-    .code-muted {
-      color: #7288a8;
-    }
-
-    .code-blue {
-      color: #7cc5ff;
-    }
-
-    .code-green {
-      color: #62e2b0;
-    }
-
-    .code-purple {
-      color: #c0a4ff;
+      white-space: nowrap;
     }
 
     .code-indent {
       padding-left: 19px;
     }
 
+    .code-purple {
+      color: #c792ea;
+    }
+
+    .code-blue {
+      color: #82baff;
+    }
+
+    .code-green {
+      color: #8ee6bd;
+    }
+
+    .code-muted {
+      color: #70849f;
+    }
+
     .code-spacer {
-      height: 12px;
+      height: 17px;
     }
 
     /* Sections */
 
-    section {
-      padding: 94px 0;
-      border-top: 1px solid var(--line);
+    section:not(.hero) {
+      padding: 85px 0;
+      border-top: 1px solid rgba(120, 170, 230, 0.08);
     }
 
     .section-heading {
-      max-width: 650px;
-      margin-bottom: 43px;
+      max-width: 700px;
+      margin: 0 auto 43px;
+      text-align: center;
     }
 
     .section-label {
-      display: block;
+      display: inline-block;
       margin-bottom: 12px;
       color: var(--blue-light);
-      font: 500 0.75rem var(--mono);
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
     }
 
-    h2 {
-      margin: 0 0 16px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.12;
-      letter-spacing: -1.5px;
-      font-weight: 800;
+    .section-heading h2 {
+      margin-bottom: 15px;
+      font-size: clamp(29px, 4vw, 43px);
+      line-height: 1.2;
+      letter-spacing: -1.4px;
     }
 
     .section-description {
-      margin: 0;
       color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.8;
+      font-size: 14px;
+      line-height: 1.9;
     }
 
     /* Services */
@@ -368,150 +382,219 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 17px;
+      gap: 18px;
     }
 
     .service-card {
       padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: linear-gradient(145deg, rgba(15, 35, 59, 0.8), rgba(9, 22, 38, 0.65));
-      transition: border-color 0.25s, transform 0.25s, background 0.25s;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(17, 29, 49, 0.78), rgba(9, 15, 26, 0.8));
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     .service-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(100, 181, 255, 0.4);
-      background: linear-gradient(145deg, rgba(17, 43, 73, 0.9), rgba(9, 22, 38, 0.8));
+      transform: translateY(-5px);
+      border-color: rgba(22, 140, 255, 0.45);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.16);
     }
 
     .service-icon {
+      width: 46px;
+      height: 46px;
       display: grid;
       place-items: center;
-      width: 47px;
-      height: 47px;
-      margin-bottom: 20px;
-      border: 1px solid rgba(100, 181, 255, 0.2);
-      border-radius: 12px;
-      background: var(--blue-glow);
-      color: var(--blue-light);
-      font: 500 0.9rem var(--mono);
+      margin-bottom: 21px;
+      border: 1px solid rgba(22, 140, 255, 0.25);
+      border-radius: 13px;
+      background: rgba(22, 140, 255, 0.1);
+      color: #8bcaff;
+      font-size: 15px;
+      font-weight: 800;
     }
 
     .service-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.3rem;
-      letter-spacing: -0.3px;
+      margin-bottom: 11px;
+      font-size: 18px;
     }
 
     .service-card p {
-      margin: 0;
       color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.8;
+      font-size: 13px;
+      line-height: 1.9;
     }
 
     /* Languages */
 
     .languages-section {
-      background: var(--bg);
+      background: rgba(9, 17, 30, 0.48);
     }
 
     .languages-panel {
       padding: 30px;
-      border: 1px solid var(--line);
-      border-radius: 15px;
-      background: linear-gradient(145deg, rgba(13, 29, 50, 0.8), rgba(9, 22, 38, 0.7));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(12, 21, 36, 0.7);
+      text-align: center;
     }
 
-    .languages-panel p {
-      margin: 0 0 22px;
+    .languages-panel > p {
+      margin-bottom: 22px;
       color: var(--muted);
+      font-size: 13px;
     }
 
     .language-list {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 12px;
     }
 
     .language-tag {
-      padding: 9px 15px;
-      border: 1px solid rgba(100, 181, 255, 0.2);
-      border-radius: 9px;
-      background: rgba(37, 133, 255, 0.07);
-      color: #cfe5ff;
-      font: 500 0.85rem var(--mono);
+      padding: 10px 16px;
+      border: 1px solid rgba(100, 189, 255, 0.17);
+      border-radius: 10px;
+      background: rgba(22, 140, 255, 0.07);
+      color: #c9e6ff;
+      font-size: 13px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .language-tag:hover {
+      transform: translateY(-2px);
+      background: rgba(22, 140, 255, 0.15);
     }
 
     /* Process */
 
-    .process-section {
-      background: var(--bg-light);
-    }
-
     .process-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 28px;
+      gap: 18px;
     }
 
     .process-card {
-      padding-top: 23px;
-      border-top: 1px solid rgba(100, 181, 255, 0.35);
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(12, 21, 36, 0.65);
     }
 
     .step-number {
       display: inline-block;
-      margin-bottom: 17px;
-      color: var(--blue-light);
-      font: 500 0.8rem var(--mono);
+      margin-bottom: 22px;
+      color: #69baff;
+      font-family: Consolas, monospace;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
 
     .process-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.25rem;
+      margin-bottom: 11px;
+      font-size: 17px;
     }
 
     .process-card p {
-      margin: 0;
       color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.8;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    /* Discord */
+
+    .discord-section {
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(22, 140, 255, 0.1), transparent 65%);
+    }
+
+    .discord-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 40px;
+      border: 1px solid rgba(22, 140, 255, 0.28);
+      border-radius: 24px;
+      background: linear-gradient(120deg, rgba(18, 39, 67, 0.8), rgba(10, 17, 30, 0.9));
+      overflow: hidden;
+    }
+
+    .discord-card::after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      right: 15%;
+      top: -130px;
+      border-radius: 50%;
+      background: rgba(22, 140, 255, 0.15);
+      filter: blur(35px);
+      pointer-events: none;
+    }
+
+    .discord-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+    }
+
+    .discord-copy h2 {
+      margin-bottom: 13px;
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    .discord-copy p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .discord-actions {
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
     }
 
     /* Contact */
 
     .contact-section {
-      border-top: 0;
-      background:
-        radial-gradient(ellipse at 80% 50%, rgba(37, 133, 255, 0.16), transparent 45%),
-        var(--bg);
+      padding-bottom: 100px !important;
     }
 
     .contact-box {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 40px;
-      padding: 48px;
-      border: 1px solid rgba(100, 181, 255, 0.24);
-      border-radius: 18px;
-      background: linear-gradient(125deg, rgba(13, 29, 50, 0.96), rgba(11, 25, 43, 0.75));
+      gap: 30px;
+      padding: 40px;
+      border: 1px solid rgba(22, 140, 255, 0.24);
+      border-radius: 24px;
+      background: linear-gradient(125deg, rgba(14, 30, 51, 0.95), rgba(8, 14, 24, 0.95));
     }
 
     .contact-copy {
-      max-width: 600px;
+      max-width: 670px;
     }
 
     .contact-copy h2 {
-      margin-bottom: 15px;
+      margin-bottom: 12px;
+      font-size: clamp(27px, 4vw, 39px);
+      line-height: 1.2;
+      letter-spacing: -1px;
     }
 
     .contact-copy p {
-      margin: 0;
       color: var(--muted);
-      line-height: 1.8;
+      font-size: 14px;
+      line-height: 1.9;
     }
 
     .contact-actions {
@@ -522,118 +605,49 @@
 
     footer {
       padding: 26px 0;
-      border-top: 1px solid var(--line);
+      border-top: 1px solid var(--border);
+      background: rgba(4, 7, 13, 0.6);
     }
 
-    .footer-content {
+    .footer-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
-      color: var(--muted);
-      font-size: 0.87rem;
+      gap: 20px;
     }
 
     .footer-brand {
-      color: var(--white);
-      font-weight: 700;
+      color: #dcecff;
+      font-size: 14px;
+      font-weight: 800;
     }
 
     .footer-note {
-      font-family: var(--mono);
-      font-size: 0.75rem;
+      color: #71839c;
+      font-size: 12px;
     }
 
-    /* Mobile */
-
-    @media (max-width: 850px) {
-      .hero {
-        padding: 82px 0 75px;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      .code-window {
-        max-width: 620px;
-        width: 100%;
-        transform: none;
-      }
-
-      .contact-box {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 34px;
-      }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 12px;
     }
 
-    @media (max-width: 600px) {
-      .wrap {
-        width: min(100% - 32px, 1120px);
+    .footer-links a:hover {
+      color: white;
+    }
+
+    /* Animations */
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
       }
 
-      .nav {
-        min-height: 68px;
-        flex-wrap: wrap;
-        padding: 12px 0;
-      }
-
-      .brand {
-        font-size: 1.15rem;
-      }
-
-      .nav-links {
-        gap: 15px;
-      }
-
-      .nav-links a {
-        font-size: 0.82rem;
-      }
-
-      .nav-links .nav-cta {
-        padding: 7px 10px;
-      }
-
-      h1 {
-        font-size: clamp(2.65rem, 12vw, 4rem);
-        letter-spacing: -2px;
-      }
-
-      .hero-description {
-        font-size: 1rem;
-      }
-
-      section {
-        padding: 70px 0;
-      }
-
-      .services-grid,
-      .process-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .service-card {
-        padding: 23px;
-      }
-
-      .languages-panel {
-        padding: 23px;
-      }
-
-      .contact-box {
-        padding: 26px 22px;
-      }
-
-      .actions .btn {
-        width: 100%;
-      }
-
-      .footer-content {
-        flex-direction: column;
-        align-items: flex-start;
+      50% {
+        transform: translateY(-8px);
       }
     }
 
@@ -642,9 +656,115 @@
       *::before,
       *::after {
         scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* Responsive layout */
+
+    @media (max-width: 850px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .hero {
+        padding: 80px 0;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .hero-description {
+        margin: 0 auto;
+      }
+
+      .actions {
+        justify-content: center;
+      }
+
+      .code-window {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .discord-card,
+      .contact-box {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .wrap {
+        width: min(100% - 28px, var(--max-width));
+      }
+
+      .navbar {
+        min-height: auto;
+        padding: 15px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+        font-size: 12px;
+      }
+
+      .nav-links .nav-cta {
+        padding: 7px 10px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero {
+        padding: 65px 0;
+      }
+
+      section:not(.hero) {
+        padding: 65px 0;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        margin-bottom: 30px;
+      }
+
+      .service-card,
+      .process-card {
+        padding: 23px;
+      }
+
+      .languages-panel,
+      .discord-card,
+      .contact-box {
+        padding: 25px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-links {
+        gap: 14px;
       }
     }
   </style>
@@ -653,33 +773,39 @@
 
 <body>
 
-  <header class="site-header">
-    <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="DevKaz home">
-        <span class="brand-icon">&lt;/&gt;</span>
-        <span>Dev<span class="brand-highlight">Kaz</span></span>
-      </a>
+  <!-- Navigation -->
+
+  <header>
+    <div class="wrap navbar">
 
 ```
+  <a class="brand" href="#home" aria-label="DevKaz home">
+    <span class="brand-icon" aria-hidden="true">&lt;/&gt;</span>
+    <span>Dev<span class="blue-text">Kaz</span></span>
+  </a>
+
   <nav class="nav-links" aria-label="Main navigation">
     <a href="#services">Services</a>
     <a href="#languages">Languages</a>
     <a href="#process">Process</a>
+    <a href="#community">Discord</a>
     <a class="nav-cta" href="#contact">Get in Touch ↗</a>
   </nav>
+
 </div>
 ```
 
   </header>
 
-  <main id="top">
+  <main>
 
 ```
 <!-- Hero -->
-<section class="hero" style="border-top: 0;">
+<section class="hero" id="home">
   <div class="wrap hero-grid">
 
     <div class="hero-copy">
+
       <div class="eyebrow">
         <span class="status-dot"></span>
         CODE. CREATE. AUTOMATE.
@@ -706,9 +832,15 @@
           Explore Services
         </a>
       </div>
+
+      <p class="hero-note">
+        Independent development · Creative solutions · Built around your ideas
+      </p>
+
     </div>
 
-    <div class="code-window" aria-label="Illustration of a custom Discord bot and automation tool">
+    <div class="code-window" aria-label="Illustration of a custom development project">
+
       <div class="window-top">
         <div class="window-dots" aria-hidden="true">
           <span></span>
@@ -725,12 +857,17 @@
         <span class="code-line code-indent" style="padding-left: 38px;">idea = <span class="code-green">"Your vision"</span></span>
         <span class="code-line code-indent" style="padding-left: 38px;">code = <span class="code-green">"Custom-built"</span></span>
         <span class="code-line code-indent" style="padding-left: 38px;">quality = <span class="code-green">"Tested"</span></span>
+
         <div class="code-spacer"></div>
+
         <span class="code-line code-muted"># Turning ideas into reality...</span>
         <span class="code-line"><span class="code-purple">return</span> <span class="code-green">"Solution ready."</span></span>
+
         <div class="code-spacer"></div>
+
         <span class="code-line code-green">✓ Ready to build something great_</span>
       </div>
+
     </div>
 
   </div>
@@ -875,9 +1012,41 @@
   </div>
 </section>
 
+<!-- Discord Community -->
+<section class="discord-section" id="community">
+  <div class="wrap">
+
+    <div class="discord-card">
+
+      <div class="discord-copy">
+        <span class="section-label">JOIN THE COMMUNITY</span>
+        <h2>Connect with <span class="gradient-text">DevKaz.</span></h2>
+        <p>
+          Join the DevKaz Discord community to connect with others,
+          keep up with projects, get updates, and see what's being built.
+        </p>
+      </div>
+
+      <div class="discord-actions">
+        <a
+          class="btn"
+          href="https://discord.gg/N6dz2YdY3J"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Join Discord <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 <!-- Contact -->
 <section class="contact-section" id="contact">
   <div class="wrap">
+
     <div class="contact-box">
 
       <div class="contact-copy">
@@ -897,23 +1066,40 @@
       </div>
 
     </div>
+
   </div>
 </section>
 ```
 
   </main>
 
+  <!-- Footer -->
+
   <footer>
-    <div class="wrap footer-content">
-      <div>
-        <span class="footer-brand">DevKaz</span>
-        <span> — Code that turns ideas into solutions.</span>
-      </div>
+    <div class="wrap footer-inner">
 
 ```
+  <a class="footer-brand" href="#home">
+    Dev<span class="blue-text">Kaz</span>
+  </a>
+
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a
+      href="https://discord.gg/N6dz2YdY3J"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Discord ↗
+    </a>
+    <a href="mailto:midnightkaz777@gmail.com">Email ↗</a>
+  </div>
+
   <div class="footer-note">
     © 2026 DevKaz. All rights reserved.
   </div>
+
 </div>
 ```
 
