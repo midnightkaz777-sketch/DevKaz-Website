@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#070b14">
 
-```
 <title>Pricing | DevKaz</title>
 <meta name="description" content="Affordable pricing for custom Discord bots, Python tools, automation, and scripting projects by DevKaz.">
 
@@ -15,7 +14,7 @@
         --background: #070b14;
         --surface: #0d1424;
         --blue: #168cff;
-        --blue-light: #80c8ff;
+        --blue-light: #65b5ff;
         --text: #f3f7ff;
         --muted: #9aaac1;
         --border: rgba(120, 170, 255, 0.16);
@@ -30,17 +29,17 @@
 
     html {
         scroll-behavior: smooth;
-        scroll-padding-top: 100px;
+        scroll-padding-top: 110px;
     }
 
     body {
+        min-height: 100vh;
         background:
             radial-gradient(ellipse at 50% -15%, rgba(22, 140, 255, 0.19), transparent 50%),
             var(--background);
         color: var(--text);
         font-family: Arial, Helvetica, sans-serif;
         line-height: 1.6;
-        min-height: 100vh;
     }
 
     a {
@@ -48,32 +47,40 @@
         text-decoration: none;
     }
 
+    a:focus-visible,
+    summary:focus-visible {
+        outline: 2px solid var(--blue-light);
+        outline-offset: 5px;
+    }
+
     .container {
         width: min(1120px, 92%);
         margin: 0 auto;
     }
 
-    /* Navigation */
+    /* HEADER AND NAVIGATION */
 
     header {
         position: sticky;
         top: 0;
         z-index: 100;
-        background: rgba(7, 11, 20, 0.92);
+        background: rgba(7, 11, 20, 0.94);
         backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         border-bottom: 1px solid var(--border);
     }
 
     nav {
-        min-height: 78px;
+        min-height: 76px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 20px;
+        gap: 24px;
     }
 
     .logo {
-        font-size: 1.65rem;
+        display: inline-block;
+        font-size: 1.6rem;
         font-weight: 900;
         letter-spacing: -1px;
         white-space: nowrap;
@@ -87,48 +94,42 @@
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        gap: 8px;
-        list-style: none;
+        gap: 7px;
     }
 
     .nav-links a {
-        display: inline-block;
-        padding: 9px 13px;
+        padding: 9px 12px;
         border: 1px solid transparent;
         border-radius: 9px;
         color: var(--muted);
         font-size: 0.9rem;
         font-weight: 600;
-        transition: color 0.2s ease, background 0.2s ease,
-                    border-color 0.2s ease, transform 0.2s ease;
+        transition: 0.2s ease;
     }
 
     .nav-links a:hover {
-        color: var(--blue-light);
-        background: rgba(22, 140, 255, 0.09);
+        color: var(--text);
+        background: rgba(22, 140, 255, 0.08);
         border-color: var(--border);
-        transform: translateY(-2px);
+        transform: translateY(-1px);
     }
 
     .nav-links a.active {
-        color: white;
-        background: linear-gradient(135deg, #168cff, #0867ce);
-        border-color: rgba(117, 195, 255, 0.25);
-        box-shadow: 0 4px 18px rgba(22, 140, 255, 0.2);
+        color: var(--blue-light);
+        background: rgba(22, 140, 255, 0.12);
+        border-color: rgba(22, 140, 255, 0.25);
     }
 
     .nav-links a.nav-cta {
         color: white;
-        background: rgba(22, 140, 255, 0.1);
-        border-color: rgba(22, 140, 255, 0.35);
+        background: linear-gradient(135deg, #168cff, #0865d9);
     }
 
     .nav-links a.nav-cta:hover {
-        background: var(--blue);
-        border-color: var(--blue);
+        box-shadow: 0 5px 22px rgba(22, 140, 255, 0.25);
     }
 
-    /* Buttons */
+    /* BUTTONS */
 
     .button {
         display: inline-flex;
@@ -138,10 +139,10 @@
         padding: 13px 20px;
         border: 1px solid transparent;
         border-radius: 10px;
-        font-weight: 700;
         font-size: 0.95rem;
-        transition: transform 0.2s ease, box-shadow 0.2s ease,
-                    background 0.2s ease;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
     .button:hover {
@@ -166,14 +167,13 @@
 
     .button-secondary:hover {
         background: rgba(22, 140, 255, 0.09);
-        border-color: rgba(22, 140, 255, 0.4);
     }
 
-    /* Hero */
+    /* HERO */
 
     .hero {
-        text-align: center;
         padding: 95px 0 55px;
+        text-align: center;
     }
 
     .eyebrow {
@@ -213,11 +213,11 @@
     }
 
     .hero-buttons {
-        margin-top: 28px;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: 12px;
+        margin-top: 28px;
     }
 
     .trust-note {
@@ -226,21 +226,17 @@
         font-size: 0.86rem;
     }
 
-    /* Pricing cards */
-
-    .pricing-section {
-        padding: 35px 0 85px;
-    }
+    /* SECTION HEADINGS */
 
     .section-heading {
-        text-align: center;
         margin-bottom: 42px;
+        text-align: center;
     }
 
     .section-heading h2 {
+        margin-bottom: 10px;
         font-size: clamp(1.8rem, 4vw, 2.6rem);
         letter-spacing: -1px;
-        margin-bottom: 10px;
     }
 
     .section-heading p {
@@ -249,11 +245,17 @@
         color: var(--muted);
     }
 
+    /* PRICING */
+
+    .pricing-section {
+        padding: 35px 0 85px;
+    }
+
     .pricing-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 20px;
         align-items: stretch;
+        gap: 20px;
     }
 
     .price-card {
@@ -261,11 +263,10 @@
         display: flex;
         flex-direction: column;
         padding: 30px 25px;
-        background: linear-gradient(160deg, #111c30, #0a101d);
         border: 1px solid var(--border);
         border-radius: 18px;
-        transition: transform 0.25s ease, border-color 0.25s ease,
-                    box-shadow 0.25s ease;
+        background: linear-gradient(160deg, #111c30, #0a101d);
+        transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
     .price-card:hover {
@@ -351,8 +352,8 @@
 
     .features li {
         display: flex;
-        gap: 10px;
         align-items: flex-start;
+        gap: 10px;
         color: #c2cee0;
         font-size: 0.9rem;
     }
@@ -370,28 +371,28 @@
     .pricing-note {
         max-width: 780px;
         margin: 28px auto 0;
-        text-align: center;
         color: var(--muted);
+        text-align: center;
         font-size: 0.86rem;
     }
 
-    /* Custom projects */
+    /* CUSTOM QUOTE */
 
     .custom-section {
         padding: 0 0 85px;
     }
 
     .custom-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
         padding: 42px;
         border: 1px solid var(--border);
         border-radius: 20px;
         background:
             radial-gradient(circle at 100% 0%, rgba(22, 140, 255, 0.16), transparent 40%),
             var(--surface);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 30px;
     }
 
     .custom-content {
@@ -427,7 +428,7 @@
         margin-top: 16px;
     }
 
-    /* Process */
+    /* PROCESS */
 
     .process-section {
         padding: 0 0 90px;
@@ -448,8 +449,8 @@
     }
 
     .process-card:hover {
-        border-color: rgba(22, 140, 255, 0.45);
         transform: translateY(-4px);
+        border-color: rgba(22, 140, 255, 0.4);
     }
 
     .step-number {
@@ -483,10 +484,10 @@
     }
 
     .faq-list {
-        max-width: 800px;
-        margin: 0 auto;
         display: grid;
+        max-width: 800px;
         gap: 12px;
+        margin: 0 auto;
     }
 
     details {
@@ -498,16 +499,12 @@
     }
 
     details[open] {
-        border-color: rgba(22, 140, 255, 0.45);
+        border-color: rgba(22, 140, 255, 0.4);
     }
 
     summary {
         cursor: pointer;
         font-weight: 700;
-    }
-
-    summary::marker {
-        color: var(--blue-light);
     }
 
     details p {
@@ -516,7 +513,7 @@
         font-size: 0.93rem;
     }
 
-    /* Final call to action */
+    /* FINAL CTA */
 
     .final-cta {
         padding: 0 0 90px;
@@ -535,7 +532,7 @@
         color: var(--muted);
     }
 
-    /* Footer */
+    /* FOOTER */
 
     footer {
         border-top: 1px solid var(--border);
@@ -543,13 +540,12 @@
     }
 
     .footer-content {
-        min-height: 100px;
         display: flex;
+        min-height: 110px;
         align-items: center;
         justify-content: space-between;
         gap: 25px;
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding: 20px 0;
     }
 
     .footer-copy {
@@ -569,17 +565,28 @@
         border-radius: 8px;
         color: var(--muted);
         font-size: 0.87rem;
-        transition: color 0.2s ease, background 0.2s ease,
-                    border-color 0.2s ease;
+        transition: color 0.2s ease, background 0.2s ease;
     }
 
     .footer-links a:hover {
         color: var(--blue-light);
         background: rgba(22, 140, 255, 0.08);
-        border-color: var(--border);
     }
 
+    /* RESPONSIVE */
+
     @media (max-width: 900px) {
+        nav {
+            padding: 15px 0;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .nav-links {
+            width: 100%;
+        }
+
         .pricing-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -594,23 +601,6 @@
     }
 
     @media (max-width: 650px) {
-        nav {
-            padding: 16px 0;
-            align-items: flex-start;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .nav-links {
-            width: 100%;
-            gap: 7px;
-        }
-
-        .nav-links a {
-            padding: 8px 10px;
-            font-size: 0.84rem;
-        }
-
         .hero {
             padding-top: 65px;
         }
@@ -629,9 +619,9 @@
         }
 
         .custom-box {
-            padding: 28px 23px;
             align-items: flex-start;
             flex-direction: column;
+            padding: 28px 23px;
         }
 
         .custom-price {
@@ -639,9 +629,24 @@
         }
 
         .footer-content {
-            padding: 25px 0;
             align-items: flex-start;
             flex-direction: column;
+            padding: 25px 0;
+        }
+    }
+
+    @media (max-width: 380px) {
+        .nav-links {
+            gap: 5px;
+        }
+
+        .nav-links a {
+            padding: 8px 9px;
+            font-size: 0.82rem;
+        }
+
+        .price-card {
+            padding: 26px 20px;
         }
     }
 
@@ -650,11 +655,11 @@
         *::before,
         *::after {
             scroll-behavior: auto !important;
+            animation-duration: 0.01ms !important;
             transition-duration: 0.01ms !important;
         }
     }
 </style>
-```
 
 </head>
 
@@ -665,28 +670,24 @@
         <nav aria-label="Main navigation">
             <a href="index.html" class="logo">Dev<span>Kaz</span></a>
 
-```
-        <ul class="nav-links">
-            <li><a href="index.html">⌂ Home</a></li>
-            <li><a href="about.html">♙ About Me</a></li>
-            <li><a href="pricing.html" class="active" aria-current="page">◆ Pricing</a></li>
-            <li><a href="terms.html">▤ Terms</a></li>
-            <li>
-                <a href="https://discord.gg/N6dz2YdY3J"
-                   class="nav-cta"
-                   target="_blank"
-                   rel="noopener noreferrer">Discord ↗</a>
-            </li>
-        </ul>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#services">Services</a>
+            <a href="pricing.html" class="active" aria-current="page">Pricing</a>
+            <a href="about.html">About Me</a>
+            <a href="terms.html">Terms</a>
+            <a href="https://discord.gg/N6dz2YdY3J"
+               class="nav-cta"
+               target="_blank"
+               rel="noopener noreferrer">Discord ↗</a>
+        </div>
     </nav>
 </div>
-```
 
 </header>
 
 <main>
 
-```
 <section class="hero">
     <div class="container">
         <span class="eyebrow">AFFORDABLE DEVELOPMENT</span>
@@ -698,8 +699,8 @@
 
         <p>
             Need a Discord bot, a Python tool, an automation script,
-            or something custom? Find an affordable starting range
-            and let's turn your idea into a working project.
+            or something custom? Explore the starting prices and find
+            a solution that fits your project.
         </p>
 
         <div class="hero-buttons">
@@ -855,8 +856,7 @@
                 <p>
                     Not every idea fits into a package. Tell me what you want
                     to build, what it needs to do, and which features matter
-                    most. I'll help work out a suitable price before the
-                    project begins.
+                    most. We'll work out a suitable price before the project begins.
                 </p>
             </div>
 
@@ -929,6 +929,7 @@
                 <p>
                     No. These are estimated ranges. The final price depends
                     on the size of your project and the features you request.
+                    The final amount will be agreed upon before work begins.
                 </p>
             </details>
 
@@ -960,7 +961,7 @@
             <details>
                 <summary>How do I request a project?</summary>
                 <p>
-                    Join the DevKaz Discord server or email me with your idea.
+                    Join the DevKaz Discord server and describe your idea.
                     Include the features you need so a suitable price can be discussed.
                 </p>
             </details>
@@ -978,46 +979,44 @@
             Start a conversation and let's figure out what works for you.
         </p>
 
-        <div class="hero-buttons">
-            <a href="https://discord.gg/N6dz2YdY3J"
-               class="button button-primary"
-               target="_blank"
-               rel="noopener noreferrer">
-                Join DevKaz Discord →
-            </a>
-
-            <a href="mailto:midnightkaz777@gmail.com"
-               class="button button-secondary">
-                📧 Email Me
-            </a>
-        </div>
+        <a href="https://discord.gg/N6dz2YdY3J"
+           class="button button-primary"
+           target="_blank"
+           rel="noopener noreferrer">
+            Join DevKaz Discord →
+        </a>
     </div>
 </section>
-```
 
 </main>
 
 <footer>
     <div class="container">
         <div class="footer-content">
-            <div>
-                <a href="index.html" class="logo">Dev<span>Kaz</span></a>
-                <p class="footer-copy">
-                    © <span id="year"></span> DevKaz. All rights reserved.
-                </p>
-            </div>
 
-```
+        <div>
+            <a href="index.html" class="logo">Dev<span>Kaz</span></a>
+
+            <p class="footer-copy">
+                © <span id="year"></span> DevKaz. All rights reserved.
+            </p>
+        </div>
+
         <div class="footer-links">
             <a href="index.html">Home</a>
             <a href="about.html">About Me</a>
             <a href="pricing.html" aria-current="page">Pricing</a>
             <a href="terms.html">Terms of Service</a>
-            <a href="mailto:midnightkaz777@gmail.com">Email</a>
+
+            <a href="https://discord.gg/N6dz2YdY3J"
+               target="_blank"
+               rel="noopener noreferrer">
+                Discord ↗
+            </a>
         </div>
+
     </div>
 </div>
-```
 
 </footer>
 
