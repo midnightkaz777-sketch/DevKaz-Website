@@ -2,788 +2,277 @@
 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#050914">
-    <meta name="description" content="DevKaz creates custom Discord bots, Python tools, automation, and scripts in multiple programming languages.">
-    <title>DevKaz — Custom Bots, Tools & Development</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050914">
+<meta name="description" content="DevKaz creates custom Discord bots, Python tools, automation, and scripts.">
+<title>DevKaz — Home</title>
 
-```
 <style>
-    :root {
-        --bg: #050914;
-        --bg-light: #0a1222;
-        --card: #0d1729;
-        --blue: #168cff;
-        --blue-light: #75c3ff;
-        --text: #f4f8ff;
-        --muted: #a4b1c5;
-        --border: rgba(117, 195, 255, 0.16);
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 90px;
-    }
-
-    body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: Arial, Helvetica, sans-serif;
-        line-height: 1.7;
-        overflow-x: hidden;
-    }
-
-    a {
-        color: inherit;
-        text-decoration: none;
-    }
-
-    .container {
-        width: min(1120px, 90%);
-        margin: auto;
-    }
-
-    /* Navigation */
-
-    header {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background: rgba(5, 9, 20, 0.88);
-        backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(--border);
-    }
-
-    nav {
-        min-height: 76px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 25px;
-    }
-
-    .logo {
-        font-size: 1.65rem;
-        font-weight: 900;
-        letter-spacing: -1px;
-    }
-
-    .logo span {
-        color: var(--blue);
-    }
-
-    .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 26px;
-        list-style: none;
-    }
-
-    .nav-links a {
-        color: var(--muted);
-        font-size: 0.95rem;
-        transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-        color: var(--blue-light);
-    }
-
-    .nav-cta {
-        background: var(--blue);
-        color: white !important;
-        padding: 10px 17px;
-        border-radius: 9px;
-        font-weight: 700;
-    }
-
-    /* Hero */
-
-    .hero {
-        min-height: 670px;
-        display: flex;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-        background:
-            radial-gradient(ellipse at 75% 35%, rgba(22, 140, 255, 0.14), transparent 38%),
-            radial-gradient(ellipse at 15% 80%, rgba(22, 140, 255, 0.08), transparent 35%);
-    }
-
-    .hero-content {
-        max-width: 800px;
-        padding: 100px 0;
-        position: relative;
-        z-index: 1;
-        animation: fadeUp 0.8s ease both;
-    }
-
-    .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        padding: 8px 13px;
-        border: 1px solid var(--border);
-        border-radius: 50px;
-        color: var(--blue-light);
-        background: rgba(22, 140, 255, 0.07);
-        font-size: 0.85rem;
-        margin-bottom: 25px;
-    }
-
-    .badge-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: var(--blue);
-        box-shadow: 0 0 12px var(--blue);
-    }
-
-    h1 {
-        font-size: clamp(2.7rem, 6vw, 5.1rem);
-        line-height: 1.08;
-        letter-spacing: -3px;
-        margin-bottom: 25px;
-    }
-
-    .gradient-text {
-        background: linear-gradient(90deg, #168cff, #8bd0ff);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
-
-    .hero p {
-        max-width: 650px;
-        color: var(--muted);
-        font-size: 1.12rem;
-        margin-bottom: 32px;
-    }
-
-    .buttons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-    }
-
-    .btn {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        gap: 9px;
-        padding: 13px 21px;
-        border-radius: 10px;
-        font-weight: 700;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-        border: 1px solid transparent;
-    }
-
-    .btn:hover {
-        transform: translateY(-3px);
-    }
-
-    .btn-primary {
-        background: var(--blue);
-        color: white;
-        box-shadow: 0 5px 24px rgba(22, 140, 255, 0.18);
-    }
-
-    .btn-primary:hover {
-        background: #0879e8;
-        box-shadow: 0 8px 30px rgba(22, 140, 255, 0.3);
-    }
-
-    .btn-secondary {
-        background: rgba(255, 255, 255, 0.035);
-        border-color: var(--border);
-        color: var(--text);
-    }
-
-    .btn-secondary:hover {
-        background: rgba(22, 140, 255, 0.1);
-    }
-
-    /* General sections */
-
-    section {
-        padding: 90px 0;
-    }
-
-    .section-heading {
-        max-width: 700px;
-        margin-bottom: 42px;
-    }
-
-    .eyebrow {
-        color: var(--blue-light);
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 0.78rem;
-        font-weight: 800;
-        margin-bottom: 10px;
-    }
-
-    h2 {
-        font-size: clamp(2rem, 4vw, 3rem);
-        line-height: 1.2;
-        letter-spacing: -1px;
-        margin-bottom: 15px;
-    }
-
-    .section-heading p {
-        color: var(--muted);
-    }
-
-    /* Services */
-
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-
-    .card {
-        background: linear-gradient(145deg, rgba(13, 23, 41, 0.96), rgba(8, 15, 28, 0.96));
-        border: 1px solid var(--border);
-        border-radius: 17px;
-        padding: 27px;
-        transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(22, 140, 255, 0.55);
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
-    }
-
-    .card-icon {
-        width: 49px;
-        height: 49px;
-        display: grid;
-        place-items: center;
-        background: rgba(22, 140, 255, 0.12);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        font-size: 1.4rem;
-        margin-bottom: 20px;
-    }
-
-    .card h3 {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-    }
-
-    .card p {
-        color: var(--muted);
-        font-size: 0.95rem;
-    }
-
-    /* Languages */
-
-    .languages {
-        background: var(--bg-light);
-        border-top: 1px solid rgba(255, 255, 255, 0.035);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.035);
-    }
-
-    .language-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-    }
-
-    .language {
-        padding: 11px 17px;
-        border-radius: 9px;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.025);
-        color: #d9eaff;
-        font-weight: 600;
-        font-size: 0.92rem;
-    }
-
-    /* Process */
-
-    .process-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-    }
-
-    .process-number {
-        color: var(--blue-light);
-        font-size: 0.85rem;
-        font-weight: 800;
-        letter-spacing: 1px;
-        margin-bottom: 12px;
-    }
-
-    /* Pricing preview */
-
-    .pricing-box {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 30px;
-        padding: 40px;
-        border: 1px solid rgba(22, 140, 255, 0.28);
-        border-radius: 20px;
-        background:
-            radial-gradient(ellipse at 90% 10%, rgba(22, 140, 255, 0.12), transparent 45%),
-            var(--card);
-    }
-
-    .pricing-box p {
-        color: var(--muted);
-        max-width: 620px;
-    }
-
-    /* Contact */
-
-    .contact {
-        background:
-            radial-gradient(ellipse at 50% 100%, rgba(22, 140, 255, 0.12), transparent 55%);
-    }
-
-    .contact-box {
-        text-align: center;
-        max-width: 760px;
-        margin: auto;
-    }
-
-    .contact-box p {
-        color: var(--muted);
-        margin: 0 auto 25px;
-        max-width: 620px;
-    }
-
-    .contact-buttons {
-        justify-content: center;
-    }
-
-    .email-display {
-        display: inline-block;
-        margin-top: 25px;
-        color: var(--blue-light);
-        overflow-wrap: anywhere;
-    }
-
-    .email-display a {
-        border-bottom: 1px solid rgba(117, 195, 255, 0.35);
-        transition: color 0.2s ease;
-    }
-
-    .email-display a:hover {
-        color: white;
-    }
-
-    /* Footer */
-
-    footer {
-        border-top: 1px solid var(--border);
-        padding: 28px 0;
-        color: var(--muted);
-        font-size: 0.9rem;
-    }
-
-    .footer-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-
-    .footer-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .footer-links a:hover {
-        color: var(--blue-light);
-    }
-
-    /* Animation */
-
-    @keyframes fadeUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Mobile layout */
-
-    @media (max-width: 800px) {
-        .nav-links {
-            gap: 14px;
-        }
-
-        .nav-links a {
-            font-size: 0.85rem;
-        }
-
-        .services-grid,
-        .process-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .pricing-box {
-            align-items: flex-start;
-            flex-direction: column;
-        }
-    }
-
-    @media (max-width: 560px) {
-        nav {
-            padding: 15px 0;
-            align-items: flex-start;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .nav-links {
-            width: 100%;
-            flex-wrap: wrap;
-            gap: 12px 18px;
-        }
-
-        .nav-cta {
-            padding: 7px 11px;
-        }
-
-        .hero {
-            min-height: auto;
-        }
-
-        .hero-content {
-            padding: 75px 0;
-        }
-
-        h1 {
-            letter-spacing: -1.5px;
-        }
-
-        section {
-            padding: 65px 0;
-        }
-
-        .services-grid,
-        .process-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .pricing-box {
-            padding: 25px;
-        }
-
-        .btn {
-            width: 100%;
-        }
-
-        .footer-content {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-            scroll-behavior: auto !important;
-            animation-duration: 0.01ms !important;
-            transition-duration: 0.01ms !important;
-        }
-    }
+:root {
+    --bg: #050914;
+    --card: #0c1729;
+    --blue: #168cff;
+    --light-blue: #80c8ff;
+    --text: #f4f8ff;
+    --muted: #a4b1c5;
+    --border: rgba(117,195,255,.16);
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+    background:var(--bg);
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+    line-height:1.7;
+}
+a { color:inherit; text-decoration:none; }
+.container { width:min(1120px,90%); margin:auto; }
+
+/* Navigation */
+header {
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(5,9,20,.92);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);
+}
+nav {
+    min-height:78px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+.logo { font-size:1.7rem; font-weight:900; letter-spacing:-1px; }
+.logo span { color:var(--blue); }
+.nav-links {
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+    list-style:none;
+}
+.nav-links a {
+    display:inline-block;
+    padding:9px 13px;
+    color:var(--muted);
+    border:1px solid transparent;
+    border-radius:9px;
+    font-size:.9rem;
+    font-weight:600;
+    transition:.2s ease;
+}
+.nav-links a:hover {
+    color:var(--light-blue);
+    background:rgba(22,140,255,.09);
+    border-color:var(--border);
+    transform:translateY(-2px);
+}
+.nav-links a.active {
+    color:white;
+    background:linear-gradient(135deg,#168cff,#0867ce);
+    box-shadow:0 4px 18px rgba(22,140,255,.2);
+}
+
+/* Hero */
+.hero {
+    min-height:610px;
+    display:flex;
+    align-items:center;
+    background:radial-gradient(ellipse at 75% 30%,rgba(22,140,255,.16),transparent 45%);
+}
+.hero-content { max-width:780px; padding:100px 0; }
+.badge {
+    display:inline-block;
+    padding:7px 13px;
+    border:1px solid var(--border);
+    border-radius:50px;
+    background:rgba(22,140,255,.08);
+    color:var(--light-blue);
+    font-size:.85rem;
+    margin-bottom:25px;
+}
+h1 {
+    font-size:clamp(2.8rem,6vw,5rem);
+    line-height:1.1;
+    letter-spacing:-2px;
+    margin-bottom:25px;
+}
+.gradient {
+    background:linear-gradient(90deg,#168cff,#8bd0ff);
+    color:transparent;
+    background-clip:text;
+    -webkit-background-clip:text;
+}
+.hero p { max-width:650px; color:var(--muted); font-size:1.1rem; margin-bottom:30px; }
+.buttons { display:flex; flex-wrap:wrap; gap:13px; }
+.btn {
+    display:inline-block;
+    padding:12px 19px;
+    border-radius:10px;
+    font-weight:700;
+    transition:.2s;
+}
+.btn:hover { transform:translateY(-3px); }
+.primary { background:var(--blue); color:white; }
+.primary:hover { background:#0879e8; box-shadow:0 7px 25px #168cff35; }
+.secondary { border:1px solid var(--border); background:#ffffff08; }
+.secondary:hover { background:#168cff18; }
+
+/* Content */
+section { padding:80px 0; }
+.heading { max-width:700px; margin-bottom:35px; }
+.eyebrow { color:var(--light-blue); text-transform:uppercase; letter-spacing:2px; font-size:.78rem; font-weight:bold; }
+h2 { font-size:clamp(2rem,4vw,3rem); line-height:1.2; margin:10px 0 14px; }
+.heading p,.card p { color:var(--muted); }
+.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.card {
+    padding:26px;
+    background:linear-gradient(145deg,#0d192c,#091120);
+    border:1px solid var(--border);
+    border-radius:16px;
+    transition:.25s;
+}
+.card:hover { transform:translateY(-5px); border-color:#168cff88; }
+.icon {
+    width:48px; height:48px; display:grid; place-items:center;
+    border-radius:12px; background:#168cff18; font-size:1.4rem; margin-bottom:17px;
+}
+.card h3 { margin-bottom:9px; }
+.languages { background:#0a1222; border-block:1px solid #ffffff08; }
+.tags { display:flex; flex-wrap:wrap; gap:12px; }
+.tag { padding:9px 15px; border:1px solid var(--border); background:#ffffff06; border-radius:9px; }
+.pricing-box {
+    display:flex; justify-content:space-between; align-items:center; gap:25px;
+    padding:35px; border:1px solid #168cff55; border-radius:18px;
+    background:radial-gradient(ellipse at 90% 10%,#168cff20,transparent 50%),var(--card);
+}
+.pricing-box p { color:var(--muted); max-width:600px; }
+.contact { text-align:center; background:radial-gradient(ellipse at 50% 100%,#168cff18,transparent 60%); }
+.contact p { color:var(--muted); max-width:650px; margin:0 auto 25px; }
+.contact .buttons { justify-content:center; }
+.email { display:inline-block; margin-top:22px; color:var(--light-blue); overflow-wrap:anywhere; }
+.email a { border-bottom:1px solid #80c8ff55; }
+footer { border-top:1px solid var(--border); padding:25px 0; color:var(--muted); font-size:.9rem; }
+.footer-content { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
+.footer-links { display:flex; flex-wrap:wrap; gap:18px; }
+.footer-links a:hover { color:var(--light-blue); }
+
+@media(max-width:800px) {
+    nav { padding:15px 0; align-items:flex-start; flex-direction:column; }
+    .grid { grid-template-columns:repeat(2,1fr); }
+    .pricing-box { align-items:flex-start; flex-direction:column; }
+}
+@media(max-width:560px) {
+    .grid { grid-template-columns:1fr; }
+    .hero { min-height:auto; }
+    .hero-content { padding:75px 0; }
+    section { padding:60px 0; }
+    .pricing-box { padding:24px; }
+    .footer-content { align-items:flex-start; flex-direction:column; }
+}
 </style>
-```
 
 </head>
 
 <body>
-
-```
-<!-- Navigation -->
 <header>
-    <nav class="container">
-        <a href="index.html" class="logo">Dev<span>Kaz</span></a>
-
-        <ul class="nav-links">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#languages">Languages</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="#contact" class="nav-cta">Contact</a></li>
-        </ul>
-    </nav>
+<nav class="container">
+    <a class="logo" href="index.html">Dev<span>Kaz</span></a>
+    <ul class="nav-links">
+        <li><a class="active" href="index.html">⌂ Home</a></li>
+        <li><a href="about.html">♙ About Me</a></li>
+        <li><a href="pricing.html">◆ Pricing</a></li>
+        <li><a href="terms.html">▤ Terms</a></li>
+        <li><a href="#contact">Contact ↗</a></li>
+    </ul>
+</nav>
 </header>
 
 <main>
-    <!-- Hero -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="badge">
-                    <span class="badge-dot"></span>
-                    Custom Development & Digital Tools
-                </div>
+<section class="hero">
+<div class="container hero-content">
+    <div class="badge">✦ Custom Development & Digital Tools</div>
+    <h1>Building useful tools.<br>Creating <span class="gradient">better solutions.</span></h1>
+    <p>Welcome to DevKaz. I create custom Discord bots, Python tools, automation, and scripts designed to make projects easier and more efficient.</p>
+    <div class="buttons">
+        <a class="btn primary" href="#services">Explore Services →</a>
+        <a class="btn secondary" href="https://discord.gg/N6dz2YdY3J" target="_blank" rel="noopener noreferrer">💬 Join Discord</a>
+    </div>
+</div>
+</section>
 
-                <h1>
-                    Building useful tools.<br>
-                    Creating <span class="gradient-text">better solutions.</span>
-                </h1>
+<section id="services">
+<div class="container">
+    <div class="heading">
+        <div class="eyebrow">What I Do</div>
+        <h2>Tools built around your ideas.</h2>
+        <p>Practical digital solutions for communities, creators, and personal projects.</p>
+    </div>
+    <div class="grid">
+        <article class="card"><div class="icon">🤖</div><h3>Discord Bots</h3><p>Custom bots featuring moderation, tickets, applications, verification, and automation.</p></article>
+        <article class="card"><div class="icon">🐍</div><h3>Python Tools</h3><p>Scripts and utilities for automating tasks and solving everyday problems.</p></article>
+        <article class="card"><div class="icon">⚙️</div><h3>Automation</h3><p>Useful workflows and integrations that reduce repetitive work.</p></article>
+        <article class="card"><div class="icon">💻</div><h3>Custom Scripts</h3><p>Scripts tailored to your project and its specific requirements.</p></article>
+        <article class="card"><div class="icon">🌐</div><h3>Web Development</h3><p>Responsive websites with clean layouts and modern styling.</p></article>
+        <article class="card"><div class="icon">🛠️</div><h3>Custom Projects</h3><p>Discuss your idea and explore a solution that fits your needs.</p></article>
+    </div>
+</div>
+</section>
 
-                <p>
-                    Welcome to DevKaz. I build custom Discord bots, Python tools,
-                    automation, and scripts designed to make projects easier,
-                    smarter, and more efficient.
-                </p>
+<section class="languages">
+<div class="container">
+    <div class="heading">
+        <div class="eyebrow">Technologies</div>
+        <h2>Different tools. Different possibilities.</h2>
+        <p>Technologies used depend on the needs and requirements of each project.</p>
+    </div>
+    <div class="tags">
+        <span class="tag">Python</span><span class="tag">JavaScript</span>
+        <span class="tag">HTML & CSS</span><span class="tag">SQL</span>
+        <span class="tag">APIs</span><span class="tag">Automation</span>
+    </div>
+</div>
+</section>
 
-                <div class="buttons">
-                    <a href="#services" class="btn btn-primary">
-                        Explore Services →
-                    </a>
+<section>
+<div class="container pricing-box">
+    <div>
+        <div class="eyebrow">Simple Pricing</div>
+        <h2>Got a project in mind?</h2>
+        <p>Explore the pricing page for more information. Final costs depend on the features and complexity of your project.</p>
+    </div>
+    <a class="btn primary" href="pricing.html">View Pricing →</a>
+</div>
+</section>
 
-                    <a href="https://discord.gg/N6dz2YdY3J"
-                       class="btn btn-secondary"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        💬 Join My Discord
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services">
-        <div class="container">
-            <div class="section-heading">
-                <div class="eyebrow">What I Do</div>
-                <h2>Tools built around your ideas.</h2>
-                <p>
-                    From Discord community management to custom scripts,
-                    DevKaz focuses on practical digital solutions.
-                </p>
-            </div>
-
-            <div class="services-grid">
-                <article class="card">
-                    <div class="card-icon">🤖</div>
-                    <h3>Discord Bots</h3>
-                    <p>
-                        Custom bots with moderation, tickets, applications,
-                        verification, automated messages, and other useful features.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <div class="card-icon">🐍</div>
-                    <h3>Python Tools</h3>
-                    <p>
-                        Python scripts and utilities that help automate tasks,
-                        organize workflows, and solve everyday problems.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <div class="card-icon">⚙️</div>
-                    <h3>Automation</h3>
-                    <p>
-                        Reduce repetitive work with custom workflows,
-                        integrations, and automated processes.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <div class="card-icon">💻</div>
-                    <h3>Custom Scripts</h3>
-                    <p>
-                        Scripts developed for specific needs using suitable
-                        programming languages and technologies.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <div class="card-icon">🌐</div>
-                    <h3>Web Development</h3>
-                    <p>
-                        Clean, responsive websites and web interfaces
-                        with modern layouts and a polished look.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <div class="card-icon">🛠️</div>
-                    <h3>Custom Projects</h3>
-                    <p>
-                        Have a project idea? Get in touch to discuss the
-                        features, requirements, and possible approach.
-                    </p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Languages -->
-    <section class="languages" id="languages">
-        <div class="container">
-            <div class="section-heading">
-                <div class="eyebrow">Technologies</div>
-                <h2>Different tools for different jobs.</h2>
-                <p>
-                    Programming languages and technologies can be used
-                    together to build projects that fit their purpose.
-                </p>
-            </div>
-
-            <div class="language-list">
-                <span class="language">Python</span>
-                <span class="language">JavaScript</span>
-                <span class="language">HTML & CSS</span>
-                <span class="language">SQL</span>
-                <span class="language">APIs</span>
-                <span class="language">Automation</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process -->
-    <section id="process">
-        <div class="container">
-            <div class="section-heading">
-                <div class="eyebrow">How It Works</div>
-                <h2>From idea to project.</h2>
-                <p>
-                    A straightforward process to help keep your project organized.
-                </p>
-            </div>
-
-            <div class="process-grid">
-                <article class="card">
-                    <div class="process-number">STEP 01</div>
-                    <h3>Share Your Idea</h3>
-                    <p>
-                        Explain what you want to build, the features you need,
-                        and what the project should accomplish.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <div class="process-number">STEP 02</div>
-                    <h3>Plan the Solution</h3>
-                    <p>
-                        Discuss the requirements, possible approach,
-                        estimated cost, and project scope.
-                    </p>
-                </article>
-
-                <article class="card">
-                    <div class="process-number">STEP 03</div>
-                    <h3>Build & Review</h3>
-                    <p>
-                        Develop the agreed project, review its features,
-                        and work through any necessary adjustments.
-                    </p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing preview -->
-    <section id="pricing">
-        <div class="container">
-            <div class="pricing-box">
-                <div>
-                    <div class="eyebrow">Simple Pricing</div>
-                    <h2>Find the right option for your project.</h2>
-                    <p>
-                        Pricing depends on the project's features, complexity,
-                        and requirements. Check the pricing page for more details.
-                    </p>
-                </div>
-
-                <a href="pricing.html" class="btn btn-primary">
-                    View Pricing →
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-box">
-                <div class="eyebrow">Get In Touch</div>
-                <h2>Let's build something useful.</h2>
-
-                <p>
-                    Have a question, need a custom bot, or want to discuss
-                    a project? Contact me through Discord or email.
-                </p>
-
-                <div class="buttons contact-buttons">
-                    <a href="mailto:midnightkaz777@gmail.com"
-                       class="btn btn-primary">
-                        📧 Email Me
-                    </a>
-
-                    <a href="https://discord.gg/N6dz2YdY3J"
-                       class="btn btn-secondary"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        💬 Join My Discord
-                    </a>
-                </div>
-
-                <div class="email-display">
-                    Email:
-                    <a href="mailto:midnightkaz777@gmail.com">
-                        midnightkaz777@gmail.com
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="contact" id="contact">
+<div class="container">
+    <div class="eyebrow">Get In Touch</div>
+    <h2>Let's build something useful.</h2>
+    <p>Have a question or want to discuss a project? Reach out through Discord or email.</p>
+    <div class="buttons">
+        <a class="btn primary" href="mailto:midnightkaz777@gmail.com">📧 Email Me</a>
+        <a class="btn secondary" href="https://discord.gg/N6dz2YdY3J" target="_blank" rel="noopener noreferrer">💬 Join Discord</a>
+    </div>
+    <div class="email">Email: <a href="mailto:midnightkaz777@gmail.com">midnightkaz777@gmail.com</a></div>
+</div>
+</section>
 </main>
 
-<!-- Footer -->
 <footer>
-    <div class="container footer-content">
-        <div>
-            © <span id="year"></span> DevKaz. All rights reserved.
-        </div>
-
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="https://discord.gg/N6dz2YdY3J"
-               target="_blank"
-               rel="noopener noreferrer">Discord</a>
-            <a href="mailto:midnightkaz777@gmail.com">Email</a>
-        </div>
+<div class="container footer-content">
+    <span>© <span id="year"></span> DevKaz. All rights reserved.</span>
+    <div class="footer-links">
+        <a href="about.html">About Me</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:midnightkaz777@gmail.com">Email</a>
     </div>
+</div>
 </footer>
-
-<script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-```
-
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
