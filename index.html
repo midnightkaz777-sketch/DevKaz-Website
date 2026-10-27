@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>DevKaz — Custom Bots, Scripts & Development</title>
-  <meta name="description" content="DevKaz builds custom Discord bots, Roblox game systems, Python automation tools, and software tailored to your needs. Turn your ideas into reality.">
+  <title>DevKaz — Bots, Tools & Software Development</title>
+  <meta name="description" content="DevKaz builds custom Discord bots, Python tools, automation systems, and software in multiple programming languages. Turn your ideas into reality.">
   <meta name="theme-color" content="#07111f">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,7 +65,7 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(7, 17, 31, 0.86);
+      background: rgba(7, 17, 31, 0.88);
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--line);
     }
@@ -101,7 +101,7 @@
       font-size: 16px;
     }
 
-    .brand span:last-child {
+    .brand-highlight {
       color: var(--blue-light);
     }
 
@@ -252,8 +252,9 @@
       border: 1px solid rgba(100, 181, 255, 0.22);
       border-radius: 16px;
       background: rgba(11, 25, 43, 0.94);
-      box-shadow: 0 25px 90px rgba(0, 0, 0, 0.28),
-                  0 0 65px rgba(37, 133, 255, 0.09);
+      box-shadow:
+        0 25px 90px rgba(0, 0, 0, 0.28),
+        0 0 65px rgba(37, 133, 255, 0.09);
       transform: rotate(1deg);
     }
 
@@ -326,7 +327,7 @@
       height: 12px;
     }
 
-    /* General sections */
+    /* Sections */
 
     section {
       padding: 94px 0;
@@ -408,6 +409,39 @@
       color: var(--muted);
       font-size: 0.96rem;
       line-height: 1.8;
+    }
+
+    /* Languages */
+
+    .languages-section {
+      background: var(--bg);
+    }
+
+    .languages-panel {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: linear-gradient(145deg, rgba(13, 29, 50, 0.8), rgba(9, 22, 38, 0.7));
+    }
+
+    .languages-panel p {
+      margin: 0 0 22px;
+      color: var(--muted);
+    }
+
+    .language-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .language-tag {
+      padding: 9px 15px;
+      border: 1px solid rgba(100, 181, 255, 0.2);
+      border-radius: 9px;
+      background: rgba(37, 133, 255, 0.07);
+      color: #cfe5ff;
+      font: 500 0.85rem var(--mono);
     }
 
     /* Process */
@@ -511,7 +545,7 @@
       font-size: 0.75rem;
     }
 
-    /* Responsive */
+    /* Mobile */
 
     @media (max-width: 850px) {
       .hero {
@@ -533,10 +567,6 @@
         align-items: flex-start;
         flex-direction: column;
         padding: 34px;
-      }
-
-      .contact-actions {
-        flex-shrink: 1;
       }
     }
 
@@ -589,6 +619,10 @@
         padding: 23px;
       }
 
+      .languages-panel {
+        padding: 23px;
+      }
+
       .contact-box {
         padding: 26px 22px;
       }
@@ -623,13 +657,14 @@
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="DevKaz home">
         <span class="brand-icon">&lt;/&gt;</span>
-        <span>Dev<span>Kaz</span></span>
+        <span>Dev<span class="brand-highlight">Kaz</span></span>
       </a>
 
 ```
   <nav class="nav-links" aria-label="Main navigation">
     <a href="#services">Services</a>
-    <a href="#process">How It Works</a>
+    <a href="#languages">Languages</a>
+    <a href="#process">Process</a>
     <a class="nav-cta" href="#contact">Get in Touch ↗</a>
   </nav>
 </div>
@@ -647,18 +682,19 @@
     <div class="hero-copy">
       <div class="eyebrow">
         <span class="status-dot"></span>
-        YOUR IDEAS. BUILT WITH CODE.
+        CODE. CREATE. AUTOMATE.
       </div>
 
       <h1>
-        Turning ideas into
-        <span class="gradient-text">real projects.</span>
+        Smart code.<br>
+        <span class="gradient-text">Real solutions.</span>
       </h1>
 
       <p class="hero-description">
-        From custom Discord bots and Roblox game systems to Python
-        scripts and useful automation tools, DevKaz helps turn your
-        ideas into practical digital solutions.
+        DevKaz builds custom Discord bots, powerful Python tools,
+        automation systems, and software designed around your ideas.
+        From simplifying everyday tasks to creating something entirely
+        new, let's turn your vision into working code.
       </p>
 
       <div class="actions">
@@ -672,27 +708,28 @@
       </div>
     </div>
 
-    <div class="code-window" aria-label="Illustration of a Discord bot starting up">
+    <div class="code-window" aria-label="Illustration of a custom Discord bot and automation tool">
       <div class="window-top">
         <div class="window-dots" aria-hidden="true">
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <span>devkaz_bot.py</span>
-        <span>PY</span>
+        <span>devkaz.py</span>
+        <span>PYTHON</span>
       </div>
 
       <div class="code-content">
-        <span class="code-line"><span class="code-purple">class</span> <span class="code-blue">DevKazBot</span>:</span>
-        <span class="code-line code-indent"><span class="code-purple">def</span> <span class="code-blue">build_idea</span>(self):</span>
-        <span class="code-line code-indent" style="padding-left: 38px;">project = <span class="code-green">"Your next big idea"</span></span>
-        <span class="code-line code-indent" style="padding-left: 38px;">code = <span class="code-green">"Built with care"</span></span>
+        <span class="code-line"><span class="code-purple">class</span> <span class="code-blue">DevKaz</span>:</span>
+        <span class="code-line code-indent"><span class="code-purple">def</span> <span class="code-blue">build_solution</span>(self):</span>
+        <span class="code-line code-indent" style="padding-left: 38px;">idea = <span class="code-green">"Your vision"</span></span>
+        <span class="code-line code-indent" style="padding-left: 38px;">code = <span class="code-green">"Custom-built"</span></span>
+        <span class="code-line code-indent" style="padding-left: 38px;">quality = <span class="code-green">"Tested"</span></span>
         <div class="code-spacer"></div>
-        <span class="code-line code-muted"># Turning concepts into code...</span>
-        <span class="code-line"><span class="code-purple">return</span> <span class="code-green">"Project ready."</span></span>
+        <span class="code-line code-muted"># Turning ideas into reality...</span>
+        <span class="code-line"><span class="code-purple">return</span> <span class="code-green">"Solution ready."</span></span>
         <div class="code-spacer"></div>
-        <span class="code-line code-green">✓ Ready for your next idea_</span>
+        <span class="code-line code-green">✓ Ready to build something great_</span>
       </div>
     </div>
 
@@ -705,11 +742,11 @@
 
     <div class="section-heading">
       <span class="section-label">WHAT I DO</span>
-      <h2>Code built around your needs.</h2>
+      <h2>Software made to do more.</h2>
       <p class="section-description">
-        Every project starts with an idea. Whether you need something
-        for your Discord server, Roblox game, or everyday workflow,
-        let's find the right solution.
+        Every project has a purpose. Whether you're improving a
+        Discord community, automating a task, or developing a custom
+        application, DevKaz helps bring the right solution to life.
       </p>
     </div>
 
@@ -719,42 +756,74 @@
         <div class="service-icon" aria-hidden="true">DC</div>
         <h3>Discord Bot Development</h3>
         <p>
-          Custom bots designed to make your server easier to manage.
-          From moderation and verification to tickets, applications,
-          automated messages, and unique commands.
-        </p>
-      </article>
-
-      <article class="service-card">
-        <div class="service-icon" aria-hidden="true">RB</div>
-        <h3>Roblox Development</h3>
-        <p>
-          Custom Roblox Lua scripts, gameplay mechanics, interactive
-          systems, and game features designed to bring your concepts
-          to life.
+          Custom Discord bots built to make communities easier to
+          manage and more engaging. Create moderation tools, ticket
+          systems, verification, applications, custom commands,
+          automated notifications, and more.
         </p>
       </article>
 
       <article class="service-card">
         <div class="service-icon" aria-hidden="true">PY</div>
-        <h3>Python & Automation</h3>
+        <h3>Python Tools & Scripts</h3>
         <p>
-          Practical scripts and tools that automate repetitive tasks,
-          simplify workflows, organize data, and save you valuable time.
+          Useful Python programs that simplify repetitive work,
+          automate tasks, organize information, process data,
+          and help you get more done with less effort.
+        </p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">⚙</div>
+        <h3>Automation & Utilities</h3>
+        <p>
+          Reduce manual work with practical automation tools,
+          custom utilities, scheduled tasks, and workflows tailored
+          to your needs.
         </p>
       </article>
 
       <article class="service-card">
         <div class="service-icon" aria-hidden="true">&lt;/&gt;</div>
-        <h3>Custom Projects & Tools</h3>
+        <h3>Custom Software & Scripting</h3>
         <p>
-          Have a different idea? From small utilities to unique
-          software projects, tell me what you have in mind and we can
-          explore how to build it.
+          Have an idea that doesn't fit into a category? Explore
+          custom scripts, applications, integrations, and projects
+          using different programming languages and technologies.
         </p>
       </article>
 
     </div>
+  </div>
+</section>
+
+<!-- Languages -->
+<section class="languages-section" id="languages">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <span class="section-label">THE TECHNOLOGY</span>
+      <h2>Different languages. New possibilities.</h2>
+      <p class="section-description">
+        The right technology depends on the project. DevKaz focuses
+        on practical code, useful functionality, and solutions
+        designed to get the job done.
+      </p>
+    </div>
+
+    <div class="languages-panel">
+      <p>Programming languages and technologies:</p>
+
+      <div class="language-list">
+        <span class="language-tag">Python</span>
+        <span class="language-tag">JavaScript</span>
+        <span class="language-tag">HTML & CSS</span>
+        <span class="language-tag">Lua</span>
+        <span class="language-tag">SQL</span>
+        <span class="language-tag">APIs & Integrations</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -764,10 +833,10 @@
 
     <div class="section-heading">
       <span class="section-label">THE PROCESS</span>
-      <h2>From idea to finished project.</h2>
+      <h2>From your idea to working code.</h2>
       <p class="section-description">
-        A straightforward process that keeps you informed from the
-        first message to the final result.
+        No unnecessary complications. Just a clear process that
+        keeps your project organized from start to finish.
       </p>
     </div>
 
@@ -777,18 +846,19 @@
         <span class="step-number">STEP_01</span>
         <h3>Share Your Idea</h3>
         <p>
-          Explain what you want to create, what it should do, and
-          what problem you're trying to solve. No complicated
-          technical explanation required.
+          Explain what you want to build, what it should do, and
+          what problem you're trying to solve. You don't need
+          technical knowledge to get started.
         </p>
       </article>
 
       <article class="process-card">
         <span class="step-number">STEP_02</span>
-        <h3>Plan the Project</h3>
+        <h3>Plan the Details</h3>
         <p>
           Discuss the features, requirements, estimated timeline,
-          and pricing before work begins, so expectations are clear.
+          and pricing before work begins, so everyone knows what
+          to expect.
         </p>
       </article>
 
@@ -797,7 +867,7 @@
         <h3>Build & Deliver</h3>
         <p>
           Develop the solution, test its functionality, and provide
-          instructions to help you set it up and get started.
+          setup instructions to help you get started.
         </p>
       </article>
 
@@ -811,12 +881,12 @@
     <div class="contact-box">
 
       <div class="contact-copy">
-        <span class="section-label">LET'S BUILD SOMETHING</span>
-        <h2>Got an idea? Let's make it happen.</h2>
+        <span class="section-label">YOUR NEXT PROJECT STARTS HERE</span>
+        <h2>Have an idea? Let's build it.</h2>
         <p>
-          Have a project in mind or need help bringing an idea to life?
-          Send me a message with the details, and we can discuss the
-          next steps.
+          Need a custom Discord bot, a Python tool, an automation
+          script, or something completely different? Send over your
+          idea, and let's discuss what we can create.
         </p>
       </div>
 
@@ -837,7 +907,7 @@
     <div class="wrap footer-content">
       <div>
         <span class="footer-brand">DevKaz</span>
-        <span> — Building ideas, one project at a time.</span>
+        <span> — Code that turns ideas into solutions.</span>
       </div>
 
 ```
